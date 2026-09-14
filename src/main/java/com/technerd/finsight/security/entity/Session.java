@@ -1,29 +1,30 @@
 package com.technerd.finsight.security.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "session_id")
     private Long id;
 
-    @NotNull
     private String refreshToken;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-    private LocalDateTime expiredAt;
+
+    private LocalDateTime lastUsedAt;
 
     private Boolean isValid;
 

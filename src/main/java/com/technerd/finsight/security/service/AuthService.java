@@ -4,6 +4,8 @@ import com.technerd.finsight.security.dto.LoginDTO;
 import com.technerd.finsight.security.dto.LoginResponse;
 import com.technerd.finsight.security.dto.SignUpDTO;
 import com.technerd.finsight.security.dto.SignUpResponse;
+import com.technerd.finsight.security.dto.RefreshResponse;
+import com.technerd.finsight.security.entity.Session;
 import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,9 +22,9 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final UserRepository userRepository;
-    private final UserService userService;
-    private final JWTService jwtService;
+    private final SessionService  sessionService;
     private final AuthenticationManager authenticationManager;
+    private final JWTService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper mapper;
 
@@ -34,6 +36,7 @@ public class AuthService {
         User user = (User) authenticated.getPrincipal();
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
+        sessionService.generateSession(user, refreshToken);
 
         return new LoginResponse(user.getId(), accessToken, refreshToken);
     }
@@ -50,12 +53,29 @@ public class AuthService {
 
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
+        sessionService.generateSession(user, refreshToken);
 
         SignUpResponse response = mapper.map(savedUser, SignUpResponse.class);
         response.setRefreshToken(refreshToken);
         response.setAccessToken(accessToken);
 
         return response;
+    }
+
+    public void logout(String token) {
+         sessionService.invalidateSession(token);
+    }
+
+    public RefreshResponse refreshTheToken(String refreshToken) {
+
+        // Need to fix .validateSession();
+        Session session = sessionService.validateSession(refreshToken);
+        String newRefreshToken = session.getRefreshToken();
+
+        User user = session.getUser();
+        String accessToken = jwtService.generateAccessToken(user);
+
+        return new RefreshResponse(newRefreshToken, accessToken);
     }
 
 }

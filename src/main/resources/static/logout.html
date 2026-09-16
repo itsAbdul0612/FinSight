@@ -1,10 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logged Out</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Arial, sans-serif;
+
+            background: #f5f7fa;
+            color: #1f2937;
+        }
+
+        .logout-card {
+            width: 90%;
+            max-width: 420px;
+            padding: 45px 30px;
+
+            text-align: center;
+
+            background: #ffffff;
+            border-radius: 18px;
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #e8f5e9;
+            color: #2e7d32;
+
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            font-size: 26px;
+        }
+
+        p {
+            margin-bottom: 28px;
+
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .login-button {
+            display: inline-block;
+
+            padding: 12px 26px;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+            color: #ffffff;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
+
 <body>
-$END$
+
+<div class="logout-card">
+
+    <div class="icon">
+        ✓
+    </div>
+
+    <h1>You've been logged out</h1>
+
+    <p>
+        Your session has ended successfully.
+    </p>
+
+    <a href="/login.html" class="login-button">
+        Back to Login
+    </a>
+
+</div>
+
 </body>
 </html>

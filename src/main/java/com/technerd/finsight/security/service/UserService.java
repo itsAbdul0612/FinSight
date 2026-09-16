@@ -1,5 +1,6 @@
 package com.technerd.finsight.security.service;
 
+import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +18,19 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException(username));
     }
-
-    public UserDetails loadUserById(Long id) throws UsernameNotFoundException {
-        return loadUserById(id);
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 
+    public User findById(Long userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+//    public UserDetails loadUserById(Long id) throws UsernameNotFoundException {
+//        return loadUserById(id);
+//    }
 
 }

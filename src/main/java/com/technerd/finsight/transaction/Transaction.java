@@ -1,12 +1,19 @@
-package com.technerd.finsight.entity;
+package com.technerd.finsight.transaction;
 
-import com.technerd.finsight.entity.enums.TransactionType;
+import com.technerd.finsight.category.Category;
+import com.technerd.finsight.transaction.enums.TransactionType;
 import com.technerd.finsight.security.entity.User;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Transaction {
 

@@ -1,4 +1,4 @@
-package com.technerd.finsight.security.filter;
+package com.technerd.finsight.security.handler;
 
 import com.technerd.finsight.security.service.SessionService;
 import jakarta.servlet.http.Cookie;
@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.Nullable;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class LogOutHandler implements LogoutHandler {
                     .filter(cookie -> "REFRESH_TOKEN".equals(cookie.getName()))
                     .findFirst()
                     .map(Cookie::getValue)
-                    .orElseThrow();
+                    .orElseThrow(() -> new AuthenticationServiceException("No refresh token found"));
 
             sessionService.invalidateSession(rt);
         }

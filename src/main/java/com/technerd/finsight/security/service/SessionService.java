@@ -1,6 +1,6 @@
 package com.technerd.finsight.security.service;
 
-import com.technerd.finsight.repository.SessionRepository;
+import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.entity.Session;
 import com.technerd.finsight.security.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -44,22 +44,13 @@ public class SessionService {
         Session session = sessionRepository.findByRefreshToken(refreshToken).orElseThrow(() -> new SessionAuthenticationException("No session found for the refresh token"));
 
         if (session.getIsValid()) {
-            User user = session.getUser();
-            String newRefreshToken = jwtService.generateRefreshToken(user);
-            session.setRefreshToken(newRefreshToken);
-            session.setLastUsedAt(LocalDateTime.now());
-            sessionRepository.save(session);
-
             return session;
         }
         throw new SessionAuthenticationException("Session has expired");
     }
 
     public void invalidateSession(String refreshToken) {
-        Session session = sessionRepository
-                .findByRefreshToken(refreshToken)
-                .orElseThrow(() -> new SessionAuthenticationException("No session found for the refresh token"));
-
+        Session session = sessionRepository.findByRefreshToken(refreshToken).orElseThrow(() -> new SessionAuthenticationException("No session found for the refresh token"));
         session.setIsValid(false);
         sessionRepository.save(session);
     }

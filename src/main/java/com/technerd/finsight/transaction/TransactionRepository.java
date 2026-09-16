@@ -1,6 +1,5 @@
-package com.technerd.finsight.repository;
+package com.technerd.finsight.transaction;
 
-import com.technerd.finsight.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

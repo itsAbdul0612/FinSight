@@ -1,10 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finsight</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #677083;
+            color: #222;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .hero {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .cards {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e2e2;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+        }
+    </style>
 </head>
+
 <body>
-$END$
+
+<nav>
+    <div class="logo">Finsight</div>
+
+    <div class="nav-links">
+        <a href="#">Dashboard</a>
+        <a href="#">Transactions</a>
+        <a href="#">Profile</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Take Control of Your Money</h1>
+    <p>
+        A simple finance dashboard to understand, manage,
+        and improve your spending.
+    </p>
+
+    <a href="#" class="btn">View Dashboard</a>
+</section>
+
+<section class="cards">
+
+    <div class="card">
+        <h3>💰 Balance</h3>
+        <p>Track your current available balance.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 Spending</h3>
+        <p>See where your money is going.</p>
+    </div>
+
+    <div class="card">
+        <h3>🤖 AI Insights</h3>
+        <p>Get intelligent insights about your finances.</p>
+    </div>
+
+</section>
+
 </body>
 </html>

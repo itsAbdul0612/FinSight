@@ -1,4 +1,4 @@
-package com.technerd.finsight.entity.enums;
+package com.technerd.finsight.transaction.enums;
 
 public enum TransactionType {
     INCOME, EXPENSE

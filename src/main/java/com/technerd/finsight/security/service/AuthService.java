@@ -1,5 +1,6 @@
 package com.technerd.finsight.security.service;
 
+import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.dto.LoginDTO;
 import com.technerd.finsight.security.dto.LoginResponse;
 import com.technerd.finsight.security.dto.SignUpDTO;
@@ -17,12 +18,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @RequiredArgsConstructor
 @Service
 public class AuthService {
 
     private final UserRepository userRepository;
     private final SessionService  sessionService;
+    private final SessionRepository sessionRepository;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private final PasswordEncoder passwordEncoder;
@@ -62,18 +66,17 @@ public class AuthService {
         return response;
     }
 
-    public void logout(String token) {
-         sessionService.invalidateSession(token);
-    }
-
     public RefreshResponse refreshTheToken(String refreshToken) {
 
-        // Need to fix .validateSession();
         Session session = sessionService.validateSession(refreshToken);
-        String newRefreshToken = session.getRefreshToken();
 
         User user = session.getUser();
         String accessToken = jwtService.generateAccessToken(user);
+        String newRefreshToken = jwtService.generateRefreshToken(user);
+
+        session.setRefreshToken(newRefreshToken);
+        session.setLastUsedAt(LocalDateTime.now());
+        sessionRepository.save(session);
 
         return new RefreshResponse(newRefreshToken, accessToken);
     }

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.AuthenticationException;
 import java.util.Arrays;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RequestMapping("/auth")
@@ -22,6 +21,7 @@ import java.util.Optional;
 public class AuthController {
 
     private final AuthService authService;
+    private static final String RT = "REFRESH_TOKEN";
 
     @PostMapping("/sign-up")
     public ResponseEntity<SignUpResponse> signUp(
@@ -30,7 +30,7 @@ public class AuthController {
 
         SignUpResponse signUpResponse = authService.signUp(signUpDTO);
 
-        Cookie cookie = new Cookie("REFRESH_TOKEN", signUpResponse.getRefreshToken());
+        Cookie cookie = new Cookie(RT, signUpResponse.getRefreshToken());
         cookie.setHttpOnly(true);
         httpResponse.addCookie(cookie);
 
@@ -43,30 +43,14 @@ public class AuthController {
             HttpServletResponse httpResponse) {
 
         LoginResponse loginResponse = authService.login(loginDTO);
-        Cookie cookie = new Cookie("REFRESH_TOKEN", loginResponse.getRefreshToken());
+        Cookie cookie = new Cookie(RT, loginResponse.getRefreshToken());
         cookie.setHttpOnly(true);
+        cookie.setPath("/");
+        cookie.setSecure(false); // Just to remember.
         httpResponse.addCookie(cookie);
 
         return ResponseEntity.ok(loginResponse);
     }
-
-    @GetMapping("/logout")
-    public boolean logout(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-        if (cookies == null) {
-            throw new AuthenticationServiceException("No cookie found");
-        }
-
-        String refreshToken = Arrays.stream(cookies)
-                .filter(cookie -> "REFRESH_TOKEN".equals(cookie.getName()))
-                .findFirst()
-                .map(Cookie::getValue)
-                .orElseThrow();
-
-        authService.logout(refreshToken);
-        return true;
-    }
-
 
     @GetMapping("/refresh")
     public ResponseEntity<String> refreshAccessToken(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -78,15 +62,16 @@ public class AuthController {
         }
 
         String rt = Arrays.stream(cookies)
-                .filter(cookie -> "REFRESH_TOKEN".equals(cookie.getName()))
+                .filter(cookie -> RT.equals(cookie.getName()))
                 .findFirst()
                 .map(Cookie::getValue).orElseThrow(() -> new AuthenticationServiceException("Token Not Found"));
 
         RefreshResponse refreshResponse = authService.refreshTheToken(rt);
         String refreshToken = refreshResponse.getRefreshToken();
 
-        Cookie cookie = new Cookie("REFRESH_TOKEN", refreshToken);
+        Cookie cookie = new Cookie(RT, refreshToken);
         cookie.setHttpOnly(true);
+        cookie.setSecure(false);
         response.addCookie(cookie);
 
         return ResponseEntity.ok(refreshResponse.getAccessToken());

@@ -17,3 +17,13 @@ spring:
   properties:
     hibernate:
       format_sql: true
+
+# OAuth config
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: <client-id>
+            client-secret: <client-secret>

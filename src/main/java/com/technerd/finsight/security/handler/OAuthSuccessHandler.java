@@ -1,4 +1,4 @@
-package com.technerd.finsight.security.filter;
+package com.technerd.finsight.security.handler;
 
 import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.entity.enums.Role;
@@ -56,6 +56,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             cookie.setPath("/");
             response.addCookie(cookie);
 
+            // This thing needs to be taken care of.
             String redirectUrl = "http://localhost:8080/home.html?token=" +accessToken;
 //            getRedirectStrategy().sendRedirect(request, response, redirectUrl);
             response.sendRedirect(redirectUrl);

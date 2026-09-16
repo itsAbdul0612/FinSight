@@ -1,4 +1,4 @@
-package com.technerd.finsight.repository;
+package com.technerd.finsight.security.repository;
 
 import com.technerd.finsight.security.entity.Session;
 import com.technerd.finsight.security.entity.User;

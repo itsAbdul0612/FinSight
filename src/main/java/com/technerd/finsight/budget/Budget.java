@@ -27,10 +27,9 @@ public class Budget {
     private BigDecimal allocatedAmount;
 
     @Column(precision = 12, scale = 2)
-    private BigDecimal spentAmount;
+    private BigDecimal spentAmount = BigDecimal.ZERO;
 
-    @Convert(converter = YearMonthToString.class)
-    private YearMonth month;
+    private String month;
 
     private Boolean isBreached = false;
 

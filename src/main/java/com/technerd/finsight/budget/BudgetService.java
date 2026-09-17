@@ -1,6 +1,5 @@
 package com.technerd.finsight.budget;
 
-import com.technerd.finsight.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ public class BudgetService {
         return budgetRepository.save(budget);
     }
 
-    public Budget findByCategory(String category) {
-        return budgetRepository.findByCategory(category);
+    public Budget findByUserAndCategoryAndMonth(Long userId, Long categoryId, String month) {
+      return budgetRepository.findByUser_IdAndCategory_IdAndMonth(userId, categoryId, month);
     }
 }

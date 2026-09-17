@@ -52,7 +52,7 @@ public class EntityFlowTest {
                 .user(user)
                 .isBreached(false)
                 .allocatedAmount(BigDecimal.valueOf(2000))
-                .month(YearMonth.now())
+                .month(YearMonth.now().toString())
                 .spentAmount(BigDecimal.valueOf(100))
                 .build();
 

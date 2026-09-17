@@ -4,6 +4,7 @@ import com.technerd.finsight.budget.Budget;
 import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.dto.CategoryDto;
 import com.technerd.finsight.security.entity.User;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
     private final BudgetService budgetService;
 
+    @Transactional
     public CategoryDto createCategory(CategoryDto categoryDto, User user) {
 
         Category byName = categoryRepository.findByName(categoryDto.getName());
@@ -35,7 +37,7 @@ public class CategoryService {
                 .builder()
                 .category(category)
                 .allocatedAmount(categoryDto.getAllocatedAmount())
-                .month(YearMonth.now())
+                .month(YearMonth.now().toString())
                 .user(user)
                 .build();
 
@@ -48,4 +50,7 @@ public class CategoryService {
         return categoryRepository.findByName(name);
     }
 
+    public Category findById(Long id) {
+        return categoryRepository.findById(id).orElseThrow(null);
+    }
 }

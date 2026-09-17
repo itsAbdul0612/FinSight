@@ -1,15 +1,16 @@
-package com.technerd.finsight.transaction.enums;
+package com.technerd.finsight.transaction;
 
+import com.technerd.finsight.category.Category;
 import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.service.JWTService;
 import com.technerd.finsight.security.service.UserService;
-import com.technerd.finsight.transaction.Transaction;
-import com.technerd.finsight.transaction.TransactionDto;
-import com.technerd.finsight.transaction.TransactionService;
+import com.technerd.finsight.transaction.dto.TransactionDto;
+import com.technerd.finsight.transaction.dto.TransactionResponse;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,9 +28,10 @@ public class TransactionController {
     private final TransactionService transactionService;
     private final JWTService  jwtService;
     private final UserService  userService;
+    private final ModelMapper modelMapper;
 
     @PostMapping("/create")
-    public ResponseEntity<Transaction> createTransaction(
+    public ResponseEntity<TransactionResponse> createTransaction(
             @Valid @RequestBody TransactionDto transactionDto,
             HttpServletRequest request) {
 
@@ -49,7 +51,16 @@ public class TransactionController {
         User user = userService.findById(userIdFromToken);
 
         Transaction transaction = transactionService.createTransaction(transactionDto, user);
+        Category category = transaction.getCategory();
 
-        return ResponseEntity.ok(transaction);
+        TransactionResponse.CategoryResponse categoryResponse = modelMapper
+                .map(category, TransactionResponse.CategoryResponse.class);
+
+        TransactionResponse transactionResponse = modelMapper.
+                map(transaction, TransactionResponse.class);
+
+        transactionResponse.setCategory(categoryResponse);
+
+        return ResponseEntity.ok(transactionResponse);
     }
 }

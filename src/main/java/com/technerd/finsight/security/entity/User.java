@@ -3,7 +3,6 @@ package com.technerd.finsight.security.entity;
 import com.technerd.finsight.security.entity.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

@@ -8,6 +8,7 @@ import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.transaction.dto.TransactionDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.NoSuchElementException;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class TransactionService {
@@ -28,7 +30,10 @@ public class TransactionService {
     public Transaction createTransaction(TransactionDto transactionDto, User user) {
 
         Long categoryId = transactionDto.getCategoryId();
-        Category category = categoryService.findById(categoryId);
+        Long userId = user.getId();
+        Category category = categoryService.findByIdAndUserId(categoryId, userId);
+
+        log.info("Trying to create a new transaction with categoryId {}", categoryId);
 
         if (category == null) {
             throw new NoSuchElementException("Category not found");
@@ -50,6 +55,8 @@ public class TransactionService {
                 budget.getSpentAmount().add(transactionDto.getAmount())
         );
         budgetService.save(budget);
+
+        log.info("New transaction created. TransactionId: {}", newTransaction.getId());
 
         return transactionRepository.save(newTransaction);
     }

@@ -27,7 +27,7 @@ public class Transaction {
     private TransactionType transactionType;
 
     @Column(nullable = false, updatable = false, precision = 12, scale = 2)
-    private BigDecimal amount;
+    private BigDecimal amount =  BigDecimal.ZERO;
 
     private LocalDateTime transactionDate;
 

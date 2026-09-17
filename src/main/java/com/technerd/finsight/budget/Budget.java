@@ -4,17 +4,14 @@ import com.technerd.finsight.category.Category;
 import com.technerd.finsight.security.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.YearMonth;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Service
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","category_id","month"}))
 public class Budget {

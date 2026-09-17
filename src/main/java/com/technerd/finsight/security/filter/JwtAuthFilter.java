@@ -25,9 +25,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JWTService jwtService;
     private final UserService  userService;
 
-//    @Autowired
-//    @Qualifier("handlerExceptionResolver")
-//    private HandlerExceptionResolver exceptionResolver;
+    @Autowired
+    @Qualifier("handlerExceptionResolver")
+    private HandlerExceptionResolver exceptionResolver;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -52,7 +52,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             filterChain.doFilter(request, response);
         } catch (Exception e) {
-//            exceptionResolver.resolveException(request, response, null, e);
+            exceptionResolver.resolveException(request, response, null, e);
         }
 
 

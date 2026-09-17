@@ -14,6 +14,6 @@ public class CategoryDto {
 
     // Budget
     private BigDecimal allocatedAmount;
-    private BigDecimal spentAmount;
+    private BigDecimal spentAmount =  BigDecimal.ZERO;
 
 }

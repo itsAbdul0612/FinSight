@@ -13,7 +13,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: <choose a mode>
-  show-sql: true
+
+    show-sql: true
+
   properties:
     hibernate:
       format_sql: true
@@ -27,3 +29,25 @@ spring:
           google:
             client-id: <client-id>
             client-secret: <client-secret>
+
+  # tools
+
+  devtool:
+    restart:
+      enable: true
+
+# logging configurations
+
+logging:
+
+  file:
+    name: application.log
+
+  config: "classpath: logback-spring.xml"
+
+  level:
+    org.springframework.transaction: DEBUG
+    com.technerd.finsight: INFO
+
+jwt:
+   secret-key: <secret_key>

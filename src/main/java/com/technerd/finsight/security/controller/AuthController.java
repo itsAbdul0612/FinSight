@@ -32,6 +32,7 @@ public class AuthController {
 
         Cookie cookie = new Cookie(RT, signUpResponse.getRefreshToken());
         cookie.setHttpOnly(true);
+        cookie.setPath("/");
         httpResponse.addCookie(cookie);
 
         return ResponseEntity.ok(signUpResponse);

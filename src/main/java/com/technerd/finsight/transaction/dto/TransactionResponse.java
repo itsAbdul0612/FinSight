@@ -1,5 +1,6 @@
 package com.technerd.finsight.transaction.dto;
 
+import com.technerd.finsight.transaction.enums.TransactionType;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ public class TransactionResponse {
     private Long id;
     private String icon;
     private String description;
-    private String transactionType;
+    private TransactionType transactionType;
     private BigDecimal amount;
     private LocalDateTime transactionDate;
     private CategoryResponse category;

@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.YearMonth;
-import java.util.NoSuchElementException;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -37,10 +36,11 @@ public class CategoryService {
                 .user(user)
                 .name(categoryDto.getName())
                 .icon(categoryDto.getIcon())
+                .transactionType(categoryDto.getTransactionType())
                 .description(categoryDto.getDescription())
                 .build();
 
-        categoryRepository.save(category);
+        Category savedCategory = categoryRepository.save(category);
 
         Budget budget = Budget
                 .builder()
@@ -55,6 +55,8 @@ public class CategoryService {
          budgetService.save(budget);
 
          log.info("New Category created. CategoryId: {}", category.getId());
+
+         categoryDto.setId(savedCategory.getId());
          return categoryDto;
     }
 

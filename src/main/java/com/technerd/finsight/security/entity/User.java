@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
+import static java.math.BigDecimal.ZERO;
+
 @Getter
 @Setter
 @Builder
@@ -41,7 +43,8 @@ public class User implements UserDetails {
 
     private String baseCurrency;
 
-    private BigDecimal totalBalance;
+    @Column(nullable = false)
+    private BigDecimal totalBalance = ZERO;
 
     @NotNull
     @Enumerated(EnumType.STRING)

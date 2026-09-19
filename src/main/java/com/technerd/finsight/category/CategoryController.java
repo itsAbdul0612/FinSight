@@ -51,7 +51,6 @@ public class CategoryController {
         User user = userService.findById(userIdFromToken);
 
         categoryService.createCategory(categoryDto, user);
-
         return ResponseEntity.ok(categoryDto);
     }
 

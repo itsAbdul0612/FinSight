@@ -1,6 +1,7 @@
 package com.technerd.finsight.category;
 
 import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.transaction.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,9 @@ public class Category {
     private String icon; // emoji or icon key.
 
     private Boolean isDefault = false; // This field needs be taken care of, can't have so many false in db.
+
+    @Column(nullable = false)
+    private TransactionType transactionType;
 
 //    @CreationTimestamp
 //    private LocalDateTime createdAt;

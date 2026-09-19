@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.NoSuchElementException;
 
+import static com.technerd.finsight.transaction.enums.TransactionType.EXPENSE;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -43,7 +45,7 @@ public class TransactionService {
                 .amount(transactionDto.getAmount())
                 .transactionDate(LocalDateTime.now())
                 .user(user)
-                .transactionType(transactionDto.getTransactionType())
+                .transactionType(category.getTransactionType())
                 .description(transactionDto.getDescription())
                 .category(category)
                 .build();
@@ -51,10 +53,19 @@ public class TransactionService {
         Budget budget = budgetService.findByUserAndCategoryAndMonth(
                 user.getId(), transactionDto.getCategoryId(), YearMonth.now().toString()
         );
-        budget.setSpentAmount(
-                budget.getSpentAmount().add(transactionDto.getAmount())
+
+        if (newTransaction.getTransactionType() == EXPENSE){
+            budget.setSpentAmount(
+                    budget.getSpentAmount().add(transactionDto.getAmount()));
+
+            user.setTotalBalance(
+                    user.getTotalBalance().subtract(transactionDto.getAmount()));
+
+            budgetService.save(budget);
+        }
+        user.setTotalBalance(
+            user.getTotalBalance().add(transactionDto.getAmount())
         );
-        budgetService.save(budget);
 
         log.info("New transaction created. TransactionId: {}", newTransaction.getId());
 

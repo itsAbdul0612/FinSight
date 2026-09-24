@@ -12,7 +12,10 @@ public interface BudgetRepository extends JpaRepository<Budget, Long> {
 //                                         @PathParam("month") String month);
 //
 
+    Budget findByCategoryId(long id);
     Budget findByUser_IdAndCategory_IdAndMonth(Long userId, Long categoryId, String month);
 
+
+    void deleteByCategoryId(Long id);
 
 }

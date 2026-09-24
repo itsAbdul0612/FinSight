@@ -2,6 +2,10 @@ spring:
   application:
     name: finsight
 
+  mvc:
+    format:
+      date: iso
+      date-time: iso
 
   # Database config
 
@@ -47,7 +51,9 @@ logging:
 
   level:
     org.springframework.transaction: DEBUG
-    com.technerd.finsight: INFO
+    com.technerd.finsight: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
 
 jwt:
    secret-key: <secret_key>

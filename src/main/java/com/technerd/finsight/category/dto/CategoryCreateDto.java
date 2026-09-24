@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 
 @Data
-public class CategoryDto {
+public class CategoryCreateDto {
 
     private Long id;
     private String name;

@@ -10,6 +10,7 @@ import com.technerd.finsight.security.entity.Session;
 import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class AuthService {
@@ -42,6 +44,7 @@ public class AuthService {
         String refreshToken = jwtService.generateRefreshToken(user);
         sessionService.generateSession(user, refreshToken);
 
+        log.info("Login Success");
         return new LoginResponse(user.getId(), accessToken, refreshToken);
     }
 
@@ -50,6 +53,8 @@ public class AuthService {
         userRepository.findByEmail(signUpDTO.getEmail()).ifPresent(user -> {
             throw new UsernameNotFoundException("Username with this email already exist.");
         });
+
+        log.info("Trying to sign up");
 
         User user = mapper.map(signUpDTO, User.class);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -62,6 +67,8 @@ public class AuthService {
         SignUpResponse response = mapper.map(savedUser, SignUpResponse.class);
         response.setRefreshToken(refreshToken);
         response.setAccessToken(accessToken);
+
+        log.info("Sign up Success");
 
         return response;
     }

@@ -3,6 +3,7 @@ package com.technerd.finsight.security.securityconfig;
 import com.technerd.finsight.security.filter.JwtAuthFilter;
 import com.technerd.finsight.security.handler.LogOutHandler;
 import com.technerd.finsight.security.handler.OAuthSuccessHandler;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +41,14 @@ public class WebSecurityConfig {
                               .logoutSuccessHandler((request, response, authentication) ->
                                       response.sendRedirect("/logout.html"))
               )
+
+              .exceptionHandling(ex -> ex
+                      .authenticationEntryPoint((request, response, authException) ->{
+                          response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                          response.setContentType("application/json");
+                          response.getWriter().write("{\"error\":\"unauthorized\"}");
+                      }
+              ))
 
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable).build();

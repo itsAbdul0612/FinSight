@@ -13,7 +13,14 @@ public class BudgetService {
         return budgetRepository.save(budget);
     }
 
+    public Budget findByCategoryId(long id) {
+        return budgetRepository.findById(id).orElse(null);
+    }
     public Budget findByUserAndCategoryAndMonth(Long userId, Long categoryId, String month) {
       return budgetRepository.findByUser_IdAndCategory_IdAndMonth(userId, categoryId, month);
+    }
+
+    public void deleteByCategoryId(Long id) {
+        budgetRepository.deleteByCategoryId(id);
     }
 }

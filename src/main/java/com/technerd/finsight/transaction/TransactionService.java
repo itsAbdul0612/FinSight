@@ -5,6 +5,7 @@ import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.Category;
 import com.technerd.finsight.category.CategoryService;
 import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.security.service.UserService;
 import com.technerd.finsight.transaction.dto.TransactionDto;
 import com.technerd.finsight.transaction.dto.TransactionResponse;
 import com.technerd.finsight.transaction.enums.TransactionType;
@@ -32,6 +33,7 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final CategoryService categoryService;
     private final BudgetService budgetService;
+    private final UserService userService;
     private final ModelMapper modelMapper;
 
     // Create a transaction.
@@ -56,6 +58,7 @@ public class TransactionService {
                 .transactionType(category.getTransactionType())
                 .description(transactionDto.getDescription())
                 .category(category)
+                .isDeleted(false)
                 .build();
 
         Budget budget = budgetService.findByUserAndCategoryAndMonth(
@@ -84,8 +87,12 @@ public class TransactionService {
 
     // Get transaction by id.
     // -----------------------------------------------------------------------------------------------
-    public Transaction getTransactionById(Long id) {
-        return transactionRepository.findById(id).orElse(null);
+    public Transaction getTransactionById(Long userId, Long id) {
+        Transaction byUserIdAndId = transactionRepository.findByUserIdAndId(userId, id);
+        if (byUserIdAndId == null || byUserIdAndId.getIsDeleted()) {
+            throw new NoSuchElementException("Transaction does not exist or has been deleted.");
+        }
+        return byUserIdAndId;
     }
     // -----------------------------------------------------------------------------------------------
 
@@ -103,6 +110,7 @@ public class TransactionService {
         log.info("Fetching transactions for userId: {}", userId);
 
         Specification<Transaction> spec = Specification.unrestricted();
+
         spec = spec.and(TransactionSpecification.belongsTo(userId));
         spec = spec.and(TransactionSpecification.hasCategory(categoryId));
         spec = spec.and(TransactionSpecification.hasType(transactionType));
@@ -111,10 +119,55 @@ public class TransactionService {
         spec = spec.and(TransactionSpecification.amountBetween(minAmount, maxAmount));
         spec = spec.and(TransactionSpecification.amount(amount));
 
-        log.info("Fetched transactions for userId: {}", userId);
+        spec = spec.and((root, query, criteriaBuilder) ->
+                criteriaBuilder.equal(root.get("isDeleted"), false));
+
         Page<Transaction> transactions = transactionRepository.findAll(spec, pageable);
+
+        log.info("Fetched transactions for userId: {}", userId);
         return transactions.map(TransactionResponse::from);
     }
     // -----------------------------------------------------------------------------------------------
 
+    /*
+    * Soft delete:
+    * 1. mark a transaction as isDeleted = true.
+    * 2. reverse the spent amount in budget.
+    * 3. reverse the total amount in user.
+    * */
+    // -----------------------------------------------------------------------------------------------
+    public void softDelete(Long userId, Long transactionId) {
+
+        Transaction transactionToBeDeleted = transactionRepository.findByUserIdAndId(userId, transactionId);
+        if (transactionToBeDeleted == null || transactionToBeDeleted.getIsDeleted()) {
+            throw new NoSuchElementException("Transaction does not exist or has been deleted.");
+        }
+
+        Long categoryId = transactionToBeDeleted.getCategory().getId();
+
+        Budget budget = budgetService.findByCategoryId(categoryId);
+        User user = userService.findById(userId);
+
+        if (transactionToBeDeleted.getTransactionType() == EXPENSE) {
+            budget.setSpentAmount(
+                    budget.getSpentAmount().subtract(transactionToBeDeleted.getAmount())
+            );
+            budgetService.save(budget);
+            user.setTotalBalance(
+                    user.getTotalBalance().add(transactionToBeDeleted.getAmount())
+            );
+            userService.save(user);
+        } else {
+            user.setTotalBalance(
+                    user.getTotalBalance().subtract(transactionToBeDeleted.getAmount())
+            );
+            userService.save(user);
+        }
+
+        transactionToBeDeleted.setIsDeleted(true);
+        transactionRepository.save(transactionToBeDeleted);
+
+        log.info("Transaction soft deleted. TransactionId: {}", transactionId);
+    }
+    // -----------------------------------------------------------------------------------------------
 }

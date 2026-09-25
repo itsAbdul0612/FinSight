@@ -17,19 +17,24 @@ public class TransactionResponse {
     private TransactionType transactionType;
     private BigDecimal amount;
     private LocalDateTime transactionDate;
+    private Boolean isDeleted;
+
+
     private CategoryResponse category;
 
     @Data
     public static class CategoryResponse {
         private Long id;
+        private String icon;
         private String name;
 
-        public static CategoryResponse from(Category c) {
-            if (c == null) return null;
-            CategoryResponse cr = new CategoryResponse();
-            cr.setId(c.getId());
-            cr.setName(c.getName());
-            return cr;
+        public static CategoryResponse from(Category category) {
+            if (category == null) return null;
+            CategoryResponse categoryResponse = new CategoryResponse();
+            categoryResponse.setId(category.getId());
+            categoryResponse.setName(category.getName());
+            categoryResponse.setIcon(category.getIcon());
+            return categoryResponse;
         }
     }
 
@@ -41,6 +46,7 @@ public class TransactionResponse {
         transactionResponse.setTransactionDate(transaction.getTransactionDate());
         transactionResponse.setDescription(transaction.getDescription());
         transactionResponse.setCategory(CategoryResponse.from(transaction.getCategory()));
+        transactionResponse.setIcon(CategoryResponse.from(transaction.getCategory()).getIcon());
         return transactionResponse;
     }
 

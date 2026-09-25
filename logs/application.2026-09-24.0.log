@@ -1179,3 +1179,8 @@
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
+2026-09-24 16:42:41 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-24 16:42:41 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-09-24 16:42:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-24 16:42:41 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-09-24 16:42:41 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.

@@ -28,6 +28,7 @@ public class WebSecurityConfig {
       return  http.authorizeHttpRequests(requests -> requests
 
                 .requestMatchers(PUBLIC_ROUTE).permitAll()
+                      .requestMatchers("/login/oauth2/code/google").permitAll()
                 .anyRequest().authenticated())
 
               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

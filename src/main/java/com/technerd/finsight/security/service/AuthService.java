@@ -1,5 +1,7 @@
 package com.technerd.finsight.security.service;
 
+import com.technerd.finsight.category.exampleseed.ExampleCategoryCreator;
+import com.technerd.finsight.category.exampleseed.ExampleCategory;
 import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.dto.LoginDTO;
 import com.technerd.finsight.security.dto.LoginResponse;
@@ -33,6 +35,9 @@ public class AuthService {
     private final JWTService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper mapper;
+
+    private final ExampleCategoryCreator categoryCreator;
+    private final ExampleCategory exampleCategory;
 
     public LoginResponse login(LoginDTO loginDTO) {
 
@@ -68,6 +73,7 @@ public class AuthService {
         response.setRefreshToken(refreshToken);
         response.setAccessToken(accessToken);
 
+        categoryCreator.createCategory(exampleCategory, user);
         log.info("Sign up Success");
 
         return response;

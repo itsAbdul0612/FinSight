@@ -1,5 +1,7 @@
 package com.technerd.finsight.security.handler;
 
+import com.technerd.finsight.category.exampleseed.ExampleCategoryCreator;
+import com.technerd.finsight.category.exampleseed.ExampleCategory;
 import com.technerd.finsight.security.entity.User;
 import com.technerd.finsight.security.entity.enums.Role;
 import com.technerd.finsight.security.service.JWTService;
@@ -26,24 +28,28 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JWTService jwtService;
     private final SessionService sessionService;
 
+    private final ExampleCategoryCreator categoryCreator;
+    private final ExampleCategory exampleCategory;
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
         try {
-            OAuth2AuthenticationToken  token = (OAuth2AuthenticationToken) authentication;
+            OAuth2AuthenticationToken token = (OAuth2AuthenticationToken) authentication;
             DefaultOAuth2User oAuth2User = (DefaultOAuth2User) token.getPrincipal();
 
             String email = oAuth2User.getAttribute("email");
             User user = userService.findByEmail(email);
 
-            if (user == null){
+            if (user == null) {
                 User newUser = User.builder()
                         .email(email)
                         .name(oAuth2User.getAttribute("name"))
                         .role(Role.USER)
                         .isActive(true)
                         .build();
-             user = userService.save(newUser);
+                user = userService.save(newUser);
+                categoryCreator.createCategory(exampleCategory, user);
             }
 
             String accessToken = jwtService.generateAccessToken(user);
@@ -57,7 +63,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             response.addCookie(cookie);
 
             // This thing needs to be taken care of.
-            String redirectUrl = "http://localhost:8080/home.html?token=" +accessToken;
+            String redirectUrl = "http://localhost:8080/home.html?token=" + accessToken;
 //            getRedirectStrategy().sendRedirect(request, response, redirectUrl);
             response.sendRedirect(redirectUrl);
         } catch (IOException e) {

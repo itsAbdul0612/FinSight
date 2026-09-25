@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 public interface TransactionRepository extends JpaRepository<Transaction, Long>,
                                                JpaSpecificationExecutor<Transaction> {
 
+    // Find all transactions of a user.
     Page<Transaction> findAllByUserId(Pageable pageable, Long userId);
+
+    // Find a single transaction of a user.
+    Transaction findByUserIdAndId(Long userId, Long id);
 
 }

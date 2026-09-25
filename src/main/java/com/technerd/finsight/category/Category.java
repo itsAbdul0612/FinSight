@@ -24,13 +24,10 @@ public class Category {
 
     private String icon; // emoji or icon key.
 
-    private Boolean isDefault = false; // This field needs be taken care of, can't have so many false in db.
-
     @Column(nullable = false)
     private TransactionType transactionType;
 
-//    @CreationTimestamp
-//    private LocalDateTime createdAt;
+
 
     @ManyToOne
     private User user;

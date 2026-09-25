@@ -2,7 +2,6 @@ package com.technerd.finsight.transaction;
 
 import com.technerd.finsight.category.Category;
 import com.technerd.finsight.security.entity.User;
-import com.technerd.finsight.security.service.JWTService;
 import com.technerd.finsight.security.service.UserService;
 import com.technerd.finsight.transaction.dto.TransactionDto;
 import com.technerd.finsight.transaction.dto.TransactionResponse;
@@ -15,15 +14,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RequestMapping("/transaction")
 @RequiredArgsConstructor
@@ -31,7 +27,6 @@ import java.util.List;
 public class TransactionController {
 
     private final TransactionService transactionService;
-    private final JWTService  jwtService;
     private final UserService  userService;
     private final ModelMapper modelMapper;
 
@@ -43,9 +38,6 @@ public class TransactionController {
 
         User userEntity = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (userEntity == null) {
-            throw new AuthenticationServiceException("User not found");
-        }
         Long userId = userEntity.getId();
         User user = userService.findById(userId);
 
@@ -70,7 +62,9 @@ public class TransactionController {
     @GetMapping("/{id}")
     public ResponseEntity<TransactionResponse> getTransactionById(@PathVariable Long id) {
 
-        Transaction transaction = transactionService.getTransactionById(id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+        Transaction transaction = transactionService.getTransactionById(userId, id);
         if (transaction == null) {
             throw new EntityNotFoundException("Transaction with id " + id + " not found");
         }
@@ -85,7 +79,7 @@ public class TransactionController {
     @GetMapping("/get-all")
     public ResponseEntity<Page<TransactionResponse>> getAllTransactions(
             @RequestParam(defaultValue = "0") int pageNumber,
-            @RequestParam(defaultValue = "5") int  pageSize,
+            @RequestParam(defaultValue = "10") int  pageSize,
 
             @RequestParam(required = false) String sortBy,
             @RequestParam(required = false) Long categoryId ,
@@ -111,6 +105,19 @@ public class TransactionController {
                 categoryId, transactionType, startDate, endDate, date, minAmount, maxAmount, amount);
 
         return ResponseEntity.ok(allTransactions);
+    }
+    // -----------------------------------------------------------------------------------------------
+
+    // Soft delete.
+    // -----------------------------------------------------------------------------------------------
+    @PostMapping("/soft-delete/{id}")
+    public ResponseEntity<?> softDelete(@PathVariable Long id) {
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+        transactionService.softDelete(userId, id);
+
+        return ResponseEntity.ok().build();
     }
     // -----------------------------------------------------------------------------------------------
 

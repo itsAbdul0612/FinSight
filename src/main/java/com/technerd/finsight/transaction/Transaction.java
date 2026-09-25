@@ -31,6 +31,9 @@ public class Transaction {
 
     private LocalDateTime transactionDate;
 
+    @NonNull
+    private Boolean isDeleted = Boolean.FALSE;
+
     @ManyToOne
     private Category category;
 

@@ -81,7 +81,10 @@ public class CategoryController {
     // -----------------------------------------------------------------------------------------------
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
-        categoryService.deleteById(id);
+        
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+        categoryService.deleteById(id, userId);
 
        return ResponseEntity.ok().build();
     }

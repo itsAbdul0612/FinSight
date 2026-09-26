@@ -12,7 +12,6 @@ import com.technerd.finsight.transaction.enums.TransactionType;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -34,7 +33,6 @@ public class TransactionService {
     private final CategoryService categoryService;
     private final BudgetService budgetService;
     private final UserService userService;
-    private final ModelMapper modelMapper;
 
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
@@ -51,37 +49,29 @@ public class TransactionService {
             throw new NoSuchElementException("Category not found");
         }
 
-        Transaction newTransaction = Transaction.builder()
-                .amount(transactionDto.getAmount())
-                .transactionDate(LocalDateTime.now())
-                .user(user)
-                .transactionType(category.getTransactionType())
-                .description(transactionDto.getDescription())
-                .category(category)
-                .isDeleted(false)
-                .build();
+        Transaction newTransaction = Transaction.builder().amount(transactionDto.getAmount()).transactionDate(LocalDateTime.now()).user(user).transactionType(category.getTransactionType()).description(transactionDto.getDescription()).category(category).isDeleted(false).build();
 
-        Budget budget = budgetService.findByUserAndCategoryAndMonth(
-                user.getId(), transactionDto.getCategoryId(), YearMonth.now().toString()
-        );
+        Budget budget = budgetService.findByUserAndCategoryAndMonth(user.getId(), transactionDto.getCategoryId(), YearMonth.now().toString());
 
         if (newTransaction.getTransactionType() == EXPENSE) {
-            budget.setSpentAmount(
-                    budget.getSpentAmount().add(transactionDto.getAmount()));
+            budget.setSpentAmount(budget.getSpentAmount().add(transactionDto.getAmount()));
 
-            user.setTotalBalance(
-                    user.getTotalBalance().subtract(transactionDto.getAmount()));
-
+            if (budget.getSpentAmount().compareTo(budget.getAllocatedAmount()) >= 0) {
+                budget.setIsBreached(true);
+            }
+            user.setTotalBalance(user.getTotalBalance().subtract(transactionDto.getAmount()));
             budgetService.save(budget);
+        } else {
+            user.setTotalBalance(user.getTotalBalance().add(transactionDto.getAmount()));
         }
-        user.setTotalBalance(
-                user.getTotalBalance().add(transactionDto.getAmount())
-        );
+        userService.save(user);
+
+        Transaction transaction = transactionRepository.save(newTransaction);
 
         log.info("New transaction created. TransactionId: {}", newTransaction.getId());
-
-        return transactionRepository.save(newTransaction);
+        return transaction;
     }
+
     // -----------------------------------------------------------------------------------------------
 
 
@@ -99,13 +89,7 @@ public class TransactionService {
 
     //Get all transactions.
     // -----------------------------------------------------------------------------------------------
-    public Page<TransactionResponse> getAll(Long userId,
-                                    Pageable pageable, Long categoryId,
-                                    TransactionType transactionType,
-                                    LocalDateTime startDate,
-                                    LocalDateTime endDate, LocalDateTime date,
-                                    BigDecimal minAmount, BigDecimal maxAmount,
-                                    BigDecimal amount) {
+    public Page<TransactionResponse> getAll(Long userId, Pageable pageable, Long categoryId, TransactionType transactionType, LocalDateTime startDate, LocalDateTime endDate, LocalDateTime date, BigDecimal minAmount, BigDecimal maxAmount, BigDecimal amount) {
 
         log.info("Fetching transactions for userId: {}", userId);
 
@@ -119,8 +103,7 @@ public class TransactionService {
         spec = spec.and(TransactionSpecification.amountBetween(minAmount, maxAmount));
         spec = spec.and(TransactionSpecification.amount(amount));
 
-        spec = spec.and((root, query, criteriaBuilder) ->
-                criteriaBuilder.equal(root.get("isDeleted"), false));
+        spec = spec.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("isDeleted"), false));
 
         Page<Transaction> transactions = transactionRepository.findAll(spec, pageable);
 
@@ -130,11 +113,11 @@ public class TransactionService {
     // -----------------------------------------------------------------------------------------------
 
     /*
-    * Soft delete:
-    * 1. mark a transaction as isDeleted = true.
-    * 2. reverse the spent amount in budget.
-    * 3. reverse the total amount in user.
-    * */
+     * Soft delete:
+     * 1. mark a transaction as isDeleted = true.
+     * 2. reverse the spent amount in budget.
+     * 3. reverse the total amount in user.
+     * */
     // -----------------------------------------------------------------------------------------------
     public void softDelete(Long userId, Long transactionId) {
 
@@ -149,18 +132,16 @@ public class TransactionService {
         User user = userService.findById(userId);
 
         if (transactionToBeDeleted.getTransactionType() == EXPENSE) {
-            budget.setSpentAmount(
-                    budget.getSpentAmount().subtract(transactionToBeDeleted.getAmount())
-            );
+            budget.setSpentAmount(budget.getSpentAmount().subtract(transactionToBeDeleted.getAmount()));
+
+            if (budget.getSpentAmount().compareTo(budget.getAllocatedAmount()) < 0) {
+                budget.setIsBreached(false);
+            }
             budgetService.save(budget);
-            user.setTotalBalance(
-                    user.getTotalBalance().add(transactionToBeDeleted.getAmount())
-            );
+            user.setTotalBalance(user.getTotalBalance().add(transactionToBeDeleted.getAmount()));
             userService.save(user);
         } else {
-            user.setTotalBalance(
-                    user.getTotalBalance().subtract(transactionToBeDeleted.getAmount())
-            );
+            user.setTotalBalance(user.getTotalBalance().subtract(transactionToBeDeleted.getAmount()));
             userService.save(user);
         }
 

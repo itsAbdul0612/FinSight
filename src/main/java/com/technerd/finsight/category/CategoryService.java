@@ -111,10 +111,10 @@ public class CategoryService {
     // Delete a category by id.
     // -----------------------------------------------------------------------------------------------
     @Transactional
-    public void deleteById(Long id){
+    public void deleteById(Long id, Long userId) {
         log.info("Trying to delete category with id: {}", id);
         if (categoryRepository.existsById(id)) {
-            budgetService.deleteByCategoryId(id);
+            budgetService.deleteByCategoryIdAndUserId(id, userId);
             categoryRepository.deleteById(id);
         }
         log.info("Category with id: {} was not found", id);

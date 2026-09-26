@@ -18,12 +18,14 @@ public class TransactionResponse {
     private BigDecimal amount;
     private LocalDateTime transactionDate;
     private Boolean isDeleted;
+    private Boolean isBreached;
 
 
     private CategoryResponse category;
 
     @Data
     public static class CategoryResponse {
+        // Can centralize this class to reduce redundancy
         private Long id;
         private String icon;
         private String name;

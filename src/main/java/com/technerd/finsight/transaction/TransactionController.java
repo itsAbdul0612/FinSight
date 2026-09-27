@@ -74,7 +74,7 @@ public class TransactionController {
     }
     // -----------------------------------------------------------------------------------------------
 
-    // Get all transactions sorted and paginated.
+    // Get all transactions sorted, paginated and filtered (optional).
     // -----------------------------------------------------------------------------------------------
     @GetMapping("/get-all")
     public ResponseEntity<Page<TransactionResponse>> getAllTransactions(

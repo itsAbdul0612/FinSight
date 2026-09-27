@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@NamedEntityGraph(
+        name = "Transaction.category",
+        attributeNodes = @NamedAttributeNode("category")
+)
 public class Transaction {
 
     @Id

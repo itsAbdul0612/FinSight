@@ -4,7 +4,7 @@ import com.technerd.finsight.budget.Budget;
 import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.dto.CategoryCreateDto;
 import com.technerd.finsight.category.dto.CategoryResponseDto;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

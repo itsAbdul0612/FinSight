@@ -1,6 +1,6 @@
 package com.technerd.finsight.security.dto;
 
-import com.technerd.finsight.security.entity.enums.Role;
+import com.technerd.finsight.user.enums.Role;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;

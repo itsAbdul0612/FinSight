@@ -4,8 +4,8 @@ import com.technerd.finsight.budget.Budget;
 import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.Category;
 import com.technerd.finsight.category.CategoryService;
-import com.technerd.finsight.security.entity.User;
-import com.technerd.finsight.security.service.UserService;
+import com.technerd.finsight.user.User;
+import com.technerd.finsight.security.service.UserSecurityService;
 import com.technerd.finsight.transaction.dto.TransactionDto;
 import com.technerd.finsight.transaction.dto.TransactionResponse;
 import com.technerd.finsight.transaction.enums.TransactionType;
@@ -32,7 +32,7 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final CategoryService categoryService;
     private final BudgetService budgetService;
-    private final UserService userService;
+    private final UserSecurityService userSecurityService;
 
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ public class TransactionService {
         } else {
             user.setTotalBalance(user.getTotalBalance().add(transactionDto.getAmount()));
         }
-        userService.save(user);
+        userSecurityService.save(user);
 
         Transaction transaction = transactionRepository.save(newTransaction);
 
@@ -129,7 +129,7 @@ public class TransactionService {
         Long categoryId = transactionToBeDeleted.getCategory().getId();
 
         Budget budget = budgetService.findByCategoryId(categoryId);
-        User user = userService.findById(userId);
+        User user = userSecurityService.findById(userId);
 
         if (transactionToBeDeleted.getTransactionType() == EXPENSE) {
             budget.setSpentAmount(budget.getSpentAmount().subtract(transactionToBeDeleted.getAmount()));
@@ -139,10 +139,10 @@ public class TransactionService {
             }
             budgetService.save(budget);
             user.setTotalBalance(user.getTotalBalance().add(transactionToBeDeleted.getAmount()));
-            userService.save(user);
+            userSecurityService.save(user);
         } else {
             user.setTotalBalance(user.getTotalBalance().subtract(transactionToBeDeleted.getAmount()));
-            userService.save(user);
+            userSecurityService.save(user);
         }
 
         transactionToBeDeleted.setIsDeleted(true);

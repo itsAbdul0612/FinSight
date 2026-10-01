@@ -1,16 +1,11 @@
 package com.technerd.finsight.category;
 
-import com.technerd.finsight.security.repository.UserRepository;
 import com.technerd.finsight.transaction.TransactionRepository;
 import com.technerd.finsight.transaction.TransactionService;
-import com.technerd.finsight.transaction.dto.TransactionResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 

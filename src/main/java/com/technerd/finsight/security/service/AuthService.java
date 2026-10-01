@@ -2,6 +2,7 @@ package com.technerd.finsight.security.service;
 
 import com.technerd.finsight.category.exampleseed.ExampleCategoryCreator;
 import com.technerd.finsight.category.exampleseed.ExampleCategory;
+import com.technerd.finsight.systemevent.event.UserRegisteredEvent;
 import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.dto.LoginDTO;
 import com.technerd.finsight.security.dto.LoginResponse;
@@ -9,11 +10,13 @@ import com.technerd.finsight.security.dto.SignUpDTO;
 import com.technerd.finsight.security.dto.SignUpResponse;
 import com.technerd.finsight.security.dto.RefreshResponse;
 import com.technerd.finsight.security.entity.Session;
-import com.technerd.finsight.security.entity.User;
-import com.technerd.finsight.security.repository.UserRepository;
+import com.technerd.finsight.user.User;
+import com.technerd.finsight.user.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -29,7 +32,7 @@ import java.time.LocalDateTime;
 public class AuthService {
 
     private final UserRepository userRepository;
-    private final SessionService  sessionService;
+    private final SessionService sessionService;
     private final SessionRepository sessionRepository;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
@@ -39,12 +42,22 @@ public class AuthService {
     private final ExampleCategoryCreator categoryCreator;
     private final ExampleCategory exampleCategory;
 
+    private final ApplicationEventPublisher eventPublisher;
+
     public LoginResponse login(LoginDTO loginDTO) {
 
         // Authenticating user.
         Authentication authenticated = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
 
         User user = (User) authenticated.getPrincipal();
+
+        // This is not needed because isActive is handled by spring security's isEnabled.
+        // if isActive is false spring security will not let the user login.
+
+//        if (!Boolean.TRUE.equals(user.getIsActive())) {
+//            throw new UsernameNotFoundException("User does not exist");
+//        }
+
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
         sessionService.generateSession(user, refreshToken);
@@ -53,6 +66,7 @@ public class AuthService {
         return new LoginResponse(user.getId(), accessToken, refreshToken);
     }
 
+    @Transactional
     public SignUpResponse signUp(SignUpDTO signUpDTO) {
 
         userRepository.findByEmail(signUpDTO.getEmail()).ifPresent(user -> {
@@ -74,6 +88,10 @@ public class AuthService {
         response.setAccessToken(accessToken);
 
         categoryCreator.createCategory(exampleCategory, user);
+
+        // Triggers welcome email.
+        eventPublisher.publishEvent(new UserRegisteredEvent(user.getEmail(), user.getName()));
+
         log.info("Sign up Success");
 
         return response;

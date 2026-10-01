@@ -4,7 +4,7 @@ import com.technerd.finsight.budget.Budget;
 import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.Category;
 import com.technerd.finsight.category.CategoryRepository;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.technerd.finsight.category;
 
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import com.technerd.finsight.transaction.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;

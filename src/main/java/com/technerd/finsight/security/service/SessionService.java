@@ -2,7 +2,7 @@ package com.technerd.finsight.security.service;
 
 import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.entity.Session;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.web.authentication.session.SessionAuthenticationException;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.technerd.finsight.security.entity;
+package com.technerd.finsight.user;
 
-import com.technerd.finsight.security.entity.enums.Role;
+import com.technerd.finsight.user.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -61,7 +61,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
     }
 
     @Override

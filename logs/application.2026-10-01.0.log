@@ -1,0 +1,661 @@
+2026-10-01 15:10:10 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 15:10:10 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 17241 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 15:10:10 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 15:10:10 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 15:10:10 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 15:10:10 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 15:10:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 15:10:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 53 ms. Found 5 JPA repository interfaces.
+2026-10-01 15:10:11 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 15:10:11 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 15:10:11 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 15:10:11 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 15:10:11 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1302 ms
+2026-10-01 15:10:12 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 15:10:12 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 15:10:12 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 15:10:12 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 15:10:12 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69e7b557
+2026-10-01 15:10:12 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 15:10:12 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 15:10:13 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 15:10:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 15:10:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 15:10:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 15:10:14 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 15:10:14 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 15:10:14 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 15:10:14 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 15:10:14 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.471 seconds (process running for 4.981)
+2026-10-01 15:11:14 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 15:11:14 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 15:11:14 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 15:11:14 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 15:11:14 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 16:07:35 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 16:07:35 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 23834 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 16:07:35 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 16:07:35 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 16:07:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 16:07:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 16:07:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 16:07:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2026-10-01 16:07:36 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 16:07:36 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:07:36 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 16:07:36 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 16:07:36 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1435 ms
+2026-10-01 16:07:36 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 16:07:36 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 16:07:37 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 16:07:37 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 16:07:37 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@44742806
+2026-10-01 16:07:37 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 16:07:37 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 16:07:38 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 16:07:38 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:07:38 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 16:07:38 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 16:07:38 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 16:07:38 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 16:07:39 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:07:39 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 16:07:39 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.572 seconds (process running for 4.966)
+2026-10-01 16:11:45 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 16:11:45 INFO  c.t.f.MailTest --- Starting MailTest using Java 21.0.12.1 with PID 25884 (started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 16:11:45 DEBUG c.t.f.MailTest --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 16:11:45 INFO  c.t.f.MailTest --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 16:11:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 16:11:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2026-10-01 16:11:46 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 16:11:46 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 16:11:46 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 16:11:46 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 16:11:46 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41cf4272
+2026-10-01 16:11:46 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 16:11:46 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 16:11:47 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 16:11:47 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:11:47 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 16:11:47 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 16:11:48 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 16:11:48 INFO  c.t.f.MailTest --- Started MailTest in 3.729 seconds (process running for 4.631)
+2026-10-01 16:11:52 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:11:52 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 16:11:52 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 16:23:44 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener --- Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-10-01 16:23:44 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 16:23:44 INFO  o.a.c.h.Http11NioProtocol --- Pausing ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:23:44 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 16:23:44 INFO  o.a.c.h.Http11NioProtocol --- Stopping ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:23:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:23:44 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 16:23:44 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 16:23:44 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 23834 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 16:23:44 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 16:23:44 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 16:23:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 16:23:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 23 ms. Found 5 JPA repository interfaces.
+2026-10-01 16:23:44 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 16:23:44 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:23:44 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 16:23:44 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 16:23:44 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 380 ms
+2026-10-01 16:23:44 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 16:23:44 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 16:23:44 INFO  c.z.h.HikariDataSource --- HikariPool-2 - Starting...
+2026-10-01 16:23:44 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 16:23:44 INFO  c.z.h.p.HikariPool --- HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@e4b3ada
+2026-10-01 16:23:44 INFO  c.z.h.HikariDataSource --- HikariPool-2 - Start completed.
+2026-10-01 16:23:44 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 16:23:44 INFO  c.t.f.MailTest --- Starting MailTest using Java 21.0.12.1 with PID 26829 (started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 16:23:44 DEBUG c.t.f.MailTest --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 16:23:44 INFO  c.t.f.MailTest --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 16:23:44 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 16:23:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:23:45 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 16:23:45 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 16:23:45 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 16:23:45 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 16:23:45 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 16:23:45 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 1.258 seconds (process running for 971.104)
+2026-10-01 16:23:45 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener --- Condition evaluation unchanged
+2026-10-01 16:23:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 16:23:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2026-10-01 16:23:46 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 16:23:46 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 16:23:46 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 16:23:46 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 16:23:46 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50e0b472
+2026-10-01 16:23:46 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 16:23:46 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 16:23:47 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 16:23:47 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:23:47 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 16:23:47 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 16:23:48 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 16:23:48 INFO  c.t.f.MailTest --- Started MailTest in 4.299 seconds (process running for 5.297)
+2026-10-01 16:23:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 16:23:55 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 16:23:55 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 17:19:12 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 17:19:12 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 17:19:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 17:19:12 INFO  c.z.h.HikariDataSource --- HikariPool-2 - Shutdown initiated...
+2026-10-01 17:19:12 INFO  c.z.h.HikariDataSource --- HikariPool-2 - Shutdown completed.
+2026-10-01 17:58:37 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 17:58:37 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 41749 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 17:58:37 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 17:58:37 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 17:58:37 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 17:58:37 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 17:58:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 17:58:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2026-10-01 17:58:39 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 17:58:39 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 17:58:39 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 17:58:39 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 17:58:39 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1627 ms
+2026-10-01 17:58:39 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 17:58:39 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 17:58:39 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 17:58:39 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 17:58:40 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6f3206c3
+2026-10-01 17:58:40 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 17:58:40 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 17:58:41 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 17:58:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 17:58:41 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 17:58:41 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 17:58:41 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 17:58:42 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 17:58:42 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 17:58:42 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 17:58:42 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 5.61 seconds (process running for 6.065)
+2026-10-01 17:59:55 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 17:59:55 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 17:59:55 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms
+2026-10-01 18:10:07 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 18:10:07 INFO  c.t.f.s.s.AuthService --- Trying to sign up
+2026-10-01 18:10:07 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 18:10:07 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.user_id=?
+2026-10-01 18:10:07 DEBUG o.h.SQL --- insert into session (created_at,is_valid,last_used_at,refresh_token,user_id) values (?,?,?,?,?)
+2026-10-01 18:10:07 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 18:10:07 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 18:10:07 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 18:10:07 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 6
+2026-10-01 18:10:08 INFO  c.t.f.s.s.AuthService --- Sign up Success
+2026-10-01 18:47:09 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 18:47:09 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 18:47:09 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:47:09 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 18:47:09 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 22:13:32 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 22:13:32 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 13010 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 22:13:32 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 22:13:32 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 22:13:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 22:13:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 22:13:32 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 22:13:32 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
+2026-10-01 22:13:33 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 22:13:33 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 22:13:33 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 22:13:33 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 22:13:33 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1117 ms
+2026-10-01 22:13:33 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 22:13:33 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 22:13:33 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 22:13:33 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 22:13:34 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53ea3851
+2026-10-01 22:13:34 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 22:13:34 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 22:13:35 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 22:13:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 22:13:35 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 22:13:35 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 22:13:35 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 22:13:36 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 22:13:36 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 22:13:36 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 22:13:36 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.976 seconds (process running for 5.47)
+2026-10-01 22:13:44 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 22:13:44 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 22:13:44 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms
+2026-10-01 22:13:55 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 22:13:55 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 22:13:55 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 22:13:55 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 22:13:55 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 22:13:55 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 7
+2026-10-01 22:13:55 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.user_id=?
+2026-10-01 22:13:55 DEBUG o.h.SQL --- insert into session (created_at,is_valid,last_used_at,refresh_token,user_id) values (?,?,?,?,?)
+2026-10-01 22:13:55 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 22:17:35 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 22:17:35 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 22:17:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 22:17:35 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 22:17:35 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 22:17:38 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 22:17:38 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 14815 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 22:17:38 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 22:17:38 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 22:17:38 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 22:17:38 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 22:17:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 22:17:39 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2026-10-01 22:17:39 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 22:17:39 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 22:17:39 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 22:17:39 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 22:17:39 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1386 ms
+2026-10-01 22:17:39 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 22:17:39 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 22:17:40 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 22:17:40 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 22:17:40 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@749295a0
+2026-10-01 22:17:40 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 22:17:40 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 22:17:41 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 22:17:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 22:17:41 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 22:17:41 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 22:17:42 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 22:17:42 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 22:17:42 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 22:17:42 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 22:17:42 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.723 seconds (process running for 5.146)
+2026-10-01 22:20:26 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 22:20:26 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 22:20:26 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 2 ms
+2026-10-01 22:20:26 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.refresh_token=?
+2026-10-01 22:20:26 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.id=?
+2026-10-01 22:20:26 DEBUG o.h.SQL --- update session set is_valid=?,last_used_at=?,refresh_token=?,user_id=? where id=?
+2026-10-01 22:22:46 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 22:22:46 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 22:22:46 INFO  c.t.f.s.h.OAuthSuccessHandler --- New user has been saved through OAuth 2.0 for technerd1207@gmail.com
+2026-10-01 22:22:46 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 22:22:46 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 22:22:46 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 22:22:46 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 8
+2026-10-01 22:22:46 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.user_id=?
+2026-10-01 22:22:46 DEBUG o.h.SQL --- insert into session (created_at,is_valid,last_used_at,refresh_token,user_id) values (?,?,?,?,?)
+2026-10-01 22:22:46 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 23:28:13 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 23:28:13 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 23:28:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:28:13 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 23:28:13 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 23:28:17 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 23:28:17 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 25092 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 23:28:17 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 23:28:17 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 23:28:17 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 23:28:17 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 23:28:18 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 23:28:18 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2026-10-01 23:28:18 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 23:28:18 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:28:18 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 23:28:18 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 23:28:18 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1123 ms
+2026-10-01 23:28:18 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 23:28:18 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 23:28:19 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 23:28:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 23:28:19 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e32882d
+2026-10-01 23:28:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 23:28:19 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 23:28:20 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 23:28:20 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:28:20 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 23:28:20 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 23:28:21 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 23:28:21 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 23:28:21 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:28:21 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 23:28:21 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.397 seconds (process running for 4.901)
+2026-10-01 23:29:42 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 23:29:42 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 23:29:42 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms
+2026-10-01 23:29:47 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 23:29:47 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 23:29:47 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 23:29:47 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 23:29:47 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 23:29:47 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 9
+2026-10-01 23:29:47 DEBUG o.s.t.e.TransactionalApplicationListenerMethodAdapter --- Registered transaction synchronization for org.springframework.context.PayloadApplicationEvent[source=org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@5330c2dd, started on Thu Oct 01 23:28:17 IST 2026]
+2026-10-01 23:29:47 INFO  c.t.f.s.h.OAuthSuccessHandler --- New user has been saved through OAuth 2.0 for technerd1207@gmail.com
+2026-10-01 23:29:47 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] --- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.technerd.finsight.user.User.getId()" because "user" is null
+	at com.technerd.finsight.security.service.JWTService.generateAccessToken(JWTService.java:29)
+	at com.technerd.finsight.security.handler.OAuthSuccessHandler.onAuthenticationSuccess(OAuthSuccessHandler.java:65)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:405)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:280)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:239)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:195)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-10-01 23:29:47 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 23:39:39 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 23:39:39 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 23:39:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:39:39 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 23:39:39 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 23:39:41 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 23:39:41 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 27929 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 23:39:41 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 23:39:41 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 23:39:41 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 23:39:41 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 23:39:42 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 23:39:42 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2026-10-01 23:39:42 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 23:39:42 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:39:42 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 23:39:42 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 23:39:42 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1080 ms
+2026-10-01 23:39:43 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 23:39:43 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 23:39:43 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 23:39:43 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 23:39:43 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a1b4987
+2026-10-01 23:39:43 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 23:39:43 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 23:39:44 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 23:39:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:39:44 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 23:39:44 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 23:39:44 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 23:39:45 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 23:39:45 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:39:45 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 23:39:45 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.113 seconds (process running for 4.482)
+2026-10-01 23:40:53 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 23:40:53 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 23:40:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:40:53 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 23:40:53 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 23:40:55 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 23:40:55 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 28299 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 23:40:55 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 23:40:55 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 23:40:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 23:40:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 23:40:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 23:40:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2026-10-01 23:40:56 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 23:40:56 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:40:56 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 23:40:56 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 23:40:56 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1165 ms
+2026-10-01 23:40:56 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 23:40:56 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 23:40:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 23:40:57 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 23:40:57 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@751ecf44
+2026-10-01 23:40:57 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 23:40:57 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 23:40:58 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 23:40:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:40:58 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 23:40:58 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 23:40:58 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 23:40:59 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 23:40:59 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:40:59 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 23:40:59 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.42 seconds (process running for 4.847)
+2026-10-01 23:41:10 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 23:41:10 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 23:41:10 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms
+2026-10-01 23:41:16 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 23:41:16 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 23:41:16 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 23:41:16 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 23:41:16 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 23:41:16 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 10
+2026-10-01 23:41:16 DEBUG o.s.t.e.TransactionalApplicationListenerMethodAdapter --- Registered transaction synchronization for org.springframework.context.PayloadApplicationEvent[source=org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@726e3e69, started on Thu Oct 01 23:40:55 IST 2026]
+2026-10-01 23:41:16 INFO  c.t.f.s.h.OAuthSuccessHandler --- New user has been saved through OAuth 2.0 for technerd1207@gmail.com
+2026-10-01 23:41:16 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.user_id=?
+2026-10-01 23:41:16 DEBUG o.h.SQL --- insert into session (created_at,is_valid,last_used_at,refresh_token,user_id) values (?,?,?,?,?)
+2026-10-01 23:41:16 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 23:46:55 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 23:46:55 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 23:46:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:46:55 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 23:46:55 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-10-01 23:46:57 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-10-01 23:46:57 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.12.1 with PID 29585 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-10-01 23:46:57 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-01 23:46:57 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-10-01 23:46:57 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 23:46:57 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 23:46:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 23:46:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 42 ms. Found 5 JPA repository interfaces.
+2026-10-01 23:46:58 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-10-01 23:46:58 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:46:58 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-10-01 23:46:58 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 23:46:59 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1083 ms
+2026-10-01 23:46:59 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 23:46:59 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 23:46:59 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 23:46:59 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-10-01 23:46:59 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fc1165e
+2026-10-01 23:46:59 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-10-01 23:46:59 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 23:47:00 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 23:47:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:47:00 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 23:47:00 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 23:47:01 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-10-01 23:47:01 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-10-01 23:47:01 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 23:47:01 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 23:47:01 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 4.275 seconds (process running for 4.697)
+2026-10-01 23:47:07 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 23:47:07 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-10-01 23:47:07 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms
+2026-10-01 23:47:07 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login for request '/login'.]
+2026-10-01 23:47:08 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 23:47:28 DEBUG o.h.SQL --- select u1_0.id,u1_0.base_currency,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.role,u1_0.total_balance,u1_0.updated_at from users u1_0 where u1_0.email=?
+2026-10-01 23:47:28 DEBUG o.h.SQL --- insert into users (base_currency,created_at,email,is_active,name,password,role,total_balance,updated_at) values (?,?,?,?,?,?,?,?,?)
+2026-10-01 23:47:28 INFO  c.t.f.c.e.ExampleCategoryCreator --- Creating new example category with name: Food Budget (example)
+2026-10-01 23:47:28 DEBUG o.h.SQL --- insert into category (description,icon,name,transaction_type,user_id) values (?,?,?,?,?)
+2026-10-01 23:47:28 DEBUG o.h.SQL --- insert into budget (allocated_amount,category_id,is_breached,month,spent_amount,user_id) values (?,?,?,?,?,?)
+2026-10-01 23:47:28 INFO  c.t.f.c.e.ExampleCategoryCreator --- New Example Category created. CategoryId: 11
+2026-10-01 23:47:28 DEBUG o.s.t.e.TransactionalApplicationListenerMethodAdapter --- Registered transaction synchronization for org.springframework.context.PayloadApplicationEvent[source=org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@52e54076, started on Thu Oct 01 23:46:57 IST 2026]
+2026-10-01 23:47:28 INFO  c.t.f.s.h.OAuthSuccessHandler --- New user has been saved through OAuth 2.0 for technerd1207@gmail.com
+2026-10-01 23:47:28 DEBUG o.h.SQL --- select s1_0.id,s1_0.created_at,s1_0.is_valid,s1_0.last_used_at,s1_0.refresh_token,s1_0.user_id from session s1_0 where s1_0.user_id=?
+2026-10-01 23:47:28 DEBUG o.h.SQL --- insert into session (created_at,is_valid,last_used_at,refresh_token,user_id) values (?,?,?,?,?)
+2026-10-01 23:47:28 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver --- Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico for request '/favicon.ico'.]
+2026-10-01 23:47:34 INFO  c.t.f.s.l.WelcomeEmailListener --- Received registration event for technerd1207@gmail.com
+2026-10-01 23:55:06 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 23:55:06 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-10-01 23:55:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 23:55:06 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-10-01 23:55:06 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.

@@ -1,7 +1,7 @@
 package com.technerd.finsight.security.repository;
 
 import com.technerd.finsight.security.entity.Session;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

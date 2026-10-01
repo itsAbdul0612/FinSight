@@ -1,5 +1,6 @@
 package com.technerd.finsight.security.entity;
 
+import com.technerd.finsight.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

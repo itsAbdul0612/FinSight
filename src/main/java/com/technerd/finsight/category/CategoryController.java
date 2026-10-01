@@ -2,9 +2,9 @@ package com.technerd.finsight.category;
 
 import com.technerd.finsight.category.dto.CategoryCreateDto;
 import com.technerd.finsight.category.dto.CategoryResponseDto;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import com.technerd.finsight.security.service.JWTService;
-import com.technerd.finsight.security.service.UserService;
+import com.technerd.finsight.security.service.UserSecurityService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -23,7 +23,7 @@ public class CategoryController {
     private final CategoryService categoryService;
     private final AuthenticationManager authenticationManager;
     private final JWTService  jwtService;
-    private final UserService userService;
+    private final UserSecurityService userSecurityService;
     private final ModelMapper mapper;
 
     // Create a category.
@@ -38,7 +38,7 @@ public class CategoryController {
         }
 
         Long userId = user.getId();
-        User userEntity = userService.findById(userId);
+        User userEntity = userSecurityService.findById(userId);
 
         categoryService.createCategory(categoryDto, userEntity);
         return ResponseEntity.ok(categoryDto);

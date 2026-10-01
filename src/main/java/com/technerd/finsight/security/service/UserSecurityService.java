@@ -1,7 +1,7 @@
 package com.technerd.finsight.security.service;
 
-import com.technerd.finsight.security.entity.User;
-import com.technerd.finsight.security.repository.UserRepository;
+import com.technerd.finsight.user.User;
+import com.technerd.finsight.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements UserDetailsService {
+public class UserSecurityService implements UserDetailsService {
 
     private final UserRepository userRepository;
 

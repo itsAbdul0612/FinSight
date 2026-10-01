@@ -39,6 +39,7 @@ public class BudgetService {
         budgetRepository.deleteByCategory_IdAndUser_Id(id, userId);
     }
 
+
     public BudgetResponse updateAllocatedAmount(BudgetUpdateDto newBudget, Long id) {
 
         Budget existingBudget = budgetRepository.findById(id)

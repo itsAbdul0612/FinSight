@@ -1,6 +1,6 @@
 package com.technerd.finsight.security.service;
 
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 

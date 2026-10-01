@@ -2,7 +2,7 @@ package com.technerd.finsight.budget;
 
 import com.technerd.finsight.budget.dto.BudgetResponse;
 import com.technerd.finsight.budget.dto.BudgetUpdateDto;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

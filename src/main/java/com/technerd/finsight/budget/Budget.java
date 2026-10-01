@@ -1,7 +1,7 @@
 package com.technerd.finsight.budget;
 
 import com.technerd.finsight.category.Category;
-import com.technerd.finsight.security.entity.User;
+import com.technerd.finsight.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 

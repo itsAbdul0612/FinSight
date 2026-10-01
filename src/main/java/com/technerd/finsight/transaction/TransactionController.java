@@ -1,8 +1,8 @@
 package com.technerd.finsight.transaction;
 
 import com.technerd.finsight.category.Category;
-import com.technerd.finsight.security.entity.User;
-import com.technerd.finsight.security.service.UserService;
+import com.technerd.finsight.user.User;
+import com.technerd.finsight.security.service.UserSecurityService;
 import com.technerd.finsight.transaction.dto.TransactionDto;
 import com.technerd.finsight.transaction.dto.TransactionResponse;
 import com.technerd.finsight.transaction.enums.TransactionType;
@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
 public class TransactionController {
 
     private final TransactionService transactionService;
-    private final UserService  userService;
+    private final UserSecurityService userSecurityService;
     private final ModelMapper modelMapper;
 
     // Create a transaction.
@@ -39,7 +39,7 @@ public class TransactionController {
         User userEntity = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Long userId = userEntity.getId();
-        User user = userService.findById(userId);
+        User user = userSecurityService.findById(userId);
 
         transactionDto.setCategoryId(categoryId);
         Transaction transaction = transactionService.createTransaction(transactionDto, user);

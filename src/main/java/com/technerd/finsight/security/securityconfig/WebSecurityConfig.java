@@ -21,15 +21,22 @@ public class WebSecurityConfig {
     private final JwtAuthFilter jwtAuthFilter;
     private final OAuthSuccessHandler  oAuthSuccessHandler;
     private final LogOutHandler  logOutHandler;
-    private final String[] PUBLIC_ROUTE = {"/auth/**", "/error", "/home.html","/logout.html"};
+
+    private final String[] PUBLIC_ROUTE = {
+            "/auth/**",
+            "/error",
+            "/home.html",
+            "/logout.html",
+            "/login/oauth2/code/google"};
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http){
       return  http.authorizeHttpRequests(requests -> requests
 
                 .requestMatchers(PUBLIC_ROUTE).permitAll()
-                      .requestMatchers("/login/oauth2/code/google").permitAll()
+                      .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
+
 
               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
 

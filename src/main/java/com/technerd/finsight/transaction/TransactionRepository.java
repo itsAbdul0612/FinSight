@@ -1,8 +1,8 @@
 package com.technerd.finsight.transaction;
 
+import org.jspecify.annotations.NonNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,6 +22,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>,
 
     @Override
     @EntityGraph(value = "Transaction.category")
-    Page<Transaction> findAll(Specification<Transaction> specs, Pageable pageable);
+    Page<Transaction> findAll(@NonNull Specification<Transaction> specs, @NonNull Pageable pageable);
 
 }

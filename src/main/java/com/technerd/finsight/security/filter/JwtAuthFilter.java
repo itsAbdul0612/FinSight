@@ -1,7 +1,7 @@
 package com.technerd.finsight.security.filter;
 
 import com.technerd.finsight.security.service.JWTService;
-import com.technerd.finsight.security.service.UserService;
+import com.technerd.finsight.security.service.UserSecurityService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ import java.io.IOException;
 public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final JWTService jwtService;
-    private final UserService  userService;
+    private final UserSecurityService userSecurityService;
 
     @Autowired
     @Qualifier("handlerExceptionResolver")
@@ -44,7 +44,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-                UserDetails user = userService.findById(userId);
+                UserDetails user = userSecurityService.findById(userId);
                 UsernamePasswordAuthenticationToken authenticatedUser = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 
                 SecurityContextHolder.getContext().setAuthentication(authenticatedUser);

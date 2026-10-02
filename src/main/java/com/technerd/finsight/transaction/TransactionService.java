@@ -4,6 +4,8 @@ import com.technerd.finsight.budget.Budget;
 import com.technerd.finsight.budget.BudgetService;
 import com.technerd.finsight.category.Category;
 import com.technerd.finsight.category.CategoryService;
+import com.technerd.finsight.systemevent.event.BudgetBreachEvent;
+import com.technerd.finsight.systemevent.event.EightyPercentBudgetSpentEvent;
 import com.technerd.finsight.user.User;
 import com.technerd.finsight.security.service.UserSecurityService;
 import com.technerd.finsight.transaction.dto.TransactionDto;
@@ -12,6 +14,7 @@ import com.technerd.finsight.transaction.enums.TransactionType;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -30,9 +33,12 @@ import static com.technerd.finsight.transaction.enums.TransactionType.EXPENSE;
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
+
     private final CategoryService categoryService;
     private final BudgetService budgetService;
     private final UserSecurityService userSecurityService;
+
+    private final ApplicationEventPublisher eventPublisher;
 
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
@@ -58,6 +64,21 @@ public class TransactionService {
 
             if (budget.getSpentAmount().compareTo(budget.getAllocatedAmount()) >= 0) {
                 budget.setIsBreached(true);
+
+                eventPublisher.publishEvent(new BudgetBreachEvent(
+                        user.getEmail(),
+                        user.getName(),
+                        category.getName()
+                ));
+            }
+            else if(budget.getSpentAmount().compareTo(
+                    budget.getAllocatedAmount().multiply(BigDecimal.valueOf(0.8))) >= 0) {
+
+                eventPublisher.publishEvent(new EightyPercentBudgetSpentEvent(
+                        user.getEmail(),
+                        user.getName(),
+                        category.getName()
+                ));
             }
             user.setTotalBalance(user.getTotalBalance().subtract(transactionDto.getAmount()));
             budgetService.save(budget);

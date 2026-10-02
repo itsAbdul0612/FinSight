@@ -19,7 +19,23 @@ public class MailService {
 
         message.setTo(to);
         message.setSubject("Welcome to FinSight!");
-        message.setText("Hello, "+name+"! We are so exited to have on FinSight, An AI powered personal finance dashboard.");
+        message.setText("Hello, "+name+"! We are so exited to have you on FinSight, An AI powered personal finance dashboard.");
+        mailSender.send(message);
+    }
+
+    public void sendBudgetBreachAlertEmail(String to, String name, String category) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject("Budget Breach Alert!");
+        message.setText("Alert! "+name+". You have spent all of your "+category+" amount this month. Check your dashboard.");
+        mailSender.send(message);
+    }
+
+    public void send80PercentSpentEmail(String to, String name, String category) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject("80% Spent amount of your "+category+" alert.");
+        message.setText("Hey "+name + ",you have spent 80% of your allocated monthly "+category+"! Check your dashboard.");
         mailSender.send(message);
     }
 

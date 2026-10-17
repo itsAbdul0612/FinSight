@@ -8,13 +8,12 @@ import java.time.LocalDateTime;
 
 public class TransactionSpecification {
 
-    // Whom do transactions belong?
+    // Whom do transactions belong to?
     public static Specification<Transaction> belongsTo(Long userId){
         return (root, query, criteriaBuilder) -> {
             return criteriaBuilder.equal(root.get("user").get("id"), userId);
         };
     }
-
 
 
     // Transaction Type

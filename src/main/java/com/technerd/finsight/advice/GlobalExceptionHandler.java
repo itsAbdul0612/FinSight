@@ -1,6 +1,7 @@
 package com.technerd.finsight.advice;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import jakarta.mail.MessagingException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +41,16 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST).build();
 
         return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MessagingException.class)
+    public ResponseEntity<ApiError> handleMessagingException(MessagingException exception){
+        ApiError apiError = ApiError
+                .builder()
+                .message(exception.getMessage())
+                .status(HttpStatus.BAD_REQUEST).build();
+
+        return new  ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
     }
 
     // Authentication Exceptions.

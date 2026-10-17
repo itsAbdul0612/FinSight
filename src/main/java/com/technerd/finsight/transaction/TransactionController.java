@@ -33,8 +33,7 @@ public class TransactionController {
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
     @PostMapping("/create/{categoryId}")
-    public ResponseEntity<TransactionResponse> createTransaction(@Valid @RequestBody TransactionDto transactionDto,
-                                                                 @PathVariable Long categoryId) {
+    public ResponseEntity<TransactionResponse> createTransaction(@Valid @RequestBody TransactionDto transactionDto, @PathVariable Long categoryId) {
 
         User userEntity = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -45,11 +44,9 @@ public class TransactionController {
         Transaction transaction = transactionService.createTransaction(transactionDto, user);
         Category category = transaction.getCategory();
 
-        TransactionResponse.CategoryResponse categoryResponse = modelMapper
-                .map(category, TransactionResponse.CategoryResponse.class);
+        TransactionResponse.CategoryResponse categoryResponse = modelMapper.map(category, TransactionResponse.CategoryResponse.class);
 
-        TransactionResponse transactionResponse = modelMapper.
-                map(transaction, TransactionResponse.class);
+        TransactionResponse transactionResponse = modelMapper.map(transaction, TransactionResponse.class);
 
         transactionResponse.setCategory(categoryResponse);
 
@@ -77,32 +74,42 @@ public class TransactionController {
     // Get all transactions sorted, paginated and filtered (optional).
     // -----------------------------------------------------------------------------------------------
     @GetMapping("/get-all")
-    public ResponseEntity<Page<TransactionResponse>> getAllTransactions(
-            @RequestParam(defaultValue = "0") int pageNumber,
-            @RequestParam(defaultValue = "10") int  pageSize,
+    public ResponseEntity<Page<TransactionResponse>> getAllTransactions(@RequestParam(defaultValue = "0") int pageNumber,
+                                                                        @RequestParam(defaultValue = "10") int pageSize,
 
-            @RequestParam(required = false) String sortBy,
-            @RequestParam(required = false) Long categoryId ,
-            @RequestParam(required = false) Sort.Direction sortDirection,
-            @RequestParam(required = false) BigDecimal minAmount,
-            @RequestParam(required = false) BigDecimal maxAmount,
-            @RequestParam(required = false) BigDecimal amount,
-            @RequestParam(required = false) TransactionType transactionType, //
-            @RequestParam(required = false) LocalDateTime startDate,
-            @RequestParam(required = false) LocalDateTime endDate,
-            @RequestParam(required = false) LocalDateTime date) {
+                                                                        @RequestParam(required = false) String sortBy,
+                                                                        @RequestParam(required = false) Long categoryId,
+                                                                        @RequestParam(required = false) Sort.Direction sortDirection,
+                                                                        @RequestParam(required = false) BigDecimal minAmount,
+                                                                        @RequestParam(required = false) BigDecimal maxAmount,
+                                                                        @RequestParam(required = false) BigDecimal amount,
+                                                                        @RequestParam(required = false) TransactionType transactionType, //
+                                                                        @RequestParam(required = false) LocalDateTime startDate,
 
-        Sort sort = Sort.by(
-                sortDirection != null ? sortDirection : Sort.Direction.DESC,
-                sortBy != null ? sortBy : "transactionDate"
-        );
+                                                                        @RequestParam(required = false) LocalDateTime endDate,
+                                                                        @RequestParam(required = false) LocalDateTime date) {
 
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Sort sort = Sort.by(sortDirection != null ? sortDirection : Sort.Direction.DESC,
+                sortBy != null ? sortBy : "transactionDate");
+
+        User user = (User) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
+
         Long userId = user.getId();
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-        Page<TransactionResponse> allTransactions = transactionService.getAll(userId, pageable,
-                categoryId, transactionType, startDate, endDate, date, minAmount, maxAmount, amount);
+        Page<TransactionResponse> allTransactions = transactionService.getAll(userId,
+                pageable,
+                categoryId,
+                transactionType,
+                startDate,
+                endDate,
+                date,
+                minAmount,
+                maxAmount,
+                amount);
 
         return ResponseEntity.ok(allTransactions);
     }

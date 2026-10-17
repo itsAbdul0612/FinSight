@@ -2,6 +2,7 @@ package com.technerd.finsight.systemevent.listner;
 
 import com.technerd.finsight.notification.MailService;
 import com.technerd.finsight.systemevent.event.EightyPercentBudgetSpentEvent;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -20,10 +21,9 @@ public class EightyPercentBudgetSpentListener {
     @TransactionalEventListener(
             phase = TransactionPhase.AFTER_COMMIT
     )
-    public void handle80PercentBudgetSpent(EightyPercentBudgetSpentEvent event){
-        mailService.send80PercentSpentEmail(
+    public void handle80PercentBudgetSpent(EightyPercentBudgetSpentEvent event) throws MessagingException {
+        mailService.sendHTML80PercentSpentEmail(
                 event.email(),
-                event.name(),
                 event.category()
         );
        log.info("80% spent email has been sent to {}", event.email());

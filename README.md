@@ -18,9 +18,9 @@
 - Transactions — CRD (immutable by design), dynamic filtering, soft delete
 - Notifications — async email alerts (welcome, 80% warning, breach)
 - Admin — user management, deactivation
+- Analytics endpoints
 
 ## In Progress
-- Analytics endpoints
 - Redis caching (3 patterns)
 - Spring AI tool calling
 

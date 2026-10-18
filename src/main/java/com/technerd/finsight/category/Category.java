@@ -25,9 +25,8 @@ public class Category {
     private String icon; // emoji or icon key.
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
-
-
 
     @ManyToOne
     private User user;

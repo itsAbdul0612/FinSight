@@ -3,7 +3,7 @@ package com.technerd.finsight.analytics;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
 import com.technerd.finsight.analytics.dto.MonthTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
-import com.technerd.finsight.transaction.enums.TransactionType;
+import com.technerd.finsight.core.transaction.enums.TransactionType;
 import com.technerd.finsight.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -69,14 +69,13 @@ public class AnalyticsController {
     public ResponseEntity<List<TopExpenseOfAMonth>>  topExpensesOfAMonths(
             @RequestParam(required = false) String month,
             @RequestParam(required = false) TransactionType type,
-            @RequestParam(required = false) Integer limit){
+            @RequestParam(required = false, defaultValue = "5") Integer limit){
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
 
         if (type == null) type = TransactionType.EXPENSE;
         if (month == null) month = YearMonth.now().toString();
-        if (limit == null) limit = 5;
 
         List<TopExpenseOfAMonth> topExpenseOfAMonths = analyticsService.topExpensesOfAMonths(userId, month, type, limit);
         return ResponseEntity.ok(topExpenseOfAMonths);

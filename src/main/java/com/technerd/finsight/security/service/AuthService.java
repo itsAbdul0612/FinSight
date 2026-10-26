@@ -1,7 +1,7 @@
 package com.technerd.finsight.security.service;
 
-import com.technerd.finsight.category.exampleseed.ExampleCategoryCreator;
-import com.technerd.finsight.category.exampleseed.ExampleCategory;
+import com.technerd.finsight.core.category.exampleseed.ExampleCategoryCreator;
+import com.technerd.finsight.core.category.exampleseed.ExampleCategory;
 import com.technerd.finsight.systemevent.event.UserRegisteredEvent;
 import com.technerd.finsight.security.repository.SessionRepository;
 import com.technerd.finsight.security.dto.LoginDTO;

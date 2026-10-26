@@ -72,3 +72,9 @@ logging:
 
 jwt:
   secret-key: <secret_key>
+
+#  Swagger
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs

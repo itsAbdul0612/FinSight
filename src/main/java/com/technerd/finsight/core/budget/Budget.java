@@ -1,0 +1,39 @@
+package com.technerd.finsight.core.budget;
+
+import com.technerd.finsight.core.category.Category;
+import com.technerd.finsight.user.User;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","category_id","month"}))
+public class Budget {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(precision = 12, scale = 2)
+    private BigDecimal allocatedAmount;
+
+    @Column(precision = 12, scale = 2)
+    private BigDecimal spentAmount = BigDecimal.ZERO;
+
+    private String month;
+
+    private Boolean isBreached = false;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
+    private Category category;
+
+}

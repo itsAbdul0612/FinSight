@@ -27,6 +27,9 @@ public class WebSecurityConfig {
             "/error",
             "/home.html",
             "/logout.html",
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
             "/login/oauth2/code/google"};
 
     @Bean

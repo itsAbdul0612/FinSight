@@ -3,7 +3,7 @@ package com.technerd.finsight.analytics;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
 import com.technerd.finsight.analytics.dto.MonthTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
-import com.technerd.finsight.transaction.enums.TransactionType;
+import com.technerd.finsight.core.transaction.enums.TransactionType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -69,7 +69,6 @@ public interface AnalyticsRepository extends JpaRepository<Transaction, Long> {
     GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
     ORDER BY totalSpent DESC
     LIMIT :limit
-    
     """,
             nativeQuery = true)
     List<TopExpenseOfAMonth> topExpensesByMonth(@Param("userId") Long userId,

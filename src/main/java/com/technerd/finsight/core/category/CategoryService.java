@@ -118,24 +118,25 @@ public class CategoryService {
     // -----------------------------------------------------------------------------------------------
     @Transactional
     public void softDeleteById(Long id, Long userId) {
+
         log.info("Trying to soft-delete category with id: {}", id);
         Category existingCategory = categoryRepository.findByIdAndUserId(id, userId);
+
         if (existingCategory == null) {
             log.info("Category with id: {} was not found", id);
             throw new EntityNotFoundException("Category with id " + id + " not found");
         }
-        else {
+
             budgetService.deleteByCategoryIdAndUserId(id, userId);
             existingCategory.setIsActive(false);
             log.info("Category with id: {} is soft-deleted", id);
-        }
     }
     // -----------------------------------------------------------------------------------------------
 
     // Creates new budget for active categories every 1st of every month.
     // -----------------------------------------------------------------------------------------------
     @Transactional
-    @Scheduled(cron = "0 0 1 * * *", zone = "Asia/Kolkata")
+    @Scheduled(cron = "0 0 0 1 * *", zone = "Asia/Kolkata")
     public void newMonthlyBudget(){
 
         // I would use Spring Batch here but in this specific case, it is not needed and would be extra machinery
@@ -168,7 +169,7 @@ public class CategoryService {
 
                     Budget budget = Budget.builder()
                             .allocatedAmount(lastMonthBudget.getAllocatedAmount())
-                            .isBreached(FALSE)
+                            .isBreached(false)
                             .category(lastMonthBudget.getCategory())
                             .spentAmount(ZERO)
                             .month(CURRENT_MONTH)

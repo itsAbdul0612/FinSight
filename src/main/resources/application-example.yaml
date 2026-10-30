@@ -55,6 +55,17 @@ spring:
             enable: true
 
 
+#Redis config
+
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: <your password> or just remove this key if you don't want any password.
+      ssl:
+        enable: false
 # logging configurations
 
 logging:
@@ -73,8 +84,10 @@ logging:
 jwt:
   secret-key: <secret_key>
 
-#  Swagger
+#  Documentation
 
 springdoc:
   api-docs:
     path: /v3/api-docs
+  packages-to-scan: com.technerd.finsight
+  show-actuator: false

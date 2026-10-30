@@ -13,6 +13,7 @@ target/
 .springBeans
 .sts4-cache
 
+/home/abdul-rahman/Project/finsight/src/main/resources/CheckList.md
 ### IntelliJ IDEA ###
 .idea
 *.iws

@@ -123,7 +123,7 @@ public class CategoryService {
         Category existingCategory = categoryRepository.findByIdAndUserId(id, userId);
 
         if (existingCategory == null) {
-            log.info("Category with id: {} was not found", id);
+            log.error("Category with id: {} was not found", id);
             throw new EntityNotFoundException("Category with id " + id + " not found");
         }
 
@@ -147,39 +147,43 @@ public class CategoryService {
         String CURRENT_MONTH = YearMonth.now(zoneId).toString();
         String LAST_MONTH = YearMonth.now(zoneId).minusMonths(1).toString();
 
-        // All users with isActive = True.
-        List<User> users = userRepository.finaAllActiveUsers();
-        for (User user : users) {
+        try {
+            // All users with isActive = True.
+            List<User> users = userRepository.finaAllActiveUsers();
+            for (User user : users) {
 
-            List<Category> categories = categoryRepository.findAllByUserId(user.getId());
+                List<Category> categories = categoryRepository.findAllByUserId(user.getId());
 
-            for (Category category : categories) {
+                for (Category category : categories) {
 
-                if (category.getIsActive().equals(FALSE)) {
-                    continue;
+                    if (category.getIsActive().equals(FALSE)) {
+                        continue;
+                    }
+
+                    Budget lastMonthBudget = budgetService.findByUserAndCategoryAndMonth(
+                            user.getId(),
+                            category.getId(),
+                            LAST_MONTH
+                    );
+
+                    if (lastMonthBudget != null) {
+
+                        Budget budget = Budget.builder()
+                                .allocatedAmount(lastMonthBudget.getAllocatedAmount())
+                                .isBreached(false)
+                                .category(lastMonthBudget.getCategory())
+                                .spentAmount(ZERO)
+                                .month(CURRENT_MONTH)
+                                .user(lastMonthBudget.getUser())
+                                .build();
+
+                        budgetService.save(budget);
+                    }
+
                 }
-
-                Budget lastMonthBudget = budgetService.findByUserAndCategoryAndMonth(
-                        user.getId(),
-                        category.getId(),
-                        LAST_MONTH
-                );
-
-                if (lastMonthBudget != null) {
-
-                    Budget budget = Budget.builder()
-                            .allocatedAmount(lastMonthBudget.getAllocatedAmount())
-                            .isBreached(false)
-                            .category(lastMonthBudget.getCategory())
-                            .spentAmount(ZERO)
-                            .month(CURRENT_MONTH)
-                            .user(lastMonthBudget.getUser())
-                            .build();
-
-                    budgetService.save(budget);
-                }
-
             }
+        } catch (Exception e) {
+            log.error("Monthly budget reset failed", e);
         }
         log.info("Monthly budget reset finished");
     }

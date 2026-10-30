@@ -5,17 +5,21 @@ import com.technerd.finsight.analytics.dto.MonthTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class AnalyticsService {
 
     private final AnalyticsRepository analyticsRepository;
 
+    @Cacheable(cacheNames = "monthly_summary", key = "#userId +':'+ #month + ':' + #type")
     public BigDecimal monthlySummary(Long userId, TransactionType type, String month) {
     return analyticsRepository.monthlySummary(userId, type.toString(), month);
     }

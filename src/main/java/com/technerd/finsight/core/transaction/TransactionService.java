@@ -14,6 +14,9 @@ import com.technerd.finsight.core.transaction.enums.TransactionType;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -39,9 +42,11 @@ public class TransactionService {
     private final UserSecurityService userSecurityService;
 
     private final ApplicationEventPublisher eventPublisher;
+    private final ModelMapper modelMapper;
 
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
+    @CacheEvict(cacheNames = "monthly_summary", allEntries = true)
     @Transactional
     public Transaction createTransaction(TransactionDto transactionDto, User user) {
 
@@ -55,9 +60,22 @@ public class TransactionService {
             throw new NoSuchElementException("Category not found");
         }
 
-        Transaction newTransaction = Transaction.builder().amount(transactionDto.getAmount()).transactionDate(LocalDateTime.now()).user(user).transactionType(category.getTransactionType()).description(transactionDto.getDescription()).category(category).isDeleted(false).build();
+        Transaction newTransaction = Transaction
+                .builder()
+                .amount(transactionDto.getAmount())
+                .transactionDate(LocalDateTime.now())
+                .user(user)
+                .transactionType(category.getTransactionType())
+                .description(transactionDto.getDescription())
+                .category(category)
+                .isDeleted(false)
+                .build();
 
-        Budget budget = budgetService.findByUserAndCategoryAndMonth(user.getId(), transactionDto.getCategoryId(), YearMonth.now().toString());
+        Budget budget = budgetService.findByUserAndCategoryAndMonth(
+                user.getId(),
+                transactionDto.getCategoryId(),
+                YearMonth.now().toString()
+        );
 
         if (newTransaction.getTransactionType() == EXPENSE) {
             budget.setSpentAmount(budget.getSpentAmount().add(transactionDto.getAmount()));
@@ -98,12 +116,14 @@ public class TransactionService {
 
     // Get transaction by id.
     // -----------------------------------------------------------------------------------------------
-    public Transaction getTransactionById(Long userId, Long id) {
+    public TransactionResponse getTransactionById(Long userId, Long id) {
         Transaction byUserIdAndId = transactionRepository.findByUserIdAndId(userId, id);
         if (byUserIdAndId == null || byUserIdAndId.getIsDeleted()) {
+            log.error("Transaction does not exist or has been deleted.");
             throw new NoSuchElementException("Transaction does not exist or has been deleted.");
         }
-        return byUserIdAndId;
+        log.info("Got a transaction with id: {}", id);
+        return modelMapper.map(byUserIdAndId, TransactionResponse.class);
     }
     // -----------------------------------------------------------------------------------------------
 

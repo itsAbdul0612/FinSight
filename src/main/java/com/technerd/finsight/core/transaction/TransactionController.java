@@ -61,13 +61,12 @@ public class TransactionController {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
-        Transaction transaction = transactionService.getTransactionById(userId, id);
+        TransactionResponse transaction = transactionService.getTransactionById(userId, id);
         if (transaction == null) {
             throw new EntityNotFoundException("Transaction with id " + id + " not found");
         }
 
-        TransactionResponse transactionResponse = modelMapper.map(transaction, TransactionResponse.class);
-        return ResponseEntity.ok(transactionResponse);
+        return ResponseEntity.ok(transaction);
     }
     // -----------------------------------------------------------------------------------------------
 

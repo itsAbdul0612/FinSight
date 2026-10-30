@@ -5,11 +5,12 @@ import com.technerd.finsight.core.transaction.Transaction;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-public class TransactionResponse {
+public class TransactionResponse implements Serializable {
 
     private Long id;
     private String icon;
@@ -24,7 +25,7 @@ public class TransactionResponse {
     private CategoryResponse category;
 
     @Data
-    public static class CategoryResponse {
+    public static class CategoryResponse implements Serializable {
         // Can centralize this class to reduce redundancy
         private Long id;
         private String icon;

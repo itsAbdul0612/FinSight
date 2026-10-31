@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -49,7 +50,10 @@ public class TransactionService {
 
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
-    @CacheEvict(cacheNames = "monthly_summary", allEntries = true)
+    @Caching(evict = {
+            @CacheEvict(cacheNames = "all_budget", key = "#user.id"),
+            @CacheEvict(cacheNames = "monthly_summary", key = "#user.id")
+    })
     @Transactional
     public Transaction createTransaction(TransactionDto transactionDto, User user) {
 
@@ -205,14 +209,15 @@ public class TransactionService {
     }
     // -----------------------------------------------------------------------------------------------
 
+    // Gets last 10 transactions for finance context building.
     // -----------------------------------------------------------------------------------------------
-    public List<TransactionResponse> lastFiveResponse(Long userId){
-        List<Transaction> lastFiveTransactions = transactionRepository.getLastFiveTransactions(userId);
-        if (lastFiveTransactions == null || lastFiveTransactions.isEmpty()) {
+    public List<TransactionResponse> lastTenResponse(Long userId){
+        List<Transaction> lastTenTransactions = transactionRepository.getLastTenTransactions(userId);
+        if (lastTenTransactions == null || lastTenTransactions.isEmpty()) {
             throw new NoSuchElementException("Could not find the last 5 transactions.");
         }
 
-        return lastFiveTransactions
+        return lastTenTransactions
                 .stream()
                 .map(element -> modelMapper.map(element, TransactionResponse.class))
                 .toList();

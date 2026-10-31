@@ -75,7 +75,8 @@
 ## ⚡ Redis Caching
 
 - [x]  Add Upstash Redis to project
-- [x]  Pattern 2 — Manual eviction: monthly_summary:{userId}:{month} — evict on new transaction
+- [x]  Pattern 1 — Manual eviction: monthly_summary:{userId}:{month} — evict on new transaction
+- [x]  Pattern 2 — all_budget 30min TTL
 ---
 
 ## 🤖 AI Features

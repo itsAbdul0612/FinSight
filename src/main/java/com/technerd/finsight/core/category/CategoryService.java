@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,7 @@ public class CategoryService {
 // Create.
     // -----------------------------------------------------------------------------------------------
     @Transactional
+    @CacheEvict(cacheNames = "all_budget", key = "#user.id")
     public CategoryCreateDto createCategory(CategoryCreateDto categoryDto, User user) {
 
         String name = categoryDto.getName();

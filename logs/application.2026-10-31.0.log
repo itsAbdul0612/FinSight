@@ -2008,7 +2008,7 @@ Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not av
 2026-10-31 22:52:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
 2026-10-31 22:52:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-10-31 22:52:13 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
-2026-10-31 22:52:15 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor --- Autowired annotation is not supported on static fields: private static org.springframework.cache.CacheManager com.technerd.finsight.ai.contextbuilder.ContextBuilderService.cacheManager
+2026-10-31 22:52:15 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor --- Autowired annotation is not supported on static fields: private static org.springframework.cache.CacheManager com.technerd.finsight.ai.contextbuilder.FinanceContextBuilderService.cacheManager
 2026-10-31 22:52:15 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
 2026-10-31 22:52:15 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
 2026-10-31 22:52:15 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
@@ -2079,7 +2079,7 @@ Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not av
 2026-10-31 22:52:51 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
 2026-10-31 22:52:52 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-10-31 22:52:52 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
-2026-10-31 22:52:53 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor --- Autowired annotation is not supported on static fields: private static org.springframework.cache.CacheManager com.technerd.finsight.ai.contextbuilder.ContextBuilderService.cacheManager
+2026-10-31 22:52:53 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor --- Autowired annotation is not supported on static fields: private static org.springframework.cache.CacheManager com.technerd.finsight.ai.contextbuilder.FinanceContextBuilderService.cacheManager
 2026-10-31 22:52:53 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
 2026-10-31 22:52:53 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
 2026-10-31 22:52:53 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library

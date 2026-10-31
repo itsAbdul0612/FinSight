@@ -14,6 +14,7 @@ import tools.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 
 
 import java.time.Duration;
+import java.util.Map;
 
 @EnableCaching
 @Configuration
@@ -50,13 +51,23 @@ public class CacheConfig {
                         .fromSerializer(serializer));
 
         RedisCacheConfiguration budgetStatusConfig = defaultConfig
+                .enableTimeToIdle()
+                .entryTtl(Duration.ofMinutes(30));
+
+        RedisCacheConfiguration financeContext = defaultConfig
+                .enableTimeToIdle()
                 .entryTtl(Duration.ofMinutes(30));
         // -----------------------------------------------------------------------------------------------
 
         return RedisCacheManager
                 .builder(redisConnectionFactory)
                 .cacheDefaults(defaultConfig)
-                .withCacheConfiguration("months_budget", budgetStatusConfig)
+                .withInitialCacheConfigurations(
+                        Map.of(
+                        "all_budget", budgetStatusConfig,
+                        "finance_context", financeContext)
+                )
+                .withCacheConfiguration("all_budget", budgetStatusConfig)
                 .build();
     }
 

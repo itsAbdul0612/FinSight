@@ -1,10 +1,11 @@
 package com.technerd.finsight.core.budget;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface BudgetRepository extends JpaRepository<Budget, Long> {
@@ -19,7 +20,8 @@ public interface BudgetRepository extends JpaRepository<Budget, Long> {
     Budget findByUser_IdAndCategory_IdAndMonth(Long userId, Long categoryId, String month);
 
     @EntityGraph(attributePaths = "category")
-    Page<Budget> findByUser_IdAndMonth(Long userId, String month, Pageable pageable);
+    @Query("select b from Budget b where b.user.id = :userId and b.month = :month")
+    List<Budget> findAllByUserIdAndMonth(Long userId, String month);
 
     void deleteByCategory_IdAndUser_Id(Long id, Long userId);
 

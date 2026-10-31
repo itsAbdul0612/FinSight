@@ -5,10 +5,10 @@ import com.technerd.finsight.core.budget.dto.BudgetUpdateDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Slf4j
@@ -31,11 +31,16 @@ public class BudgetService {
         return budgetRepository.findByUser_IdAndCategory_IdAndMonth(userId, categoryId, month);
     }
 
-    public Page<BudgetResponse> findAllByUserIdAndMonth(Long userId, Pageable pageable, String month) {
-        Page<Budget> byUserIdAndMonth = budgetRepository.findByUser_IdAndMonth(userId, month, pageable);
-        return byUserIdAndMonth.map(BudgetResponse::from);
-    }
+    @Cacheable(cacheNames = "all_budget", key = "#userId")
+    public List<BudgetResponse> findAllByUserIdAndMonth(Long userId, String month) {
+        List<Budget> byUserIdAndMonth = budgetRepository.findAllByUserIdAndMonth(userId, month);
+        List<BudgetResponse> budgetResponseList = byUserIdAndMonth
+                .stream()
+                .map(element -> modelMapper.map(element, BudgetResponse.class))
+                .toList();
 
+        return budgetResponseList;
+    }
 
     public void deleteByCategoryIdAndUserId(Long id, Long userId) {
         budgetRepository.deleteByCategory_IdAndUser_Id(id, userId);

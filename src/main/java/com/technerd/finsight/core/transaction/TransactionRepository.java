@@ -1,6 +1,5 @@
 package com.technerd.finsight.core.transaction;
 
-import com.technerd.finsight.core.transaction.dto.TransactionResponse;
 import org.jspecify.annotations.NonNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +29,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>,
 
     @Query(value = "Select * from transaction where user_id = :userId limit 10",
     nativeQuery = true)
-    List<Transaction> getLastFiveTransactions(Long userId);
+    List<Transaction> getLastTenTransactions(Long userId);
 
 }

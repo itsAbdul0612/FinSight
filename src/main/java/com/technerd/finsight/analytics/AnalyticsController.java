@@ -3,6 +3,8 @@ package com.technerd.finsight.analytics;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
 import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
+import com.technerd.finsight.core.budget.BudgetService;
+import com.technerd.finsight.core.budget.dto.BudgetResponse;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import com.technerd.finsight.user.User;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +23,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class AnalyticsController {
+
     private final AnalyticsService  analyticsService;
+    private final BudgetService  budgetService;
 
     @GetMapping("/summary")
     public ResponseEntity<BigDecimal> monthlySummary(
@@ -79,6 +83,19 @@ public class AnalyticsController {
 
         List<TopExpenseOfAMonth> topExpenseOfAMonths = analyticsService.topExpensesOfAMonths(userId, month, type, limit);
         return ResponseEntity.ok(topExpenseOfAMonths);
+    }
+
+    @GetMapping("/get/all-budget")
+    public ResponseEntity<List<BudgetResponse>> allBudgets(
+            @RequestParam(required = false) String month
+    ){
+        User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+
+        if (month == null) month = YearMonth.now().toString();
+
+        List<BudgetResponse> budgetResponseList = budgetService.findAllByUserIdAndMonth(userId, month);
+        return ResponseEntity.ok(budgetResponseList);
     }
 
 }

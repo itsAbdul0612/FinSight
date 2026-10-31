@@ -1,7 +1,7 @@
 package com.technerd.finsight.analytics;
 
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import com.technerd.finsight.user.User;
@@ -54,14 +54,14 @@ public class AnalyticsController {
     }
 
     @GetMapping("/trend")
-    public ResponseEntity<List<MonthTrendDto>> sixMonthTrend(@RequestParam(required = false) TransactionType type){
+    public ResponseEntity<List<SixMonthsTrendDto>> sixMonthTrend(@RequestParam(required = false) TransactionType type){
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
 
         if (type == null) type = TransactionType.EXPENSE;
 
-        List<MonthTrendDto> sixMonthsTrend = analyticsService.sixMonthTrend(userId, type);
+        List<SixMonthsTrendDto> sixMonthsTrend = analyticsService.sixMonthTrend(userId, type);
         return ResponseEntity.ok(sixMonthsTrend);
     }
 

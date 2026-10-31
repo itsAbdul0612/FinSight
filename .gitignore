@@ -40,3 +40,10 @@ application.yaml
 application.properties
 
 .gitignore
+
+# Environment
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example

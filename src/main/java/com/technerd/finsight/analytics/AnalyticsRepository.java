@@ -1,7 +1,7 @@
 package com.technerd.finsight.analytics;
 
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.core.transaction.Transaction;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
@@ -53,8 +53,8 @@ public interface AnalyticsRepository extends JpaRepository<Transaction, Long> {
                ORDER BY 1 ASC
             """,
             nativeQuery = true)
-    List<MonthTrendDto> trend(@Param("type") TransactionType type,
-                              @Param("userId") Long userId);
+    List<SixMonthsTrendDto> trend(@Param("type") TransactionType type,
+                                  @Param("userId") Long userId);
 
     @Query(value = """
     SELECT c.name AS categoryName,

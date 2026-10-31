@@ -72,22 +72,22 @@ class TransactionServiceCacheTest {
             return new ConcurrentMapCacheManager("monthly_summary");
         }
 
-        @Bean
-        TransactionService transactionService(
-                TransactionRepository transactionRepository,
-                CategoryService categoryService,
-                BudgetService budgetService,
-                UserSecurityService userSecurityService,
-                ApplicationEventPublisher eventPublisher,
-                ModelMapper modelMapper) {
-            return new TransactionService(
-                    transactionRepository,
-                    categoryService,
-                    budgetService,
-                    userSecurityService,
-                    eventPublisher,
-                    modelMapper);
-        }
+//        @Bean
+//        TransactionService transactionService(
+//                TransactionRepository transactionRepository,
+//                CategoryService categoryService,
+//                BudgetService budgetService,
+//                UserSecurityService userSecurityService,
+//                ApplicationEventPublisher eventPublisher,
+//                ModelMapper modelMapper) {
+//            return new TransactionService(
+//                    transactionRepository,
+//                    categoryService,
+//                    budgetService,
+//                    userSecurityService,
+//                    eventPublisher,
+//                    modelMapper);
+//        }
 
         @Bean
         TransactionRepository transactionRepository() {

@@ -2,14 +2,13 @@ package com.technerd.finsight.notification;
 
 import com.technerd.finsight.analytics.AnalyticsService;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.user.User;
 import com.technerd.finsight.user.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.internal.bytebuddy.build.Plugin;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -18,7 +17,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.time.ZoneId;
 import java.util.List;
@@ -194,7 +192,7 @@ public class MailService {
             Long userId = user.getId();
 
             BigDecimal monthlySummary = analyticsService.monthlySummary(userId, EXPENSE, REPORT_MONTH);
-            List<MonthTrendDto> sixMonthsTrend = analyticsService.sixMonthTrend(userId, EXPENSE);
+            List<SixMonthsTrendDto> sixMonthsTrend = analyticsService.sixMonthTrend(userId, EXPENSE);
             List<CategorySpendDto> totalMonthlySpendingOfACategory = analyticsService.totalMonthlySpendingOfACategory(userId, EXPENSE, REPORT_MONTH);
             List<TopExpenseOfAMonth> topExpense5OfAMonths = analyticsService.topExpensesOfAMonths(userId, REPORT_MONTH, EXPENSE, 5);
 

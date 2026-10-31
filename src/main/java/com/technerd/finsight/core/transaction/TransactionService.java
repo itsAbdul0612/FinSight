@@ -1,5 +1,6 @@
 package com.technerd.finsight.core.transaction;
 
+import com.technerd.finsight.ai.contextbuilder.FinanceContextCacheService;
 import com.technerd.finsight.core.budget.Budget;
 import com.technerd.finsight.core.budget.BudgetService;
 import com.technerd.finsight.core.category.Category;
@@ -16,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static com.technerd.finsight.core.transaction.enums.TransactionType.EXPENSE;
@@ -40,6 +41,8 @@ public class TransactionService {
     private final CategoryService categoryService;
     private final BudgetService budgetService;
     private final UserSecurityService userSecurityService;
+
+    private final FinanceContextCacheService financeContextCacheService;
 
     private final ApplicationEventPublisher eventPublisher;
     private final ModelMapper modelMapper;
@@ -106,6 +109,15 @@ public class TransactionService {
         userSecurityService.save(user);
 
         Transaction transaction = transactionRepository.save(newTransaction);
+
+        try {
+
+        financeContextCacheService.invalidateFinanceContextCache(userId);
+        log.info("Finance context cache cleared for user: {}", userId);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while clearing finance context cache for user {}", userId, e);
+        }
 
         log.info("New transaction created. TransactionId: {}", newTransaction.getId());
         return transaction;
@@ -192,4 +204,17 @@ public class TransactionService {
         log.info("Transaction soft deleted. TransactionId: {}", transactionId);
     }
     // -----------------------------------------------------------------------------------------------
+
+    // -----------------------------------------------------------------------------------------------
+    public List<TransactionResponse> lastFiveResponse(Long userId){
+        List<Transaction> lastFiveTransactions = transactionRepository.getLastFiveTransactions(userId);
+        if (lastFiveTransactions == null || lastFiveTransactions.isEmpty()) {
+            throw new NoSuchElementException("Could not find the last 5 transactions.");
+        }
+
+        return lastFiveTransactions
+                .stream()
+                .map(element -> modelMapper.map(element, TransactionResponse.class))
+                .toList();
+    }
 }

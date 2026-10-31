@@ -80,7 +80,7 @@
 
 ## 🤖 AI Features
 
-- [ ]  Configure Spring AI + Groq (Llama 3)
+- [x]  Configure Spring AI + Groq (Qwen 3.x)
 - [ ]  Context builder service — bundles last 5 transactions, budget status, monthly summary per request
 - [ ]  POST /ai/chat — natural language input, AI may call tools to log transactions or fetch data
 - [ ]  AI tool: addTransaction()

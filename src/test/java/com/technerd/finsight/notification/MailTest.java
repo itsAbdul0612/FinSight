@@ -2,7 +2,7 @@ package com.technerd.finsight.notification;
 
 import com.technerd.finsight.analytics.AnalyticsService;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.user.User;
 import com.technerd.finsight.user.UserRepository;
@@ -170,7 +170,7 @@ public class MailTest {
                 .build();
 
         BigDecimal monthlySummary = BigDecimal.valueOf(15000);
-        List<MonthTrendDto> sixMonthsTrend = List.of(new MonthTrendDto("2026-09", BigDecimal.valueOf(12000)));
+        List<SixMonthsTrendDto> sixMonthsTrend = List.of(new SixMonthsTrendDto("2026-09", BigDecimal.valueOf(12000)));
         List<CategorySpendDto> categorySpend = List.of(new CategorySpendDto("Groceries", BigDecimal.valueOf(5000)));
         TopExpenseOfAMonth topExpense = mock(TopExpenseOfAMonth.class);
         when(topExpense.getCategoryName()).thenReturn("Rent");

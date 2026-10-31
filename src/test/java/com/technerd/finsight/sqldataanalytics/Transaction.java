@@ -2,7 +2,7 @@ package com.technerd.finsight.sqldataanalytics;
 
 import com.technerd.finsight.analytics.AnalyticsRepository;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,7 +54,7 @@ public class Transaction {
     @Test
     @DisplayName("Should retrieve six month expense trend")
     void sixMonthTrend() {
-        List<MonthTrendDto> trendList = analyticsRepository.trend(EXPENSE, 1L);
+        List<SixMonthsTrendDto> trendList = analyticsRepository.trend(EXPENSE, 1L);
 
         assertThat(trendList)
                 .as("Six month trend list should not be null or empty")

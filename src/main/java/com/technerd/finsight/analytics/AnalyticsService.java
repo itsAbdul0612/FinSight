@@ -1,7 +1,7 @@
 package com.technerd.finsight.analytics;
 
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
-import com.technerd.finsight.analytics.dto.MonthTrendDto;
+import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class AnalyticsService {
        return analyticsRepository.totalMonthlySpendingByMonthAndCategory(userId, type, month);
     }
 
-    public List<MonthTrendDto> sixMonthTrend(Long userId, TransactionType type){
+    public List<SixMonthsTrendDto> sixMonthTrend(Long userId, TransactionType type){
         return analyticsRepository.trend(type, userId);
     }
 

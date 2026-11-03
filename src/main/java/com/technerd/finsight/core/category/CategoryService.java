@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -35,13 +36,13 @@ public class CategoryService {
 // Create.
     // -----------------------------------------------------------------------------------------------
     @Transactional
-    @CacheEvict(cacheNames = "all_budget", key = "#user.id")
+    @CacheEvict(cacheNames = "all-budget", key = "#user.id")
     public CategoryCreateDto createCategory(CategoryCreateDto categoryDto, User user) {
 
         String name = categoryDto.getName();
         Long id = user.getId();
 
-        Category byName = categoryRepository.findByNameAndUserId(name, id);
+        Category byName = categoryRepository.findByNameIgnoreCaseAndUserId(name, id);
 
         if (byName != null) {
             throw new RuntimeException("Category with this name already exists");
@@ -75,16 +76,32 @@ public class CategoryService {
          categoryDto.setId(savedCategory.getId());
          return categoryDto;
     }
+    // -----------------------------------------------------------------------------------------------
 
+    // Tools:
+    // -----------------------------------------------------------------------------------------------
     public Category findByIdAndUserId(Long id, Long userId) {
         return categoryRepository
                 .findByIdAndUserId(id, userId);
+    }
+
+    public CategoryResponseDto findByNameIgnoreCaseAndUserId(String name, Long userId) {
+        if (categoryRepository.findByNameIgnoreCaseAndUserId(name, userId) != null) {
+            Category category = categoryRepository.findByNameIgnoreCaseAndUserId(name, userId);
+            return modelMapper.map(category, CategoryResponseDto.class);
+        }
+        log.error("Categories for userId {} not found", userId);
+        throw new EntityNotFoundException();
     }
     // -----------------------------------------------------------------------------------------------
 
 
     // Get All.
     // -----------------------------------------------------------------------------------------------
+
+    // This hurt me a lot.
+
+    @Cacheable(cacheNames = "all-categories", key = "#userId")
     public List<CategoryResponseDto> findAllByUserId(Long userId) {
 
         List<Category> categoryList = categoryRepository.findAllByUserId(userId);

@@ -82,9 +82,9 @@
 ## 🤖 AI Features
 
 - [x]  Configure Spring AI + Groq (Qwen 3.x)
-- [ ]  Context builder service — bundles last 5 transactions, budget status, monthly summary per request
-- [ ]  POST /ai/chat — natural language input, AI may call tools to log transactions or fetch data
-- [ ]  AI tool: addTransaction()
+- [X]  Context builder service — bundles last 5 transactions, budget status, monthly summary per request
+- [X]  POST /ai/chat — natural language input, AI may call tools to log transactions or fetch data
+- [x]  AI tool: addTransaction()
 - [ ]  AI tool: getCurrentBudgets()
 - [ ]  AI tool: getMonthlySummary()
 - [ ]  AI tool: getRecentTransactions()

@@ -28,27 +28,23 @@ public class FinanceContextBuilderService {
     private final BudgetService budgetService;
 
     @Caching(evict = {
-            @CacheEvict(cacheNames = "all_budget", key = "#userId"),
-            @CacheEvict(cacheNames = "monthly_summary", key = "#userId")
+            @CacheEvict(cacheNames = "all-budget", key = "#userId"),
+            @CacheEvict(cacheNames = "monthly-summary", key = "#userId")
     })
-    @Cacheable(cacheNames = "finance_context", key = "#userId")
+    @Cacheable(cacheNames = "finance-context", key = "#userId")
     public FinanceContextBuilderDto createFinanceContext(Long userId){
 
         List<TransactionResponse> lastTenTransactions = transactionService.lastTenResponse(userId);
         BigDecimal monthlySummary = analyticsService.monthlySummary(userId, EXPENSE, YearMonth.now().toString());
         List<BudgetResponse> allBudget = budgetService.findAllByUserIdAndMonth(userId, YearMonth.now().toString());
-        List<BudgetResponse> currentMonthBudget = budgetService.findAllByUserIdAndMonth(
-                userId,
-                YearMonth.now().toString()
-        );
+
+        FinanceContextBuilderDto financeContextBuilderDto = new FinanceContextBuilderDto();
+        financeContextBuilderDto.setLastTenTransactions(lastTenTransactions);
+        financeContextBuilderDto.setMonthlySummary(monthlySummary);
+        financeContextBuilderDto.setAllBudget(allBudget);
 
         log.info("Created finance context for user: {}", userId);
-        return FinanceContextBuilderDto.builder()
-                .lastTenTransactions(lastTenTransactions)
-                .monthlySummary(monthlySummary)
-                .allBudget(allBudget)
-                .budgets(currentMonthBudget)
-                .build();
+        return financeContextBuilderDto;
     }
 
 

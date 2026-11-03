@@ -51,8 +51,8 @@ public class TransactionService {
     // Create a transaction.
     // -----------------------------------------------------------------------------------------------
     @Caching(evict = {
-            @CacheEvict(cacheNames = "all_budget", key = "#user.id"),
-            @CacheEvict(cacheNames = "monthly_summary", key = "#user.id")
+            @CacheEvict(cacheNames = "all-budget", key = "#user.id"),
+            @CacheEvict(cacheNames = "monthly-summary", key = "#user.id")
     })
     @Transactional
     public Transaction createTransaction(TransactionDto transactionDto, User user) {

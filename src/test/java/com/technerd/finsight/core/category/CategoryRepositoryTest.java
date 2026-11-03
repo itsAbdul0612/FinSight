@@ -13,7 +13,7 @@ class CategoryRepositoryTest {
     private CategoryRepository categoryRepository;
 
     @Test
-    void findByNameAndUserId_whenUserIdIsValid_thenReturnCategory() {
+    void findByNameAndUserId_whenUserIdIgnoreCaseIsValid_thenReturnCategory() {
         Category category = new Category();
         category.setId(10230L);
         category.setName("Test Category");

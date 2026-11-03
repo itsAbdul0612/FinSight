@@ -31,7 +31,7 @@ public class BudgetService {
         return budgetRepository.findByUser_IdAndCategory_IdAndMonth(userId, categoryId, month);
     }
 
-    @Cacheable(cacheNames = "all_budget", key = "#userId")
+    @Cacheable(cacheNames = "all-budget", key = "#userId")
     public List<BudgetResponse> findAllByUserIdAndMonth(Long userId, String month) {
         List<Budget> byUserIdAndMonth = budgetRepository.findAllByUserIdAndMonth(userId, month);
         List<BudgetResponse> budgetResponseList = byUserIdAndMonth

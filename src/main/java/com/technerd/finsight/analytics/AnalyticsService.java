@@ -22,7 +22,7 @@ public class AnalyticsService {
     private final AnalyticsRepository analyticsRepository;
     private final BudgetService budgetService;
 
-    @Cacheable(cacheNames = "monthly_summary", key = "#userId")
+    @Cacheable(cacheNames = "monthly-summary", key = "#userId")
     public BigDecimal monthlySummary(Long userId, TransactionType type, String month) {
     return analyticsRepository.monthlySummary(userId, type.toString(), month);
     }

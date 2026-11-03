@@ -18,15 +18,6 @@ public class AiController {
 
     @PostMapping("/chat")
     public String chat(@RequestBody String message) {
-
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long userId = user.getId();
-
-        try {
-        financeContextBuilderService.createFinanceContext(userId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return aiService.chat(message);
     }
 }

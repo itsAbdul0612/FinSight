@@ -1,6 +1,5 @@
 package com.technerd.finsight.core.transaction;
 
-import com.technerd.finsight.ai.contextbuilder.FinanceContextCacheService;
 import com.technerd.finsight.core.budget.Budget;
 import com.technerd.finsight.core.budget.BudgetService;
 import com.technerd.finsight.core.category.Category;
@@ -43,8 +42,6 @@ public class TransactionService {
     private final BudgetService budgetService;
     private final UserSecurityService userSecurityService;
 
-    private final FinanceContextCacheService financeContextCacheService;
-
     private final ApplicationEventPublisher eventPublisher;
     private final ModelMapper modelMapper;
 
@@ -52,7 +49,7 @@ public class TransactionService {
     // -----------------------------------------------------------------------------------------------
     @Caching(evict = {
             @CacheEvict(cacheNames = "all-budget", key = "#user.id"),
-            @CacheEvict(cacheNames = "monthly-summary", key = "#user.id")
+            @CacheEvict(cacheNames = "monthly-summary", key = "#user.id"),
     })
     @Transactional
     public Transaction createTransaction(TransactionDto transactionDto, User user) {
@@ -106,22 +103,13 @@ public class TransactionService {
                 ));
             }
             user.setTotalBalance(user.getTotalBalance().subtract(transactionDto.getAmount()));
-            budgetService.save(budget);
+            budgetService.save(budget, userId);
         } else {
             user.setTotalBalance(user.getTotalBalance().add(transactionDto.getAmount()));
         }
         userSecurityService.save(user);
 
         Transaction transaction = transactionRepository.save(newTransaction);
-
-        try {
-
-        financeContextCacheService.invalidateFinanceContextCache(userId);
-        log.info("Finance context cache cleared for user: {}", userId);
-
-        } catch (Exception e) {
-            log.error("Exception occurred while clearing finance context cache for user {}", userId, e);
-        }
 
         log.info("New transaction created. TransactionId: {}", newTransaction.getId());
         return transaction;
@@ -194,7 +182,7 @@ public class TransactionService {
             if (budget.getSpentAmount().compareTo(budget.getAllocatedAmount()) < 0) {
                 budget.setIsBreached(false);
             }
-            budgetService.save(budget);
+            budgetService.save(budget, userId);
             user.setTotalBalance(user.getTotalBalance().add(transactionToBeDeleted.getAmount()));
             userSecurityService.save(user);
         } else {

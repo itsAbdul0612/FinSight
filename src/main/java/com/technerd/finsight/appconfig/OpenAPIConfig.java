@@ -13,7 +13,7 @@ public class OpenAPIConfig {
         return new OpenAPI().info(new Info()
                 .title("FinSight")
                 .version("1.0")
-                .description("An AI powered personal finance management dashboard."));
+                .description("An AI powered personal finance management app."));
     }
 
 }

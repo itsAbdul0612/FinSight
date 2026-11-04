@@ -1,7 +1,5 @@
 package com.technerd.finsight.appconfig;
 
-import com.technerd.finsight.ai.contextbuilder.FinanceContextBuilderDto;
-
 import com.technerd.finsight.core.budget.dto.BudgetResponse;
 import com.technerd.finsight.core.category.dto.CategoryResponseDto;
 
@@ -56,7 +54,7 @@ public class CacheConfig {
                 .defaultCacheConfig()
                 .prefixCacheNameWith("redis-cache-")
                 .entryTtl(Duration.ofMinutes(10))
-                .enableTimeToIdle()
+//                .enableTimeToIdle()
                 .serializeKeysWith(RedisSerializationContext.SerializationPair
                         .fromSerializer(new StringRedisSerializer()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair
@@ -71,21 +69,10 @@ public class CacheConfig {
         var BudgetSerializer = new JacksonJsonRedisSerializer<List<BudgetResponse>>(budgetListType);
 
         RedisCacheConfiguration budgetStatusConfig = defaultConfig
-                .enableTimeToIdle()
                 .entryTtl(Duration.ofMinutes(30))
                 .serializeValuesWith(RedisSerializationContext
                         .SerializationPair.fromSerializer(BudgetSerializer));
-        // -----------------------------------------------------------------------------------------------
-
-        // -----------------------------------------------------------------------------------------------
-        var FinanceContextSerializer = new JacksonJsonRedisSerializer<FinanceContextBuilderDto>(FinanceContextBuilderDto.class);
-
-        RedisCacheConfiguration financeContext = defaultConfig
-                .enableTimeToIdle()
-                .entryTtl(Duration.ofMinutes(30))
-                .serializeValuesWith(RedisSerializationContext
-                        .SerializationPair.fromSerializer(FinanceContextSerializer));
-        // -----------------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------------
 
         // -----------------------------------------------------------------------------------------------
         JavaType categoryListType = objectMapper
@@ -96,7 +83,6 @@ public class CacheConfig {
 
         RedisCacheConfiguration allCategories = defaultConfig
                 .entryTtl(Duration.ofMinutes(30))
-                .enableTimeToIdle()
                 .serializeValuesWith(RedisSerializationContext
                         .SerializationPair.fromSerializer(CategorySerializer));
         // -----------------------------------------------------------------------------------------------
@@ -107,7 +93,6 @@ public class CacheConfig {
                 .withInitialCacheConfigurations(
                         Map.of(
                                 "all-budget", budgetStatusConfig,
-                                "finance-context", financeContext,
                                 "all-categories", allCategories)
                 )
                 .build();

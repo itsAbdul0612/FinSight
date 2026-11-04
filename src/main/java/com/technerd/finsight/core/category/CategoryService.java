@@ -69,7 +69,7 @@ public class CategoryService {
                 .user(user)
                 .build();
 
-         budgetService.save(budget);
+         budgetService.save(budget, user.getId());
 
          log.info("New Category created. CategoryId: {}", category.getId());
 
@@ -196,7 +196,7 @@ public class CategoryService {
                                 .user(lastMonthBudget.getUser())
                                 .build();
 
-                        budgetService.save(budget);
+                        budgetService.save(budget, user.getId());
                     }
 
                 }

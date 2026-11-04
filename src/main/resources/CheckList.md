@@ -75,23 +75,24 @@
 ## ⚡ Redis Caching
 
 - [x]  Add Upstash Redis to project
-- [x]  Pattern 1 — Manual eviction: monthly_summary:{userId}:{month} — evict on new transaction
-- [x]  Pattern 2 — all_budget 30min TTL
+- [x]  Pattern — Manual eviction
+- [x]  Pattern —
+
 ---
 
 ## 🤖 AI Features
 
-- [x]  Configure Spring AI + Groq (Qwen 3.x)
-- [X]  Context builder service — bundles last 5 transactions, budget status, monthly summary per request
-- [X]  POST /ai/chat — natural language input, AI may call tools to log transactions or fetch data
+- [x]  Configure Spring AI + Groq (Llama 3)
+- [x]  Context builder service — bundles last 5 transactions, budget status, monthly summary per request
+- [x]  POST /ai/chat — natural language input, AI may call tools to log transactions or fetch data
+- [x]  Have conversational memory for a limited time.
 - [x]  AI tool: addTransaction()
-- [ ]  AI tool: getCurrentBudgets()
-- [ ]  AI tool: getMonthlySummary()
-- [ ]  AI tool: getRecentTransactions()
-- [ ]  AI tool: getSpendingByCategory()
-- [ ]  GET /ai/history — paginated conversation history
-- [ ]  POST /ai/finance-plan — AI recommends slot allocations based on income + EMIs
-- [ ]  POST /ai/monthly-insight — AI generates insight paragraph for a given month
+- [x]  AI tool: getBudgets() (gets you a list of budget of current month or specified month)
+- [x]  AI tool: getMonthlySummary()
+- [x]  AI tool: getRecentTransactions()
+- [x]  AI tool: getSpendingByCategory()
+- [x]  POST /ai/finance-plan — AI recommends slot allocations based on income + EMIs
+- [x]  POST /ai/monthly-insight — AI generates insight paragraph for a given month
 - [ ]  Wire monthly AI insight into monthly report email
 
 ---
@@ -100,7 +101,6 @@
 
 - [x]  GET /admin/users — all users (ADMIN role only)
 - [x]  PATCH /admin/users/{id}/deactivate — soft deactivate a user
-- [ ]  GET /admin/stats — platform stats (total users, total transactions, etc.)
 
 ---
 

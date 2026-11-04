@@ -5,6 +5,7 @@ import com.technerd.finsight.core.budget.dto.BudgetUpdateDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,8 @@ public class BudgetService {
     private final BudgetRepository budgetRepository;
     private final ModelMapper modelMapper;
 
-    public Budget save(Budget budget) {
+    @CacheEvict(cacheNames = "all-budget", key = "#userId")
+    public Budget save(Budget budget, Long userId) {
         return budgetRepository.save(budget);
     }
 
@@ -42,10 +44,12 @@ public class BudgetService {
         return budgetResponseList;
     }
 
+    @CacheEvict(cacheNames = "all-budget", key = "#userId")
     public void deleteByCategoryIdAndUserId(Long id, Long userId) {
         budgetRepository.deleteByCategory_IdAndUser_Id(id, userId);
     }
 
+//    @CacheEvict(cacheNames = "all-budget", key = "#userId")
     public BudgetResponse updateAllocatedAmount(BudgetUpdateDto newBudget, Long id) {
 
         Budget existingBudget = budgetRepository.findById(id)

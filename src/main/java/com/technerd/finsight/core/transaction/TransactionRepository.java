@@ -27,7 +27,13 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>,
     @EntityGraph(value = "Transaction.category")
     Page<Transaction> findAll(@NonNull Specification<Transaction> specs, @NonNull Pageable pageable);
 
-    @Query(value = "Select * from transaction where user_id = :userId limit 10",
+    @Query(value = """
+            SELECT * FROM transaction
+            WHERE user_id = :userId
+            AND is_deleted = false
+            ORDER BY transaction_date DESC
+            LIMIT 10
+            """,
     nativeQuery = true)
     List<Transaction> getLastTenTransactions(Long userId);
 

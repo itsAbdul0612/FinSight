@@ -46,7 +46,7 @@ public class ExampleCategoryCreator {
                 .user(user)
                 .build();
 
-        budgetService.save(budget);
+        budgetService.save(budget, user.getId());
 
         log.info("New Example Category created. CategoryId: {}", category.getId());
 

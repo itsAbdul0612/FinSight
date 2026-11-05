@@ -46,4 +46,13 @@ FinSight is a personal finance management **REST API** built with Spring Boot. I
 | Email | Spring Mail |
 | Build and tests | Maven, JUnit, H2, Testcontainers |
 
-## ⚠️ Deployment Coming Soon
+## 🚀 Deployment
+
+FinSight's backend is deployed on Railway and is built from this repository with Java and Maven—no Dockerfile is required.
+
+- **API base URL:** [https://finsight-production-7c41.up.railway.app](https://finsight-production-7c41.up.railway.app)
+- **Interactive API docs:** [Swagger UI](https://finsight-production-7c41.up.railway.app/swagger-ui/index.html)
+- **OpenAPI definition:** [API docs JSON](https://finsight-production-7c41.up.railway.app/v3/api-docs)
+- **Railway project dashboard:** [FinSight project](https://railway.com/project/47123f4f-9462-4264-85ce-30b4109e3dc8?environmentId=858ac6c5-0c59-4ae4-a3a6-93eae73094af)
+
+The root URL may return `401 Unauthorized`; protected API routes require authentication. Use Swagger UI to explore the API. Swagger documents the endpoints and lets you send requests, but it is not a user-facing finance dashboard.

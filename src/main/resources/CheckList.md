@@ -93,7 +93,7 @@
 - [x]  AI tool: getSpendingByCategory()
 - [x]  POST /ai/finance-plan — AI recommends slot allocations based on income + EMIs
 - [x]  POST /ai/monthly-insight — AI generates insight paragraph for a given month
-- [ ]  Wire monthly AI insight into monthly report email
+- [x]  Wire monthly AI insight into monthly report email
 
 ---
 

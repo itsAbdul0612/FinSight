@@ -1,5 +1,6 @@
 package com.technerd.finsight.notification;
 
+import com.technerd.finsight.ai.AiService;
 import com.technerd.finsight.analytics.AnalyticsService;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
 import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
@@ -9,12 +10,14 @@ import com.technerd.finsight.user.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.stringtemplate.v4.ST;
 
 import java.math.BigDecimal;
 import java.time.YearMonth;
@@ -24,6 +27,7 @@ import java.util.stream.Collectors;
 
 import static com.technerd.finsight.core.transaction.enums.TransactionType.EXPENSE;
 
+@Slf4j
 @Async
 @RequiredArgsConstructor
 @Service
@@ -31,6 +35,7 @@ public class MailService {
 
     private final JavaMailSender mailSender;
     private final AnalyticsService analyticsService;
+    private final AiService  aiService;
     private final UserRepository userRepository;
 
     public void sendWelcomeEmail(String to, String name) {
@@ -186,6 +191,8 @@ public class MailService {
         String REPORT_MONTH = YearMonth.now(zoneId).minusMonths(1).toString();
 
         // All users with isActive = True.
+
+        log.info("Started generating monthly report");
         List<User> users = userRepository.finaAllActiveUsers();
 
         for (User user : users) {
@@ -194,13 +201,13 @@ public class MailService {
             BigDecimal monthlySummary = analyticsService.monthlySummary(userId, EXPENSE, REPORT_MONTH);
             List<SixMonthsTrendDto> sixMonthsTrend = analyticsService.sixMonthTrend(userId, EXPENSE);
             List<CategorySpendDto> totalMonthlySpendingOfACategory = analyticsService.totalMonthlySpendingOfACategory(userId, EXPENSE, REPORT_MONTH);
-            List<TopExpenseOfAMonth> topExpense5OfAMonths = analyticsService.topExpensesOfAMonths(userId, REPORT_MONTH, EXPENSE, 5);
+            List<TopExpenseOfAMonth> topFiveExpenseOfAMonths = analyticsService.topExpensesOfAMonths(userId, REPORT_MONTH, EXPENSE, 5);
 
             String categoryBreakdown = totalMonthlySpendingOfACategory.stream()
                     .map(c -> "  • " + c.categoryName() + ": ₹" + c.spendAmount())
                     .collect(Collectors.joining("\n"));
 
-            String topExpenses = topExpense5OfAMonths.stream()
+            String topExpenses = topFiveExpenseOfAMonths.stream()
                     .map(t -> "  • " + t.getCategoryName() + ": ₹" + t.getTotalSpent())
                     .collect(Collectors.joining("\n"));
 
@@ -208,39 +215,40 @@ public class MailService {
                     .map(m -> "  • " + m.month() + ": ₹" + m.amountSpent())
                     .collect(Collectors.joining("\n"));
 
-
-            SimpleMailMessage mailMessage = new SimpleMailMessage();
-
-            mailMessage.setTo(user.getEmail());
-            mailMessage.setSubject("Monthly Finance Report");
-            mailMessage.setText("""
-                    Hi %s,
+            String financeContext = """
+                    user's name: %s,
                     
-                    Here is your monthly expense report for %s.
+                    Here is user's monthly expense report for %s.
                     
                     Total expenses this month: ₹%s
                     
                     Spending by category:
                     %s
                     
-                    Your top 5 expense categories:
+                    user's top 5 expense categories:
                     %s
                     
                     Six-month spending trend:
                     %s
-                    
-                    Keep tracking your spending—small insights can make a big difference.
                     
                     Regards,
                     FinSight
                     """.formatted(
                     user.getName(),
                     REPORT_MONTH,
-                    topExpenses,
+                    monthlySummary,
                     categoryBreakdown,
-                    trend,
-                    sixMonthsTrend
-            ));
+                    topExpenses,
+                    trend
+            );
+
+            String aiGeneratedInsight = aiService.monthlyAiInsight(financeContext);
+
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+
+            mailMessage.setTo(user.getEmail());
+            mailMessage.setSubject("Monthly Finance Report");
+            mailMessage.setText(aiGeneratedInsight);
             mailSender.send(mailMessage);
 
         }

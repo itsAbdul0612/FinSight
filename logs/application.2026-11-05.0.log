@@ -1,0 +1,1135 @@
+2026-11-05 12:00:50 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:00:50 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 17677 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:00:50 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:00:50 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 111 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:00:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:00:53 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:00:53 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:00:53 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:00:53 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:00:53 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 2117 ms
+2026-11-05 12:00:53 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:00:53 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:00:53 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:00:53 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:00:53 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6413eeb7
+2026-11-05 12:00:53 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:00:53 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:00:54 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:00:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:00:54 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:00:55 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:00:55 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:00:57 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:00:57 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:00:57 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:00:57 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:00:57 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:00:57 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:00:57 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:00:59 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:00:59 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:00:59 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:00:59 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:00:59 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:00:59 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:00:59 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 8.624 seconds (process running for 9.026)
+2026-11-05 12:00:59 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:00:59 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:04:00 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:04:00 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:04:00 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:04:00 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:04:00 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:04:00 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:04:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:04:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:04:00 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:04:00 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:04:03 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:04:03 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 18813 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:04:03 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:04:03 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 117 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:04:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:04:05 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:04:05 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:04:05 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:04:05 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:04:05 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 2050 ms
+2026-11-05 12:04:05 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:04:05 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:04:06 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:04:06 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:04:06 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@34a99d8
+2026-11-05 12:04:06 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:04:06 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:04:07 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:04:07 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:04:07 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:04:07 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:04:07 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:04:09 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:04:09 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:04:09 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:04:09 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:04:09 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:04:09 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:04:09 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:04:10 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:04:10 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:04:10 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:04:10 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:04:10 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:04:10 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:04:10 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 8.002 seconds (process running for 8.412)
+2026-11-05 12:04:10 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:04:10 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:04:19 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:04:19 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:04:19 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:04:19 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:04:19 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:04:19 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:04:19 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:04:19 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:04:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:04:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:05:09 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:05:09 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 19440 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:05:09 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:05:09 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 100 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:05:11 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:05:11 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:05:11 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:05:11 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:05:11 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1784 ms
+2026-11-05 12:05:11 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:05:11 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:05:11 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:05:12 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:05:12 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@34a99d8
+2026-11-05 12:05:12 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:05:12 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:05:13 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:05:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:05:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:05:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:05:13 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:05:15 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:05:15 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:05:15 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:05:15 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:05:15 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:05:16 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:05:16 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:05:16 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:05:16 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:05:16 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:05:16 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:05:16 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:05:16 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:05:16 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 7.426 seconds (process running for 7.777)
+2026-11-05 12:05:16 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:05:16 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:05:20 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:05:20 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:05:20 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:05:20 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:05:20 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:05:20 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:05:20 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:05:20 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:05:20 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:05:20 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:05:23 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:05:23 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 19647 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:05:23 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:05:23 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 102 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:05:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:05:25 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:05:25 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:05:25 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:05:25 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:05:25 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1645 ms
+2026-11-05 12:05:25 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:05:25 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:05:25 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:05:25 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:05:25 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@34a99d8
+2026-11-05 12:05:25 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:05:25 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:05:26 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:05:26 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:05:26 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:05:26 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:05:27 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:05:28 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:05:28 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:05:28 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:05:28 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:05:28 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:05:28 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:05:28 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:05:29 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:05:29 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:05:29 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:05:29 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:05:29 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:05:29 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:05:29 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 6.51 seconds (process running for 6.878)
+2026-11-05 12:05:29 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:05:29 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:12:19 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:12:19 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:12:19 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:12:19 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:12:19 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:12:19 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:12:19 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:12:19 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:12:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:12:19 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:12:22 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:12:22 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 20202 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:12:22 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:12:22 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 122 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:12:24 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:12:24 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:12:24 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:12:24 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:12:24 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1787 ms
+2026-11-05 12:12:24 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:12:24 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:12:24 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:12:24 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:12:25 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5cb32140
+2026-11-05 12:12:25 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:12:25 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:12:25 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:12:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:12:25 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:12:26 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:12:26 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:12:29 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:12:29 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:12:29 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:12:29 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:12:29 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:12:29 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:12:29 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:12:30 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:12:30 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:12:30 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:12:30 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:12:30 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:12:30 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:12:30 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 8.356 seconds (process running for 8.729)
+2026-11-05 12:12:30 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:12:30 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:12:36 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:12:36 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:12:36 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:12:36 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:12:36 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:12:36 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:12:36 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:12:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:12:36 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:12:36 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:12:39 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:12:39 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 20437 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:12:39 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:12:39 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 101 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:12:41 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:12:41 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:12:41 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:12:41 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:12:41 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1640 ms
+2026-11-05 12:12:41 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:12:41 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:12:41 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:12:41 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:12:41 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5cb32140
+2026-11-05 12:12:41 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:12:41 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:12:42 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:12:42 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:12:42 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:12:43 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:12:43 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:12:45 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:12:46 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:12:46 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:12:46 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:12:46 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:12:46 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:12:46 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:12:46 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:12:46 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:12:46 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:12:46 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:12:46 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:12:46 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:12:46 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 7.591 seconds (process running for 7.949)
+2026-11-05 12:12:46 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:12:46 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:13:18 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:13:18 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:13:18 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:13:18 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:13:18 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:13:18 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:13:18 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:13:18 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:13:18 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:13:18 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:13:21 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:13:21 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 20685 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:13:21 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:13:21 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 95 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:13:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:13:23 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:13:23 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:13:23 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:13:23 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:13:23 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1587 ms
+2026-11-05 12:13:23 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:13:23 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:13:23 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:13:23 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:13:23 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5cb32140
+2026-11-05 12:13:23 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:13:23 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:13:24 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:13:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:13:24 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:13:24 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:13:24 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:13:26 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:13:26 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:13:26 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:13:26 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:13:26 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:13:26 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:13:26 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:13:27 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:13:27 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:13:27 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:13:27 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:13:27 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:13:27 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:13:27 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 6.695 seconds (process running for 7.034)
+2026-11-05 12:13:27 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:13:27 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:14:00 INFO  c.t.f.n.MailService --- Started generating monthly report
+2026-11-05 12:14:00 DEBUG o.h.SQL --- SELECT * FROM users WHERE is_active = true
+2026-11-05 12:14:00 DEBUG i.l.c.RedisClient --- Trying to get a Redis connection for: rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:14:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Allocating executor io.netty.channel.MultiThreadIoEventLoopGroup
+2026-11-05 12:14:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.channel.MultiThreadIoEventLoopGroup
+2026-11-05 12:14:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Adding reference to io.netty.channel.MultiThreadIoEventLoopGroup@16b719ae, existing ref count 0
+2026-11-05 12:14:00 DEBUG i.l.c.RedisClient --- Resolved SocketAddress huge-reindeer-130938.upstash.io/<unresolved>:6379 using rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:14:00 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, [id: 0x43922024] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Received: 144 bytes, 1 commands in the stack
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:14:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=8.4.0, proto=3, id=1, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Received: 10 bytes, 2 commands in the stack
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Stack contains: 2 commands
+2026-11-05 12:14:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:14:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Received: 136 bytes, 1 commands in the stack
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:14:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.RedisHandshake --- Maintenance events not enabled
+java.util.concurrent.CompletionException: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$BiRelay.tryFire(CompletableFuture.java:1498)
+	at java.base/java.util.concurrent.CompletableFuture$CoCompletion.tryFire(CompletableFuture.java:1219)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at io.lettuce.core.protocol.AsyncCommand.doCompleteExceptionally(AsyncCommand.java:143)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:124)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:115)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:773)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:692)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:611)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1526)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1384)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1435)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:804)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:487)
+	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:349)
+	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:548)
+	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:491)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:151)
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:120)
+	... 26 common frames omitted
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] channelActive()
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] activating endpoint
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] flushCommands()
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] flushCommands() Flushing 0 commands
+2026-11-05 12:14:00 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] channelActive()
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] channelActive() done
+2026-11-05 12:14:00 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379: Success
+2026-11-05 12:14:00 DEBUG i.l.c.RedisChannelHandler --- dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:14:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] write() done
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Received: 3 bytes, 1 commands in the stack
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG o.h.SQL --- SELECT coalesce(sum(transaction.amount), 0.0)
+FROM transaction
+WHERE transaction_type = ?
+AND  user_id = ?
+AND to_char(transaction_date, 'YYYY-MM') = ?
+
+2026-11-05 12:14:01 DEBUG i.l.c.RedisClient --- Trying to get a Redis connection for: rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:14:01 DEBUG i.l.c.RedisClient --- Resolved SocketAddress huge-reindeer-130938.upstash.io/<unresolved>:6379 using rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:14:01 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, [id: 0xd5bd79c1] (inactive), epid=0x2, chid=0x2] channelRegistered()
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Received: 144 bytes, 1 commands in the stack
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=8.4.0, proto=3, id=1, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Received: 10 bytes, 2 commands in the stack
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Stack contains: 2 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Received: 136 bytes, 1 commands in the stack
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.RedisHandshake --- Maintenance events not enabled
+java.util.concurrent.CompletionException: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$BiRelay.tryFire(CompletableFuture.java:1498)
+	at java.base/java.util.concurrent.CompletableFuture$CoCompletion.tryFire(CompletableFuture.java:1219)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at io.lettuce.core.protocol.AsyncCommand.doCompleteExceptionally(AsyncCommand.java:143)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:124)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:115)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:773)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:692)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:611)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1526)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1384)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1435)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:804)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:487)
+	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:349)
+	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:548)
+	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:491)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:151)
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:120)
+	... 26 common frames omitted
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] channelActive()
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] activating endpoint
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] flushCommands()
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] flushCommands() Flushing 0 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] channelActive()
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] channelActive() done
+2026-11-05 12:14:01 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379: Success
+2026-11-05 12:14:01 DEBUG i.l.c.RedisChannelHandler --- dispatching command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] write() writeAndFlush command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] write() done
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] write(ctx, SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379] writing command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:14:01 DEBUG o.h.SQL ---   SELECT TO_CHAR(transaction_date, 'YYYY-MM') AS month, COALESCE(SUM(amount), 0) AS totalSpent
+   FROM transaction
+   WHERE user_id = ?
+   AND transaction_type = 'EXPENSE'
+   AND is_deleted = false
+   AND transaction_date >= NOW() - INTERVAL '6 months'
+   GROUP BY TO_CHAR(transaction_date, 'YYYY-MM')
+   ORDER BY 1 ASC
+
+2026-11-05 12:14:01 DEBUG o.h.SQL --- select c1_0.name,coalesce(sum(t1_0.amount),0) from transaction t1_0 join category c1_0 on c1_0.id=t1_0.category_id where t1_0.user_id=? and t1_0.transaction_type=? and to_char(t1_0.transaction_date,'YYYY-MM')=? and t1_0.is_deleted=false group by c1_0.name
+2026-11-05 12:14:01 DEBUG o.h.SQL --- SELECT c.name AS categoryName,
+COALESCE(SUM(t.amount), 0) AS totalSpent,
+TO_CHAR(t.transaction_date, 'YYYY-MM') AS month
+FROM transaction t
+JOIN category c ON t.category_id = c.id
+WHERE t.user_id = ?
+AND TO_CHAR(t.transaction_date, 'YYYY-MM') = ?
+AND t.transaction_type = ?
+AND t.is_deleted = false
+GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
+ORDER BY totalSpent DESC
+LIMIT ?
+
+2026-11-05 12:14:01 ERROR o.s.a.i.SimpleAsyncUncaughtExceptionHandler --- Unexpected exception occurred invoking async method: public void com.technerd.finsight.notification.MailService.sendMonthlyReport()
+java.lang.IllegalArgumentException: conversationId cannot be null
+	at org.springframework.util.Assert.notNull(Assert.java:182)
+	at org.springframework.ai.chat.client.advisor.api.BaseChatMemoryAdvisor.getConversationId(BaseChatMemoryAdvisor.java:41)
+	at org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor.before(MessageChatMemoryAdvisor.java:75)
+	at org.springframework.ai.chat.client.advisor.api.BaseAdvisor.adviseCall(BaseAdvisor.java:51)
+	at org.springframework.ai.chat.client.advisor.DefaultAroundAdvisorChain.lambda$nextCall$1(DefaultAroundAdvisorChain.java:117)
+	at io.micrometer.observation.Observation.observe(Observation.java:634)
+	at org.springframework.ai.chat.client.advisor.DefaultAroundAdvisorChain.nextCall(DefaultAroundAdvisorChain.java:116)
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.lambda$doGetObservableChatClientResponse$1(DefaultChatClient.java:658)
+	at io.micrometer.observation.Observation.observe(Observation.java:634)
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.doGetObservableChatClientResponse(DefaultChatClient.java:656)
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.doGetObservableChatClientResponse(DefaultChatClient.java:636)
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.content(DefaultChatClient.java:631)
+	at com.technerd.finsight.ai.AiService.monthlyAiInsight(AiService.java:40)
+	at com.technerd.finsight.notification.MailService.sendMonthlyReport(MailService.java:245)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:112)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Received: 5 bytes, 1 commands in the stack
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:14:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:14:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] Completing command SubscriptionCommand [type=SET, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:25:57 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:25:57 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Stopped RedisMessageListenerContainer
+2026-11-05 12:25:57 INFO  o.s.b.t.GracefulShutdown --- Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-05 12:25:57 INFO  o.s.b.t.GracefulShutdown --- Graceful shutdown complete
+2026-11-05 12:25:57 DEBUG i.l.c.RedisChannelHandler --- close()
+2026-11-05 12:25:57 DEBUG i.l.c.RedisChannelHandler --- closeAsync()
+2026-11-05 12:25:57 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] closeAsync()
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] channelInactive()
+2026-11-05 12:25:57 DEBUG i.l.c.RedisChannelHandler --- close()
+2026-11-05 12:25:57 DEBUG i.l.c.RedisChannelHandler --- closeAsync()
+2026-11-05 12:25:57 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] closeAsync()
+2026-11-05 12:25:57 DEBUG i.l.c.AbstractRedisClient --- Initiate shutdown (0, 100, MILLISECONDS)
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] channelInactive()
+2026-11-05 12:25:57 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1] deactivating endpoint handler
+2026-11-05 12:25:57 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2] deactivating endpoint handler
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] channelInactive() done
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] channelInactive() done
+2026-11-05 12:25:57 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] channelInactive()
+2026-11-05 12:25:57 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] channelInactive()
+2026-11-05 12:25:57 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] Reconnect scheduling disabled
+2026-11-05 12:25:57 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, last known addr=huge-reindeer-130938.upstash.io/13.204.54.36:6379] Reconnect scheduling disabled
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0x9fd37af9, /172.23.155.88:48762 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x1, chid=0x1] channelUnregistered()
+2026-11-05 12:25:57 DEBUG i.l.c.p.CommandHandler --- [channel=0xa25101e9, /172.23.155.88:33230 -> huge-reindeer-130938.upstash.io/13.204.54.36:6379, epid=0x2, chid=0x2] channelUnregistered()
+2026-11-05 12:25:57 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Release executor io.netty.channel.MultiThreadIoEventLoopGroup@16b719ae
+2026-11-05 12:25:57 DEBUG i.l.c.r.DefaultClientResources --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:25:57 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Initiate shutdown (0, 2, SECONDS)
+2026-11-05 12:25:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:25:57 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown initiated...
+2026-11-05 12:25:57 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Shutdown completed.
+2026-11-05 12:26:00 INFO  o.h.v.i.u.Version --- HV000001: Hibernate Validator 9.1.3.Final
+2026-11-05 12:26:00 INFO  c.t.f.FinsightApplication --- Starting FinsightApplication using Java 21.0.13.0.2 with PID 21855 (/home/abdul-rahman/Project/finsight/target/classes started by abdul-rahman in /home/abdul-rahman/Project/finsight)
+2026-11-05 12:26:00 DEBUG c.t.f.FinsightApplication --- Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-11-05 12:26:00 INFO  c.t.f.FinsightApplication --- No active profile set, falling back to 1 default profile: "default"
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 99 ms. Found 6 JPA repository interfaces.
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.analytics.AnalyticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.budget.BudgetRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.category.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.core.transaction.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.security.repository.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport --- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.technerd.finsight.user.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-11-05 12:26:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate --- Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2026-11-05 12:26:02 INFO  o.s.b.t.TomcatWebServer --- Tomcat initialized with port 8080 (http)
+2026-11-05 12:26:02 INFO  o.a.c.h.Http11NioProtocol --- Initializing ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:26:02 INFO  o.a.c.c.StandardService --- Starting service [Tomcat]
+2026-11-05 12:26:02 INFO  o.a.c.c.StandardEngine --- Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-05 12:26:02 INFO  o.s.b.w.c.s.WebApplicationContextInitializer --- Root WebApplicationContext: initialization completed in 1664 ms
+2026-11-05 12:26:02 INFO  o.h.o.jpa --- HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-05 12:26:02 INFO  o.h.o.core --- HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-05 12:26:02 INFO  o.s.o.j.p.SpringPersistenceUnitInfo --- No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05 12:26:02 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Starting...
+2026-11-05 12:26:02 INFO  c.z.h.p.HikariPool --- HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5cb32140
+2026-11-05 12:26:02 INFO  c.z.h.HikariDataSource --- HikariPool-1 - Start completed.
+2026-11-05 12:26:02 INFO  o.h.o.c.pooling --- HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: finsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-05 12:26:03 INFO  o.h.o.core --- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05 12:26:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean --- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05 12:26:03 INFO  o.s.d.j.r.q.QueryEnhancerFactories --- Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-05 12:26:04 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration --- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-05 12:26:04 DEBUG c.t.f.s.f.JwtAuthFilter --- Filter 'jwtAuthFilter' configured for use
+2026-11-05 12:26:06 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer --- Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2026-11-05 12:26:06 DEBUG i.l.c.r.EpollProvider --- Starting with epoll library
+2026-11-05 12:26:06 DEBUG i.l.c.r.IOUringProvider --- Starting without optional io_uring library
+2026-11-05 12:26:06 DEBUG i.l.c.r.DefaultClientResources --- -Dio.netty.eventLoopThreads: 16
+2026-11-05 12:26:06 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-11-05 12:26:06 DEBUG i.l.c.e.j.EventRecorderHolder --- Starting with JFR support
+2026-11-05 12:26:06 DEBUG i.l.c.r.DefaultClientResources --- LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-11-05 12:26:07 INFO  o.a.c.h.Http11NioProtocol --- Starting ProtocolHandler ["http-nio-8080"]
+2026-11-05 12:26:07 INFO  o.s.b.t.TomcatWebServer --- Tomcat started on port 8080 (http) with context path '/'
+2026-11-05 12:26:07 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:26:07 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:26:07 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Starting RedisMessageListenerContainer...
+2026-11-05 12:26:07 DEBUG o.s.d.r.l.RedisMessageListenerContainer --- Postpone listening for Redis messages until actual listeners are added
+2026-11-05 12:26:07 INFO  c.t.f.FinsightApplication --- Started FinsightApplication in 7.277 seconds (process running for 7.649)
+2026-11-05 12:26:07 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-05 12:26:07 WARN  o.s.c.e.SpringDocAppInitializer --- SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-05 12:27:00 INFO  c.t.f.n.MailService --- Started generating monthly report
+2026-11-05 12:27:00 DEBUG o.h.SQL --- SELECT * FROM users WHERE is_active = true
+2026-11-05 12:27:00 DEBUG i.l.c.RedisClient --- Trying to get a Redis connection for: rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:27:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Allocating executor io.netty.channel.MultiThreadIoEventLoopGroup
+2026-11-05 12:27:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Creating executor io.netty.channel.MultiThreadIoEventLoopGroup
+2026-11-05 12:27:00 DEBUG i.l.c.r.DefaultEventLoopGroupProvider --- Adding reference to io.netty.channel.MultiThreadIoEventLoopGroup@2e740ef3, existing ref count 0
+2026-11-05 12:27:00 DEBUG i.l.c.RedisClient --- Resolved SocketAddress huge-reindeer-130938.upstash.io/<unresolved>:6379 using rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:27:00 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, [id: 0x14ee5afe] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 144 bytes, 1 commands in the stack
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=8.4.0, proto=3, id=1, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 10 bytes, 2 commands in the stack
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 2 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 136 bytes, 1 commands in the stack
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.RedisHandshake --- Maintenance events not enabled
+java.util.concurrent.CompletionException: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$BiRelay.tryFire(CompletableFuture.java:1498)
+	at java.base/java.util.concurrent.CompletableFuture$CoCompletion.tryFire(CompletableFuture.java:1219)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at io.lettuce.core.protocol.AsyncCommand.doCompleteExceptionally(AsyncCommand.java:143)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:124)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:115)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:773)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:692)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:611)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1526)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1384)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1435)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:804)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:487)
+	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:349)
+	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:548)
+	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:491)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:151)
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:120)
+	... 26 common frames omitted
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] channelActive()
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] activating endpoint
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] flushCommands()
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] flushCommands() Flushing 0 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, last known addr=huge-reindeer-130938.upstash.io/16.4.93.191:6379] channelActive()
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] channelActive() done
+2026-11-05 12:27:00 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379: Success
+2026-11-05 12:27:00 DEBUG i.l.c.RedisChannelHandler --- dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() done
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 3 bytes, 1 commands in the stack
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:00 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:00 DEBUG o.h.SQL --- SELECT coalesce(sum(transaction.amount), 0.0)
+FROM transaction
+WHERE transaction_type = ?
+AND  user_id = ?
+AND to_char(transaction_date, 'YYYY-MM') = ?
+
+2026-11-05 12:27:00 DEBUG i.l.c.RedisClient --- Trying to get a Redis connection for: rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:27:00 DEBUG i.l.c.RedisClient --- Resolved SocketAddress huge-reindeer-130938.upstash.io/<unresolved>:6379 using rediss://**************************************************************@huge-reindeer-130938.upstash.io:6379
+2026-11-05 12:27:00 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, [id: 0x7d5d60ad] (inactive), epid=0x2, chid=0x2] channelRegistered()
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:00 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 144 bytes, 1 commands in the stack
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=8.4.0, proto=3, id=1, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 10 bytes, 2 commands in the stack
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 2 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, [AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 136 bytes, 1 commands in the stack
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command AsyncCommand [type=CLIENT, output=StatusOutput [output=null, error='ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.RedisHandshake --- Maintenance events not enabled
+java.util.concurrent.CompletionException: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$BiRelay.tryFire(CompletableFuture.java:1498)
+	at java.base/java.util.concurrent.CompletableFuture$CoCompletion.tryFire(CompletableFuture.java:1219)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at io.lettuce.core.protocol.AsyncCommand.doCompleteExceptionally(AsyncCommand.java:143)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:124)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:115)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:773)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:692)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:611)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1526)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1384)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1435)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:804)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:487)
+	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:349)
+	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:548)
+	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:491)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisCommandExecutionException: ERR Command is not available: 'CLIENT MAINT_NOTIFICATIONS'. See https://upstash.com/docs/redis/overall/rediscompatibility for details
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:151)
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:120)
+	... 26 common frames omitted
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] channelActive()
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] activating endpoint
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] flushCommands()
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] flushCommands() Flushing 0 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.ConnectionWatchdog --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, last known addr=huge-reindeer-130938.upstash.io/16.4.93.191:6379] channelActive()
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] channelActive() done
+2026-11-05 12:27:01 DEBUG i.l.c.AbstractRedisClient --- Connecting to Redis at huge-reindeer-130938.upstash.io/<unresolved>:6379: Success
+2026-11-05 12:27:01 DEBUG i.l.c.RedisChannelHandler --- dispatching command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() writeAndFlush command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() done
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG o.h.SQL ---   SELECT TO_CHAR(transaction_date, 'YYYY-MM') AS month, COALESCE(SUM(amount), 0) AS totalSpent
+   FROM transaction
+   WHERE user_id = ?
+   AND transaction_type = 'EXPENSE'
+   AND is_deleted = false
+   AND transaction_date >= NOW() - INTERVAL '6 months'
+   GROUP BY TO_CHAR(transaction_date, 'YYYY-MM')
+   ORDER BY 1 ASC
+
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 5 bytes, 1 commands in the stack
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:01 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:01 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command SubscriptionCommand [type=SET, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:01 DEBUG o.h.SQL --- select c1_0.name,coalesce(sum(t1_0.amount),0) from transaction t1_0 join category c1_0 on c1_0.id=t1_0.category_id where t1_0.user_id=? and t1_0.transaction_type=? and to_char(t1_0.transaction_date,'YYYY-MM')=? and t1_0.is_deleted=false group by c1_0.name
+2026-11-05 12:27:01 DEBUG o.h.SQL --- SELECT c.name AS categoryName,
+COALESCE(SUM(t.amount), 0) AS totalSpent,
+TO_CHAR(t.transaction_date, 'YYYY-MM') AS month
+FROM transaction t
+JOIN category c ON t.category_id = c.id
+WHERE t.user_id = ?
+AND TO_CHAR(t.transaction_date, 'YYYY-MM') = ?
+AND t.transaction_type = ?
+AND t.is_deleted = false
+GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
+ORDER BY totalSpent DESC
+LIMIT ?
+
+2026-11-05 12:27:09 DEBUG i.l.c.RedisChannelHandler --- dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() done
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 3 bytes, 1 commands in the stack
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:09 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG o.h.SQL --- SELECT coalesce(sum(transaction.amount), 0.0)
+FROM transaction
+WHERE transaction_type = ?
+AND  user_id = ?
+AND to_char(transaction_date, 'YYYY-MM') = ?
+
+2026-11-05 12:27:09 DEBUG i.l.c.RedisChannelHandler --- dispatching command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() writeAndFlush command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() done
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:09 DEBUG o.h.SQL ---   SELECT TO_CHAR(transaction_date, 'YYYY-MM') AS month, COALESCE(SUM(amount), 0) AS totalSpent
+   FROM transaction
+   WHERE user_id = ?
+   AND transaction_type = 'EXPENSE'
+   AND is_deleted = false
+   AND transaction_date >= NOW() - INTERVAL '6 months'
+   GROUP BY TO_CHAR(transaction_date, 'YYYY-MM')
+   ORDER BY 1 ASC
+
+2026-11-05 12:27:09 DEBUG o.h.SQL --- select c1_0.name,coalesce(sum(t1_0.amount),0) from transaction t1_0 join category c1_0 on c1_0.id=t1_0.category_id where t1_0.user_id=? and t1_0.transaction_type=? and to_char(t1_0.transaction_date,'YYYY-MM')=? and t1_0.is_deleted=false group by c1_0.name
+2026-11-05 12:27:09 DEBUG o.h.SQL --- SELECT c.name AS categoryName,
+COALESCE(SUM(t.amount), 0) AS totalSpent,
+TO_CHAR(t.transaction_date, 'YYYY-MM') AS month
+FROM transaction t
+JOIN category c ON t.category_id = c.id
+WHERE t.user_id = ?
+AND TO_CHAR(t.transaction_date, 'YYYY-MM') = ?
+AND t.transaction_type = ?
+AND t.is_deleted = false
+GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
+ORDER BY totalSpent DESC
+LIMIT ?
+
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 5 bytes, 1 commands in the stack
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:09 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:09 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command SubscriptionCommand [type=SET, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.RedisChannelHandler --- dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() done
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 3 bytes, 1 commands in the stack
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:16 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG o.h.SQL --- SELECT coalesce(sum(transaction.amount), 0.0)
+FROM transaction
+WHERE transaction_type = ?
+AND  user_id = ?
+AND to_char(transaction_date, 'YYYY-MM') = ?
+
+2026-11-05 12:27:16 DEBUG i.l.c.RedisChannelHandler --- dispatching command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() writeAndFlush command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() done
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:16 DEBUG o.h.SQL ---   SELECT TO_CHAR(transaction_date, 'YYYY-MM') AS month, COALESCE(SUM(amount), 0) AS totalSpent
+   FROM transaction
+   WHERE user_id = ?
+   AND transaction_type = 'EXPENSE'
+   AND is_deleted = false
+   AND transaction_date >= NOW() - INTERVAL '6 months'
+   GROUP BY TO_CHAR(transaction_date, 'YYYY-MM')
+   ORDER BY 1 ASC
+
+2026-11-05 12:27:16 DEBUG o.h.SQL --- select c1_0.name,coalesce(sum(t1_0.amount),0) from transaction t1_0 join category c1_0 on c1_0.id=t1_0.category_id where t1_0.user_id=? and t1_0.transaction_type=? and to_char(t1_0.transaction_date,'YYYY-MM')=? and t1_0.is_deleted=false group by c1_0.name
+2026-11-05 12:27:16 DEBUG o.h.SQL --- SELECT c.name AS categoryName,
+COALESCE(SUM(t.amount), 0) AS totalSpent,
+TO_CHAR(t.transaction_date, 'YYYY-MM') AS month
+FROM transaction t
+JOIN category c ON t.category_id = c.id
+WHERE t.user_id = ?
+AND TO_CHAR(t.transaction_date, 'YYYY-MM') = ?
+AND t.transaction_type = ?
+AND t.is_deleted = false
+GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
+ORDER BY totalSpent DESC
+LIMIT ?
+
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 5 bytes, 1 commands in the stack
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:16 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:16 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command SubscriptionCommand [type=SET, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.RedisChannelHandler --- dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1] write() done
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandEncoder --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Received: 3 bytes, 1 commands in the stack
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-11-05 12:27:24 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandHandler --- [channel=0xed1878af, /172.23.155.88:59362 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG o.h.SQL --- SELECT coalesce(sum(transaction.amount), 0.0)
+FROM transaction
+WHERE transaction_type = ?
+AND  user_id = ?
+AND to_char(transaction_date, 'YYYY-MM') = ?
+
+2026-11-05 12:27:24 DEBUG i.l.c.RedisChannelHandler --- dispatching command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() writeAndFlush command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG i.l.c.p.DefaultEndpoint --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2] write() done
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] write(ctx, SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-11-05 12:27:24 DEBUG i.l.c.p.CommandEncoder --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379] writing command SubscriptionCommand [type=SET, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:27:24 DEBUG o.h.SQL ---   SELECT TO_CHAR(transaction_date, 'YYYY-MM') AS month, COALESCE(SUM(amount), 0) AS totalSpent
+   FROM transaction
+   WHERE user_id = ?
+   AND transaction_type = 'EXPENSE'
+   AND is_deleted = false
+   AND transaction_date >= NOW() - INTERVAL '6 months'
+   GROUP BY TO_CHAR(transaction_date, 'YYYY-MM')
+   ORDER BY 1 ASC
+
+2026-11-05 12:27:24 DEBUG o.h.SQL --- select c1_0.name,coalesce(sum(t1_0.amount),0) from transaction t1_0 join category c1_0 on c1_0.id=t1_0.category_id where t1_0.user_id=? and t1_0.transaction_type=? and to_char(t1_0.transaction_date,'YYYY-MM')=? and t1_0.is_deleted=false group by c1_0.name
+2026-11-05 12:27:24 DEBUG o.h.SQL --- SELECT c.name AS categoryName,
+COALESCE(SUM(t.amount), 0) AS totalSpent,
+TO_CHAR(t.transaction_date, 'YYYY-MM') AS month
+FROM transaction t
+JOIN category c ON t.category_id = c.id
+WHERE t.user_id = ?
+AND TO_CHAR(t.transaction_date, 'YYYY-MM') = ?
+AND t.transaction_type = ?
+AND t.is_deleted = false
+GROUP BY c.name, TO_CHAR(t.transaction_date, 'YYYY-MM')
+ORDER BY totalSpent DESC
+LIMIT ?
+
+2026-11-05 12:27:25 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Received: 5 bytes, 1 commands in the stack
+2026-11-05 12:27:25 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Stack contains: 1 commands
+2026-11-05 12:27:25 DEBUG i.l.c.p.RedisStateMachine --- Decode done, empty stack: true
+2026-11-05 12:27:25 DEBUG i.l.c.p.CommandHandler --- [channel=0xa7f25e30, /172.23.155.88:38730 -> huge-reindeer-130938.upstash.io/16.4.93.191:6379, epid=0x2, chid=0x2] Completing command SubscriptionCommand [type=SET, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-11-05 12:44:10 INFO  o.a.c.c.C.[.[.[/] --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-05 12:44:10 INFO  o.s.w.s.DispatcherServlet --- Initializing Servlet 'dispatcherServlet'
+2026-11-05 12:44:10 INFO  o.s.w.s.DispatcherServlet --- Completed initialization in 1 ms

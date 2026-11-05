@@ -20,9 +20,9 @@ spring:
 
     show-sql: true
 
-  properties:
-    hibernate:
-      format_sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
   # OAuth config
 
@@ -66,6 +66,27 @@ spring:
       password: <your password> or just remove this key if you don't want any password.
       ssl:
         enable: false
+
+#        Spring AI
+
+  ai:
+    openai:
+      api-key: <key>
+      base-url: https://api.groq.com/openai/v1
+      chat:
+        options:
+          model: qwen/qwen3.8-27b
+          temperature: 0.8
+    chat:
+      memory:
+        repository:
+          redis:
+            host: <host>
+            port: <port>
+            password: <password>
+            max-messages-per-conversation: 400
+            time-to-live: 40m
+
 # logging configurations
 
 logging:

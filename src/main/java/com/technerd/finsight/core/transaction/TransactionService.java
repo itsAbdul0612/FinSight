@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -67,7 +68,7 @@ public class TransactionService {
         Transaction newTransaction = Transaction
                 .builder()
                 .amount(transactionDto.getAmount())
-                .transactionDate(LocalDateTime.now())
+                .transactionDate(LocalDateTime.now(ZoneId.of("Asia/Kolkata")))
                 .user(user)
                 .transactionType(category.getTransactionType())
                 .description(transactionDto.getDescription())
@@ -78,7 +79,7 @@ public class TransactionService {
         Budget budget = budgetService.findByUserAndCategoryAndMonth(
                 user.getId(),
                 transactionDto.getCategoryId(),
-                YearMonth.now().toString()
+                YearMonth.now(ZoneId.of("Asia/Kolkata")).toString()
         );
 
         if (newTransaction.getTransactionType() == EXPENSE) {

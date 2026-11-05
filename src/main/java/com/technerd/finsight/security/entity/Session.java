@@ -27,7 +27,7 @@ public class Session {
 
     private LocalDateTime lastUsedAt;
 
-    private Boolean isValid;
+    private boolean isValid;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;

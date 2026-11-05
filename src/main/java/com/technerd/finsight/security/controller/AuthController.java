@@ -54,7 +54,7 @@ public class AuthController {
     }
 
     @GetMapping("/refresh")
-    public ResponseEntity<String> refreshAccessToken(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+    public ResponseEntity<String> refreshAccessToken(HttpServletRequest request, HttpServletResponse response) {
 
         Cookie[] cookies = request.getCookies();
 

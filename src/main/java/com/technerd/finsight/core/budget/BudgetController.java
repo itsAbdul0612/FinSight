@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.YearMonth;
+import java.time.ZoneId;
 import java.util.List;
 
 @RequestMapping("/budget")
@@ -28,7 +29,7 @@ public class BudgetController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
 
-        String month = customMonth != null ? customMonth : YearMonth.now().toString();
+        String month = customMonth != null ? customMonth : YearMonth.now(ZoneId.of("Asia/Kolkata")).toString();
         List<BudgetResponse> allByUserIdAndMonth = budgetService.findAllByUserIdAndMonth(userId,  month);
 
         return ResponseEntity.ok(allByUserIdAndMonth);

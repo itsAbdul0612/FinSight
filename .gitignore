@@ -36,7 +36,8 @@ build/
 #Other
 
 application.yaml
-
+application-dev.yaml
+application-prod.yaml
 application.properties
 
 .gitignore
@@ -45,5 +46,5 @@ application.properties
 
 # Environment variables / secrets
 .env
-.env.*
-!.env.example
+.env.prod
+*.env

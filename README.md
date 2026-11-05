@@ -6,7 +6,7 @@
 
 An AI-powered personal finance backend for tracking transactions, managing budgets, and understanding spending with a conversational assistant to help make sense of it all.
 
-[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&labelColor=9B5E00&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&amp;labelColor=9B5E00&amp;logo=openjdk&amp;logoColor=white)](https://www.java.com/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-6DB33F?style=for-the-badge&labelColor=3D7A40&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&labelColor=294C7A&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Redis](https://img.shields.io/badge/Redis-Cache%20%26%20Chat%20Memory-DC382D?style=for-the-badge&labelColor=8D2320&logo=redis&logoColor=white)](https://redis.io/)

@@ -8,6 +8,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Comparator;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class SessionService {
 
         Session newSession = Session.builder()
                 .refreshToken(refreshToken)
-                .lastUsedAt(LocalDateTime.now())
+                .lastUsedAt(LocalDateTime.now(ZoneId.of("Asia/Kolkata")))
                 .isValid(true)
                 .user(user)
                 .build();
@@ -43,7 +44,7 @@ public class SessionService {
     public Session validateSession(String refreshToken) {
         Session session = sessionRepository.findByRefreshToken(refreshToken).orElseThrow(() -> new SessionAuthenticationException("No session found for the refresh token"));
 
-        if (session.getIsValid()) {
+        if (session.isValid()) {
             return session;
         }
         throw new SessionAuthenticationException("Session has expired");
@@ -51,7 +52,7 @@ public class SessionService {
 
     public void invalidateSession(String refreshToken) {
         Session session = sessionRepository.findByRefreshToken(refreshToken).orElseThrow(() -> new SessionAuthenticationException("No session found for the refresh token"));
-        session.setIsValid(false);
+        session.setValid(false);
         sessionRepository.save(session);
     }
 

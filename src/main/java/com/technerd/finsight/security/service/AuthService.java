@@ -25,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -106,7 +107,7 @@ public class AuthService {
         String newRefreshToken = jwtService.generateRefreshToken(user);
 
         session.setRefreshToken(newRefreshToken);
-        session.setLastUsedAt(LocalDateTime.now());
+        session.setLastUsedAt(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
         sessionRepository.save(session);
 
         return new RefreshResponse(newRefreshToken, accessToken);

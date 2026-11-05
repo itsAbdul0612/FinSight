@@ -46,7 +46,7 @@ public class AiService {
                 .content();
     }
 
-    public final String SYSTEM_PROMPT = """
+    public static final String SYSTEM_PROMPT = """
             You are Finsight, an AI-powered personal finance assistant.
             
             YOUR ROLE:
@@ -110,7 +110,7 @@ public class AiService {
             """;
 
 
-    public final String MONTHLY_INSIGHT_PROMPT = """
+    public static final String MONTHLY_INSIGHT_PROMPT = """
             You are Finsight's Automated Monthly Financial Analyst.
             
             EXECUTION CONTEXT:

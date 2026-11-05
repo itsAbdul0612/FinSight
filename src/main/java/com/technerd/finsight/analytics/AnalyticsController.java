@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.time.YearMonth;
+import java.time.ZoneId;
 import java.util.List;
 
 @RequestMapping("/analytics")
@@ -26,6 +27,7 @@ public class AnalyticsController {
 
     private final AnalyticsService  analyticsService;
     private final BudgetService  budgetService;
+    private ZoneId zoneId = ZoneId.of("Asia/Kolkata");
 
     @GetMapping("/summary")
     public ResponseEntity<BigDecimal> monthlySummary(
@@ -36,7 +38,7 @@ public class AnalyticsController {
         Long userId = user.getId();
 
         if (type == null) type = TransactionType.EXPENSE;
-        if (month == null) month = YearMonth.now().toString();
+        if (month == null) month = YearMonth.now(zoneId).toString();
 
         BigDecimal sumOfTheMonth = analyticsService.monthlySummary(userId, type, month);
         return ResponseEntity.ok(sumOfTheMonth);
@@ -51,7 +53,7 @@ public class AnalyticsController {
         Long userId = user.getId();
 
         if (type == null) type = TransactionType.EXPENSE;
-        if (month == null) month = YearMonth.now().toString();
+        if (month == null) month = YearMonth.now(zoneId).toString();
 
         List<CategorySpendDto> categoryWiseSpending = analyticsService.totalMonthlySpendingOfACategory(userId, type, month);
         return ResponseEntity.ok(categoryWiseSpending);
@@ -79,7 +81,7 @@ public class AnalyticsController {
         Long userId = user.getId();
 
         if (type == null) type = TransactionType.EXPENSE;
-        if (month == null) month = YearMonth.now().toString();
+        if (month == null) month = YearMonth.now(zoneId).toString();
 
         List<TopExpenseOfAMonth> topExpenseOfAMonths = analyticsService.topExpensesOfAMonths(userId, month, type, limit);
         return ResponseEntity.ok(topExpenseOfAMonths);
@@ -92,7 +94,7 @@ public class AnalyticsController {
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
 
-        if (month == null) month = YearMonth.now().toString();
+        if (month == null) month = YearMonth.now(zoneId).toString();
 
         List<BudgetResponse> budgetResponseList = budgetService.findAllByUserIdAndMonth(userId, month);
         return ResponseEntity.ok(budgetResponseList);

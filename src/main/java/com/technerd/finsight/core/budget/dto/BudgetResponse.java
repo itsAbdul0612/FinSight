@@ -4,11 +4,10 @@ import com.technerd.finsight.core.budget.Budget;
 import com.technerd.finsight.core.category.Category;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-public class BudgetResponse implements Serializable {
+public class BudgetResponse  {
 
     private Long id;
 

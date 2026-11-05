@@ -7,6 +7,10 @@ import com.technerd.finsight.core.budget.BudgetService;
 import com.technerd.finsight.core.budget.dto.BudgetResponse;
 import com.technerd.finsight.core.transaction.enums.TransactionType;
 import com.technerd.finsight.user.User;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +27,8 @@ import java.util.List;
 @RequestMapping("/analytics")
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Analytics", description = "Account-scoped spending summaries, trends, top expenses, and monthly budgets.")
+@SecurityRequirement(name = "bearerAuth")
 public class AnalyticsController {
 
     private final AnalyticsService  analyticsService;
@@ -30,8 +36,11 @@ public class AnalyticsController {
     private ZoneId zoneId = ZoneId.of("Asia/Kolkata");
 
     @GetMapping("/summary")
+    @Operation(summary = "Get a monthly total", description = "Returns the authenticated user's total for the selected transaction type and month. Defaults to expenses for the current month in Asia/Kolkata.")
     public ResponseEntity<BigDecimal> monthlySummary(
+            @Parameter(description = "Transaction type to total; defaults to EXPENSE", example = "EXPENSE")
             @RequestParam(required = false) TransactionType type,
+            @Parameter(description = "Month in ISO year-month format (yyyy-MM); defaults to the current month", example = "2026-11")
             @RequestParam(required = false) String month) {
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -45,8 +54,11 @@ public class AnalyticsController {
     }
 
     @GetMapping("/category")
+    @Operation(summary = "Get monthly spending by category", description = "Returns category totals for the authenticated user and selected month. Defaults to EXPENSE and the current month.")
     public ResponseEntity<List<CategorySpendDto>> totalMonthlySpendingOfACategory(
+            @Parameter(description = "Transaction type to summarize; defaults to EXPENSE", example = "EXPENSE")
             @RequestParam(required = false) TransactionType type,
+            @Parameter(description = "Month in ISO year-month format (yyyy-MM); defaults to the current month", example = "2026-11")
             @RequestParam(required = false) String month){
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -60,7 +72,10 @@ public class AnalyticsController {
     }
 
     @GetMapping("/trend")
-    public ResponseEntity<List<SixMonthsTrendDto>> sixMonthTrend(@RequestParam(required = false) TransactionType type){
+    @Operation(summary = "Get a six-month trend", description = "Returns monthly totals for the last six months for the authenticated user. Defaults to EXPENSE.")
+    public ResponseEntity<List<SixMonthsTrendDto>> sixMonthTrend(
+            @Parameter(description = "Transaction type to summarize; defaults to EXPENSE", example = "EXPENSE")
+            @RequestParam(required = false) TransactionType type) {
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();
@@ -72,9 +87,13 @@ public class AnalyticsController {
     }
 
     @GetMapping("/top-expenses")
+    @Operation(summary = "Get top expenses", description = "Returns the highest category expenses for a month. Defaults to the current month, EXPENSE, and a limit of five.")
     public ResponseEntity<List<TopExpenseOfAMonth>>  topExpensesOfAMonths(
+            @Parameter(description = "Month in ISO year-month format (yyyy-MM); defaults to the current month", example = "2026-11")
             @RequestParam(required = false) String month,
+            @Parameter(description = "Transaction type to rank; defaults to EXPENSE", example = "EXPENSE")
             @RequestParam(required = false) TransactionType type,
+            @Parameter(description = "Maximum number of results to return", example = "5")
             @RequestParam(required = false, defaultValue = "5") Integer limit){
 
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -88,7 +107,9 @@ public class AnalyticsController {
     }
 
     @GetMapping("/get/all-budget")
+    @Operation(summary = "Get monthly budgets", description = "Returns the authenticated user's budgets for the specified month or the current month.")
     public ResponseEntity<List<BudgetResponse>> allBudgets(
+            @Parameter(description = "Month in ISO year-month format (yyyy-MM); defaults to the current month", example = "2026-11")
             @RequestParam(required = false) String month
     ){
         User user  = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

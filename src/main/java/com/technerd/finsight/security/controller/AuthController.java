@@ -7,6 +7,8 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -18,12 +20,14 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 @RequestMapping("/auth")
 @RestController
+@Tag(name = "Authentication", description = "Account registration, login, and JWT renewal.")
 public class AuthController {
 
     private final AuthService authService;
     private static final String RT = "REFRESH_TOKEN";
 
     @PostMapping("/sign-up")
+    @Operation(summary = "Register an account", description = "Creates an account and returns access credentials. The refresh token is also set as an HTTP-only cookie.")
     public ResponseEntity<SignUpResponse> signUp(
             @Valid @RequestBody SignUpDTO signUpDTO,
             HttpServletResponse httpResponse) {
@@ -39,6 +43,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Operation(summary = "Log in", description = "Authenticates the supplied credentials and returns access credentials. The refresh token is also set as an HTTP-only cookie.")
     public ResponseEntity<LoginResponse> login(
             @Valid @RequestBody LoginDTO loginDTO,
             HttpServletResponse httpResponse) {
@@ -54,6 +59,7 @@ public class AuthController {
     }
 
     @GetMapping("/refresh")
+    @Operation(summary = "Refresh access credentials", description = "Reads the refresh token from the REFRESH_TOKEN cookie, rotates it, and returns a new access token as plain text.")
     public ResponseEntity<String> refreshAccessToken(HttpServletRequest request, HttpServletResponse response) {
 
         Cookie[] cookies = request.getCookies();

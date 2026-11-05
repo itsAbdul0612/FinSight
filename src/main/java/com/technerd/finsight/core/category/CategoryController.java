@@ -5,6 +5,9 @@ import com.technerd.finsight.core.category.dto.CategoryResponseDto;
 import com.technerd.finsight.user.User;
 import com.technerd.finsight.security.service.JWTService;
 import com.technerd.finsight.security.service.UserSecurityService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,7 @@ description = "A category is a specific finance.\ne.g. Food, Netflix, etc.")
 @RequestMapping("/category")
 @RequiredArgsConstructor
 @RestController
+@SecurityRequirement(name = "bearerAuth")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -32,6 +36,7 @@ public class CategoryController {
     // Create a category.
     // -----------------------------------------------------------------------------------------------
     @PostMapping("/create")
+    @Operation(summary = "Create a category", description = "Creates a finance category for the authenticated user. Optionally initialize its allocated budget.")
     public ResponseEntity<CategoryCreateDto> createCategory(@Valid @RequestBody CategoryCreateDto categoryDto) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -52,6 +57,7 @@ public class CategoryController {
     // GET all Category of a user.
     // -----------------------------------------------------------------------------------------------
     @GetMapping("/get-all")
+    @Operation(summary = "List categories", description = "Returns all categories belonging to the authenticated user. Returns 404 when no categories are available.")
     public ResponseEntity<List<CategoryResponseDto>> getAllCategories() {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -69,7 +75,9 @@ public class CategoryController {
     // PATCH update a category by id.
     // -----------------------------------------------------------------------------------------------
     @PatchMapping("/patch-update/{id}")
+    @Operation(summary = "Update a category", description = "Updates the category identified by its ID using the supplied category data.")
     public ResponseEntity<CategoryResponseDto> getCategory(
+            @Parameter(description = "ID of the category to update", required = true)
             @PathVariable Long id,
             @Valid @RequestBody CategoryCreateDto createDto) {
 
@@ -83,7 +91,10 @@ public class CategoryController {
     // DELETE a category by id.
     // -----------------------------------------------------------------------------------------------
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
+    @Operation(summary = "Delete a category", description = "Soft-deletes a category owned by the authenticated user.")
+    public ResponseEntity<?> deleteCategory(
+            @Parameter(description = "ID of the category to delete", required = true)
+            @PathVariable Long id) {
         
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = user.getId();

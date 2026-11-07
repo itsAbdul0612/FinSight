@@ -2,11 +2,13 @@ package com.technerd.finsight.core.budget;
 
 import com.technerd.finsight.core.budget.dto.BudgetResponse;
 import com.technerd.finsight.core.budget.dto.BudgetUpdateDto;
+import com.technerd.finsight.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,7 +54,10 @@ public class BudgetService {
 //    @CacheEvict(cacheNames = "all-budget", key = "#userId")
     public BudgetResponse updateAllocatedAmount(BudgetUpdateDto newBudget, Long id) {
 
-        Budget existingBudget = budgetRepository.findById(id)
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+
+        Budget existingBudget = budgetRepository.findByIdAndUser_Id(id, userId)
                 .orElseThrow(() -> new NoSuchElementException("Budget not found"));
 
         if (newBudget.getAllocatedAmount() != null) {

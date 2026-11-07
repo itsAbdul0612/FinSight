@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BudgetRepository extends JpaRepository<Budget, Long> {
@@ -22,6 +23,8 @@ public interface BudgetRepository extends JpaRepository<Budget, Long> {
     @EntityGraph(attributePaths = "category")
     @Query("select b from Budget b where b.user.id = :userId and b.month = :month")
     List<Budget> findAllByUserIdAndMonth(Long userId, String month);
+
+    Optional<Budget> findByIdAndUser_Id(Long id, Long userId);
 
     void deleteByCategory_IdAndUser_Id(Long id, Long userId);
 

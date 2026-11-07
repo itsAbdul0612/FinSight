@@ -149,7 +149,9 @@ public class TransactionService {
         spec = spec.and(TransactionSpecification.amountBetween(minAmount, maxAmount));
         spec = spec.and(TransactionSpecification.amount(amount));
 
-        spec = spec.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("isDeleted"), false));
+        spec = spec.and((root,
+                         query,
+                         criteriaBuilder) -> criteriaBuilder.equal(root.get("isDeleted"), false));
 
         Page<Transaction> transactions = transactionRepository.findAll(spec, pageable);
 

@@ -72,7 +72,7 @@ public class QueryTest {
         assertThat(categoryList).isNotEmpty();
 
         Category expectedCategory = categoryList.get(0);
-        Category foundCategory = categoryRepository.findByIdAndUserId(expectedCategory.getId(), userId);
+        Category foundCategory = categoryRepository.findByIdAndUserId(expectedCategory.getId(), userId).orElse(null);
 
         assertThat(foundCategory).isNotNull();
         assertThat(foundCategory.getId()).isEqualTo(expectedCategory.getId());

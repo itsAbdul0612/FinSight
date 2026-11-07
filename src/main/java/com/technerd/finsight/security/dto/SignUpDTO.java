@@ -23,8 +23,4 @@ public class SignUpDTO {
     @NotBlank
     @Schema(description = "Account password", format = "password", requiredMode = Schema.RequiredMode.REQUIRED)
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Schema(description = "Requested account role", allowableValues = {"USER", "ADMIN"}, example = "USER")
-    private Role role;
 }

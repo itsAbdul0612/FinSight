@@ -27,6 +27,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
+import static com.technerd.finsight.user.enums.Role.USER;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -78,6 +80,7 @@ public class AuthService {
 
         User user = mapper.map(signUpDTO, User.class);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(USER);
         User savedUser = userRepository.save(user);
 
         String accessToken = jwtService.generateAccessToken(user);

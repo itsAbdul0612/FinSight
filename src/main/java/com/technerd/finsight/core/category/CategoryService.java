@@ -14,11 +14,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.YearMonth;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static java.lang.Boolean.FALSE;
 import static java.math.BigDecimal.ZERO;
@@ -82,7 +84,7 @@ public class CategoryService {
     // -----------------------------------------------------------------------------------------------
     public Category findByIdAndUserId(Long id, Long userId) {
         return categoryRepository
-                .findByIdAndUserId(id, userId);
+                .findByIdAndUserId(id, userId).orElse(null);
     }
 
     public CategoryResponseDto findByNameIgnoreCaseAndUserId(String name, Long userId) {
@@ -118,7 +120,11 @@ public class CategoryService {
     // -----------------------------------------------------------------------------------------------
     public Category updateById(Long id, Category category){
         log.info("Trying to updating category with id: {}", id);
-        Category existingCategory = categoryRepository.findById(id).orElse(null);
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
+
+        Category existingCategory = categoryRepository.findByIdAndUserId(id, userId).orElse(null);
         if (existingCategory == null) {
             throw new EntityNotFoundException("Category with id " + id + " not found");
         }
@@ -139,7 +145,7 @@ public class CategoryService {
     public void softDeleteById(Long id, Long userId) {
 
         log.info("Trying to soft-delete category with id: {}", id);
-        Category existingCategory = categoryRepository.findByIdAndUserId(id, userId);
+        Category existingCategory = categoryRepository.findByIdAndUserId(id, userId).orElse(null);
 
         if (existingCategory == null) {
             log.error("Category with id: {} was not found", id);

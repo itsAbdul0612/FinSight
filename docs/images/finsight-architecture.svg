@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" role="img" aria-labelledby="title description">
+  <title id="title">FinSight architecture and category, budget, transaction flow</title>
+  <desc id="description">Shows the REST request path through Spring Security, controllers, services, repositories, PostgreSQL and Redis, followed by category creation, monthly budget setup, transaction processing, budget notifications, and soft deletion.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #172033; }
+      .title { font-size: 30px; font-weight: 750; }
+      .subtitle { font-size: 15px; fill: #526179; }
+      .section { font-size: 16px; font-weight: 750; letter-spacing: 1.1px; fill: #475569; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .blue { fill: #eff6ff; stroke: #93c5fd; }
+      .purple { fill: #f5f3ff; stroke: #c4b5fd; }
+      .green { fill: #ecfdf5; stroke: #86efac; }
+      .amber { fill: #fffbeb; stroke: #fcd34d; }
+      .rose { fill: #fff1f2; stroke: #fda4af; }
+      .heading { font-size: 16px; font-weight: 700; }
+      .body { font-size: 13px; fill: #526179; }
+      .small { font-size: 12px; fill: #526179; }
+      .arrow { fill: none; stroke: #64748b; stroke-width: 2; marker-end: url(#arrow); }
+      .arrow-blue { fill: none; stroke: #2563eb; stroke-width: 2.2; marker-end: url(#arrow-blue); }
+      .dashed { stroke-dasharray: 6 5; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1000" rx="22" fill="#f8fafc"/>
+  <text x="54" y="58" class="title">FinSight | Architecture &amp; core money flow</text>
+  <text x="54" y="86" class="subtitle">Spring Boot REST API · Java 21 · PostgreSQL · Redis</text>
+
+  <text x="54" y="133" class="section">REQUEST &amp; DATA ARCHITECTURE</text>
+
+  <rect x="54" y="157" width="145" height="94" rx="14" class="box blue"/>
+  <text x="126" y="190" text-anchor="middle" class="heading">Client</text>
+  <text x="126" y="214" text-anchor="middle" class="body">REST / Swagger UI</text>
+
+  <rect x="229" y="157" width="165" height="94" rx="14" class="box purple"/>
+  <text x="311" y="190" text-anchor="middle" class="heading">Spring Security</text>
+  <text x="311" y="214" text-anchor="middle" class="body">JWT · OAuth2</text>
+
+  <rect x="424" y="157" width="155" height="94" rx="14" class="box blue"/>
+  <text x="501" y="190" text-anchor="middle" class="heading">Controllers</text>
+  <text x="501" y="214" text-anchor="middle" class="body">REST endpoints</text>
+
+  <rect x="609" y="157" width="190" height="94" rx="14" class="box blue"/>
+  <text x="704" y="190" text-anchor="middle" class="heading">Services</text>
+  <text x="704" y="214" text-anchor="middle" class="body">Business rules</text>
+
+  <rect x="829" y="157" width="155" height="94" rx="14" class="box blue"/>
+  <text x="906" y="190" text-anchor="middle" class="heading">Repositories</text>
+  <text x="906" y="214" text-anchor="middle" class="body">Spring Data JPA</text>
+
+  <rect x="1014" y="157" width="145" height="94" rx="14" class="box green"/>
+  <text x="1086" y="190" text-anchor="middle" class="heading">PostgreSQL</text>
+  <text x="1086" y="214" text-anchor="middle" class="body">Persistent data</text>
+
+  <path d="M199 204 H222" class="arrow"/>
+  <path d="M394 204 H417" class="arrow"/>
+  <path d="M579 204 H602" class="arrow"/>
+  <path d="M799 204 H822" class="arrow"/>
+  <path d="M984 204 H1007" class="arrow"/>
+
+  <rect x="632" y="278" width="145" height="70" rx="14" class="box amber"/>
+  <text x="704" y="307" text-anchor="middle" class="heading">Redis</text>
+  <text x="704" y="329" text-anchor="middle" class="body">Cache · AI chat memory</text>
+  <path d="M704 251 V270" class="arrow dashed"/>
+  <text x="792" y="286" class="small">cache reads / evictions</text>
+
+  <text x="54" y="402" class="section">CATEGORY → MONTHLY BUDGET → TRANSACTION</text>
+  <text x="54" y="428" class="subtitle">Each category belongs to a user and has a transaction type: income or expense.</text>
+
+  <rect x="54" y="465" width="220" height="112" rx="14" class="box blue"/>
+  <text x="164" y="496" text-anchor="middle" class="heading">1 · Create category</text>
+  <text x="164" y="521" text-anchor="middle" class="body">User-defined name and type</text>
+  <text x="164" y="542" text-anchor="middle" class="body">Expense or income</text>
+  <text x="164" y="562" text-anchor="middle" class="small">CategoryService</text>
+
+  <rect x="344" y="465" width="235" height="112" rx="14" class="box purple"/>
+  <text x="461" y="496" text-anchor="middle" class="heading">2 · Create monthly budget</text>
+  <text x="461" y="521" text-anchor="middle" class="body">Category creation provisions it</text>
+  <text x="461" y="542" text-anchor="middle" class="body">Allocated amount · spent = 0</text>
+  <text x="461" y="562" text-anchor="middle" class="small">One per user, category, month</text>
+
+  <path d="M274 521 H337" class="arrow-blue"/>
+
+  <rect x="649" y="465" width="220" height="112" rx="14" class="box blue"/>
+  <text x="759" y="496" text-anchor="middle" class="heading">3 · Submit transaction</text>
+  <text x="759" y="521" text-anchor="middle" class="body">Amount + category ID</text>
+  <text x="759" y="542" text-anchor="middle" class="body">Authenticated user context</text>
+  <text x="759" y="562" text-anchor="middle" class="small">TransactionController</text>
+
+  <path d="M579 521 H642" class="arrow-blue"/>
+
+  <rect x="939" y="465" width="220" height="112" rx="14" class="box amber"/>
+  <text x="1049" y="496" text-anchor="middle" class="heading">4 · Validate &amp; classify</text>
+  <text x="1049" y="521" text-anchor="middle" class="body">Category must belong to user</text>
+  <text x="1049" y="542" text-anchor="middle" class="body">Type comes from category</text>
+  <text x="1049" y="562" text-anchor="middle" class="small">TransactionService</text>
+
+  <path d="M869 521 H932" class="arrow-blue"/>
+
+  <path d="M1049 577 V616 H364 V641" class="arrow"/>
+  <path d="M1049 616 H826 V641" class="arrow"/>
+  <text x="54" y="633" class="section">5 · APPLY TYPE-SPECIFIC ACCOUNTING</text>
+
+  <rect x="104" y="655" width="520" height="147" rx="16" class="box rose"/>
+  <text x="364" y="687" text-anchor="middle" class="heading">Expense</text>
+  <text x="137" y="718" class="body">• Find this user’s category budget for the current month</text>
+  <text x="137" y="744" class="body">• Add amount to spent; subtract amount from user balance</text>
+  <text x="137" y="770" class="body">• At 80% / 100% of allocation, publish a budget event</text>
+  <text x="137" y="790" class="small">Event listeners send threshold / breach email notifications</text>
+
+  <rect x="676" y="655" width="420" height="147" rx="16" class="box green"/>
+  <text x="886" y="687" text-anchor="middle" class="heading">Income</text>
+  <text x="717" y="724" class="body">• Add amount to user balance</text>
+  <text x="717" y="751" class="body">• No expense-budget spend is added</text>
+
+  <path d="M364 802 V831 H600" class="arrow"/>
+  <path d="M886 802 V831 H600" class="arrow"/>
+  <rect x="398" y="842" width="404" height="64" rx="14" class="box blue"/>
+  <text x="600" y="870" text-anchor="middle" class="heading">6 · Save transaction and updated state</text>
+  <text x="600" y="892" text-anchor="middle" class="body">PostgreSQL · transaction, user balance, and (expense) budget</text>
+
+  <rect x="54" y="925" width="1090" height="48" rx="12" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="76" y="946" class="body"><tspan font-weight="700">Other lifecycle paths:</tspan> monthly scheduler creates fresh budgets from the previous month’s allocation; soft-deleting a transaction reverses its balance / expense-budget effects.</text>
+  <text x="76" y="964" class="small">Transaction creation also evicts affected budget and monthly-summary cache entries.</text>
+</svg>

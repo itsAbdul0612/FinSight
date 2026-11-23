@@ -29,13 +29,13 @@ import static org.mockito.Mockito.mock;
 class TransactionServiceCacheTest {
 
     @Test
-    void createTransactionEvictsAllMonthlySummaryCacheEntries() {
+    void createTransactionEvictsMonthlySummaryCacheEntryForUser() {
         try (var context = new AnnotationConfigApplicationContext(CacheTestConfiguration.class)) {
             TransactionService transactionService = context.getBean(TransactionService.class);
             TransactionRepository transactionRepository = context.getBean(TransactionRepository.class);
             CategoryService categoryService = context.getBean(CategoryService.class);
             Cache summaryCache = Objects.requireNonNull(
-                    context.getBean(CacheManager.class).getCache("monthly_summary"));
+                    context.getBean(CacheManager.class).getCache("monthly-summary"));
 
             User user = User.builder()
                     .id(1L)
@@ -53,13 +53,13 @@ class TransactionServiceCacheTest {
             given(categoryService.findByIdAndUserId(category.getId(), user.getId())).willReturn(category);
             given(transactionRepository.save(any(Transaction.class)))
                     .willAnswer(invocation -> invocation.getArgument(0));
-            summaryCache.put("user-1", "cached summary");
-            summaryCache.put("user-2", "another cached summary");
+            summaryCache.put(1L, "cached summary");
+            summaryCache.put(2L, "another cached summary");
 
             transactionService.createTransaction(transactionDto, user);
 
-            assertThat(summaryCache.get("user-1")).isNull();
-            assertThat(summaryCache.get("user-2")).isNull();
+            assertThat(summaryCache.get(1L)).isNull();
+            assertThat(summaryCache.get(2L)).isNotNull();
         }
     }
 
@@ -69,25 +69,25 @@ class TransactionServiceCacheTest {
 
         @Bean
         CacheManager cacheManager() {
-            return new ConcurrentMapCacheManager("monthly_summary");
+            return new ConcurrentMapCacheManager("all-budget", "monthly-summary");
         }
 
-//        @Bean
-//        TransactionService transactionService(
-//                TransactionRepository transactionRepository,
-//                CategoryService categoryService,
-//                BudgetService budgetService,
-//                UserSecurityService userSecurityService,
-//                ApplicationEventPublisher eventPublisher,
-//                ModelMapper modelMapper) {
-//            return new TransactionService(
-//                    transactionRepository,
-//                    categoryService,
-//                    budgetService,
-//                    userSecurityService,
-//                    eventPublisher,
-//                    modelMapper);
-//        }
+        @Bean
+        TransactionService transactionService(
+                TransactionRepository transactionRepository,
+                CategoryService categoryService,
+                BudgetService budgetService,
+                UserSecurityService userSecurityService,
+                ApplicationEventPublisher eventPublisher,
+                ModelMapper modelMapper) {
+            return new TransactionService(
+                    transactionRepository,
+                    categoryService,
+                    budgetService,
+                    userSecurityService,
+                    eventPublisher,
+                    modelMapper);
+        }
 
         @Bean
         TransactionRepository transactionRepository() {

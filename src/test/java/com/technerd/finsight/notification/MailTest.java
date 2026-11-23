@@ -1,6 +1,7 @@
 package com.technerd.finsight.notification;
 
 import com.technerd.finsight.analytics.AnalyticsService;
+import com.technerd.finsight.ai.AiService;
 import com.technerd.finsight.analytics.dto.CategorySpendDto;
 import com.technerd.finsight.analytics.dto.SixMonthsTrendDto;
 import com.technerd.finsight.analytics.dto.TopExpenseOfAMonth;
@@ -50,6 +51,9 @@ public class MailTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private AiService aiService;
 
     @InjectMocks
     private MailService mailService;
@@ -182,6 +186,10 @@ public class MailTest {
         when(analyticsService.sixMonthTrend(user.getId(), EXPENSE)).thenReturn(sixMonthsTrend);
         when(analyticsService.totalMonthlySpendingOfACategory(user.getId(), EXPENSE, reportMonth)).thenReturn(categorySpend);
         when(analyticsService.topExpensesOfAMonths(user.getId(), reportMonth, EXPENSE, 5)).thenReturn(topExpenses);
+        when(aiService.monthlyAiInsight(any(String.class))).thenReturn(
+                "Hi Abdul,\nMonthly report for " + reportMonth +
+                "\nGroceries: ₹5000\nFinSight"
+        );
 
         mailService.sendMonthlyReport();
 

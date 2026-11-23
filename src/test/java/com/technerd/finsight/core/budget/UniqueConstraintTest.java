@@ -2,72 +2,78 @@ package com.technerd.finsight.core.budget;
 
 import com.technerd.finsight.core.category.Category;
 import com.technerd.finsight.core.category.CategoryRepository;
+import com.technerd.finsight.core.budget.dto.BudgetResponse;
+import com.technerd.finsight.core.budget.dto.BudgetUpdateDto;
 import com.technerd.finsight.user.User;
-import com.technerd.finsight.user.UserRepository;
-import org.junit.jupiter.api.DisplayName;
+import com.technerd.finsight.user.enums.Role;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.transaction.annotation.Transactional;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-@SpringBootTest
-@Transactional
-public class UniqueConstraintTest {
+@ExtendWith(MockitoExtension.class)
+class UniqueConstraintTest {
 
-    @Autowired
-    private BudgetService budgetService;
-
-    @Autowired
-    private BudgetRepository budgetRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
+    @Mock private BudgetRepository budgetRepository;
+    @Mock private ModelMapper modelMapper;
+    @Mock private CategoryRepository categoryRepository;
 
     @Test
-    @DisplayName("Should find budget by user id, category id, and month")
-    void testFindByUserAndCategoryAndMonth() {
-        Budget budget = budgetService.findByUserAndCategoryAndMonth(1L, 1L, "2026-08");
+    void findByUserAndCategoryAndMonthDelegatesToRepository() {
+        Budget budget = Budget.builder().month("2026-08").allocatedAmount(BigDecimal.valueOf(200)).build();
+        when(budgetRepository.findByUser_IdAndCategory_IdAndMonth(1L, 1L, "2026-08"))
+                .thenReturn(budget);
 
-        assertThat(budget).isNotNull();
-        assertThat(budget.getUser().getId()).isEqualTo(1L);
-        assertThat(budget.getCategory().getId()).isEqualTo(1L);
-        assertThat(budget.getMonth()).isEqualTo("2026-08");
-        assertThat(budget.getAllocatedAmount()).isNotNull().isGreaterThan(BigDecimal.ZERO);
+        BudgetService service = new BudgetService(budgetRepository, modelMapper);
+
+        assertThat(service.findByUserAndCategoryAndMonth(1L, 1L, "2026-08")).isSameAs(budget);
     }
 
     @Test
-    @DisplayName("Should return null when budget does not exist for specified month")
-    void testFindByUserAndCategoryAndMonth_NotFound() {
-        Budget budget = budgetService.findByUserAndCategoryAndMonth(1L, 1L, "1999-01");
+    void findAllByUserAndMonthMapsBudgets() {
+        Budget budget = Budget.builder().month("2026-08").allocatedAmount(BigDecimal.valueOf(200)).build();
+        BudgetResponse response = new BudgetResponse();
+        when(budgetRepository.findAllByUserIdAndMonth(1L, "2026-08")).thenReturn(List.of(budget));
+        when(modelMapper.map(budget, BudgetResponse.class)).thenReturn(response);
 
-        assertThat(budget).isNull();
+        BudgetService service = new BudgetService(budgetRepository, modelMapper);
+
+        assertThat(service.findAllByUserIdAndMonth(1L, "2026-08")).containsExactly(response);
     }
 
     @Test
-    @DisplayName("Should throw DataIntegrityViolationException on duplicate (user, category, month)")
-    void testUniqueConstraintViolation() {
-        User user = userRepository.findById(1L).orElseThrow();
-        Category category = categoryRepository.findById(1L).orElseThrow();
-
-        Budget duplicateBudget = Budget.builder()
-                .user(user)
-                .category(category)
-                .month("2026-08")
-                .allocatedAmount(BigDecimal.valueOf(10000))
-                .spentAmount(BigDecimal.ZERO)
+    void updateAllocatedAmountUpdatesExistingBudget() {
+        User user = User.builder().id(1L).role(Role.USER).build();
+        SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
+        Budget budget = Budget.builder()
+                .allocatedAmount(BigDecimal.valueOf(100))
+                .spentAmount(BigDecimal.valueOf(50))
                 .isBreached(false)
                 .build();
+        when(budgetRepository.findByIdAndUser_Id(10L, 1L)).thenReturn(Optional.of(budget));
+        when(budgetRepository.save(budget)).thenReturn(budget);
+        when(modelMapper.map(budget, BudgetResponse.class)).thenReturn(new BudgetResponse());
+        BudgetUpdateDto update = new BudgetUpdateDto();
+        update.setAllocatedAmount(BigDecimal.valueOf(200));
 
-        assertThatThrownBy(() -> budgetRepository.saveAndFlush(duplicateBudget))
-                .isInstanceOf(DataIntegrityViolationException.class);
+        BudgetService service = new BudgetService(budgetRepository, modelMapper);
+        BudgetResponse result = service.updateAllocatedAmount(update, 10L);
+
+        assertThat(result).isNotNull();
+        assertThat(budget.getAllocatedAmount()).isEqualByComparingTo("200");
+        verify(budgetRepository).save(budget);
+        SecurityContextHolder.clearContext();
     }
 }

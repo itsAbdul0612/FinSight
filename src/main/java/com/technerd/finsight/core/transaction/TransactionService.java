@@ -204,8 +204,9 @@ public class TransactionService {
     // -----------------------------------------------------------------------------------------------
     public List<TransactionResponse> lastTenResponse(Long userId){
         List<Transaction> lastTenTransactions = transactionRepository.getLastTenTransactions(userId);
+
         if (lastTenTransactions == null || lastTenTransactions.isEmpty()) {
-            throw new NoSuchElementException("Could not find the last 5 transactions.");
+            throw new NoSuchElementException("Could not find the last 10 transactions.");
         }
 
         return lastTenTransactions

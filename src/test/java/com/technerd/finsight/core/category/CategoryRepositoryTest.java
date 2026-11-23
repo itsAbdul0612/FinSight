@@ -1,36 +1,90 @@
 package com.technerd.finsight.core.category;
 
 import com.technerd.finsight.core.transaction.enums.TransactionType;
-import org.assertj.core.api.Assertions;
+import com.technerd.finsight.user.User;
+import com.technerd.finsight.user.UserRepository;
+import com.technerd.finsight.user.enums.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import java.math.BigDecimal;
 
 @DataJpaTest
+@ActiveProfiles("test")
 class CategoryRepositoryTest {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
-    void findByNameAndUserId_whenUserIdIgnoreCaseIsValid_thenReturnCategory() {
-        Category category = new Category();
-        category.setId(10230L);
-        category.setName("Test Category");
-        category.setTransactionType(TransactionType.EXPENSE);
-        category.setDescription("Test Description");
+    void findByNameIgnoreCaseAndUserId() {
+        User user = userRepository.save(User.builder()
+                .name("Test User")
+                .email("category-repository@example.com")
+                .password("password")
+                .role(Role.USER)
+                .totalBalance(BigDecimal.ZERO)
+                .isActive(true)
+                .build());
 
-        categoryRepository.save(category);
+        Category saved = categoryRepository.save(Category.builder()
+                .name("Food")
+                .description("Test category")
+                .transactionType(TransactionType.EXPENSE)
+                .user(user)
+                .build());
 
-        Assertions.assertThat(category).isNotNull();
-        System.out.println(category.getUser().getName());
+        assertThat(categoryRepository.findByNameIgnoreCaseAndUserId("fOoD", user.getId()))
+                .extracting(Category::getId)
+                .isEqualTo(saved.getId());
     }
 
     @Test
     void findByIdAndUserId() {
+        User user = userRepository.save(User.builder()
+                .name("Test User")
+                .email("category-by-id@example.com")
+                .password("password")
+                .role(Role.USER)
+                .totalBalance(BigDecimal.ZERO)
+                .isActive(true)
+                .build());
+        Category saved = categoryRepository.save(Category.builder()
+                .name("Transport")
+                .transactionType(TransactionType.EXPENSE)
+                .user(user)
+                .build());
+
+        assertThat(categoryRepository.findByIdAndUserId(saved.getId(), user.getId()))
+                .hasValueSatisfying(category -> assertThat(category.getName()).isEqualTo("Transport"));
     }
 
     @Test
     void findAllByUserId() {
+        User user = userRepository.save(User.builder()
+                .name("Test User")
+                .email("category-list@example.com")
+                .password("password")
+                .role(Role.USER)
+                .totalBalance(BigDecimal.ZERO)
+                .isActive(true)
+                .build());
+        categoryRepository.save(Category.builder()
+                .name("Salary")
+                .transactionType(TransactionType.INCOME)
+                .user(user)
+                .build());
+
+        assertThat(categoryRepository.findAllByUserId(user.getId()))
+                .hasSize(1)
+                .first()
+                .extracting(Category::getName)
+                .isEqualTo("Salary");
     }
 }

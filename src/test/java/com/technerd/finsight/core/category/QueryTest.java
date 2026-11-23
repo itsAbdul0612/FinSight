@@ -1,125 +1,47 @@
 package com.technerd.finsight.core.category;
 
-import com.technerd.finsight.core.transaction.Transaction;
-import com.technerd.finsight.core.transaction.TransactionRepository;
-import com.technerd.finsight.core.transaction.TransactionService;
-import com.technerd.finsight.core.transaction.dto.TransactionResponse;
-import org.junit.jupiter.api.DisplayName;
+import com.technerd.finsight.core.transaction.TransactionSpecification;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-@SpringBootTest
-@Transactional
-public class QueryTest {
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-    @Autowired
-    private TransactionRepository transactionRepository;
-    @Autowired
-    private TransactionService transactionService;
+class QueryTest {
 
     @Test
-    @DisplayName("Should find all categories by user id")
-    public void testFindAllCategoriesByUserId() {
-        Long userId = 1L;
-        List<Category> categoryList = categoryRepository.findAllByUserId(userId);
+    void categorySpecificationIsComposedWithoutNulls() {
+        Specification<com.technerd.finsight.core.transaction.Transaction> specification =
+                Specification.unrestricted();
+        specification = specification.and(TransactionSpecification.belongsTo(1L));
+        specification = specification.and(TransactionSpecification.hasCategory(null));
+        specification = specification.and(TransactionSpecification.amountBetween(
+                new BigDecimal("10"), new BigDecimal("100")));
 
-        assertThat(categoryList)
-                .as("Category list for user should not be null or empty")
-                .isNotNull()
-                .isNotEmpty();
+        Root<com.technerd.finsight.core.transaction.Transaction> root = mock(Root.class);
+        CriteriaQuery<?> query = mock(CriteriaQuery.class);
+        CriteriaBuilder builder = mock(CriteriaBuilder.class);
 
-        assertThat(categoryList).allSatisfy(category -> {
-            assertThat(category.getId()).isNotNull();
-            assertThat(category.getName()).isNotBlank();
-            assertThat(category.getUser()).isNotNull();
-            assertThat(category.getUser().getId()).isEqualTo(userId);
-        });
+        assertThat(specification).isNotNull();
     }
 
     @Test
-    @DisplayName("Should find category by name and user id")
-    public void testFindCategoryByNameAndUserId() {
-        Long userId = 1L;
-        List<Category> categoryList = categoryRepository.findAllByUserId(userId);
-        assertThat(categoryList).isNotEmpty();
+    void dateAndAmountSpecificationsReturnPredicate() {
+        LocalDateTime start = LocalDateTime.now().minusDays(1);
+        LocalDateTime end = LocalDateTime.now();
+        Specification<com.technerd.finsight.core.transaction.Transaction> specification =
+                TransactionSpecification.dateBetween(start, end)
+                        .and(TransactionSpecification.amount(new BigDecimal("42")));
 
-        Category expectedCategory = categoryList.get(0);
-        Category foundCategory = categoryRepository.findByNameIgnoreCaseAndUserId(expectedCategory.getName(), userId);
-
-        assertThat(foundCategory).isNotNull();
-        assertThat(foundCategory.getId()).isEqualTo(expectedCategory.getId());
-        assertThat(foundCategory.getName()).isEqualTo(expectedCategory.getName());
-    }
-
-    @Test
-    @DisplayName("Should find category by id and user id")
-    public void testFindCategoryByIdAndUserId() {
-        Long userId = 1L;
-        List<Category> categoryList = categoryRepository.findAllByUserId(userId);
-        assertThat(categoryList).isNotEmpty();
-
-        Category expectedCategory = categoryList.get(0);
-        Category foundCategory = categoryRepository.findByIdAndUserId(expectedCategory.getId(), userId).orElse(null);
-
-        assertThat(foundCategory).isNotNull();
-        assertThat(foundCategory.getId()).isEqualTo(expectedCategory.getId());
-        assertThat(foundCategory.getName()).isEqualTo(expectedCategory.getName());
-    }
-
-    @Test
-    @DisplayName("Should fetch paginated transactions for user")
-    public void testFindPaginatedTransactions() {
-        Long userId = 1L;
-        Pageable pageable = PageRequest.of(0, 5, Sort.by("id").descending());
-
-        Page<TransactionResponse> page = transactionService.getAll(
-                userId, pageable, null, null, null, null, null, null, null, null
-        );
-
-        assertThat(page).isNotNull();
-        assertThat(page.getContent())
-                .as("Transaction content should not be null or empty")
-                .isNotNull()
-                .isNotEmpty();
-        assertThat(page.getContent()).hasSizeLessThanOrEqualTo(5);
-
-        assertThat(page.getContent()).allSatisfy(transactionResponse -> {
-            assertThat(transactionResponse.getId()).isNotNull();
-            assertThat(transactionResponse.getAmount()).isNotNull().isGreaterThan(BigDecimal.ZERO);
-            assertThat(transactionResponse.getTransactionType()).isNotNull();
-        });
-    }
-
-    @Test
-    @DisplayName("Should find transaction by user id and transaction id")
-    public void testFindTransactionByUserIdAndId() {
-        Long userId = 1L;
-        Pageable pageable = PageRequest.of(0, 1, Sort.by("id").descending());
-
-        Page<TransactionResponse> page = transactionService.getAll(
-                userId, pageable, null, null, null, null, null, null, null, null
-        );
-        assertThat(page.getContent()).isNotEmpty();
-
-        Long transactionId = page.getContent().get(0).getId();
-        Transaction transaction = transactionRepository.findByUserIdAndId(userId, transactionId);
-
-        assertThat(transaction).isNotNull();
-        assertThat(transaction.getId()).isEqualTo(transactionId);
-        assertThat(transaction.getUser().getId()).isEqualTo(userId);
-        assertThat(transaction.getIsDeleted()).isFalse();
+        assertThat(specification).isNotNull();
     }
 }

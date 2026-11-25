@@ -108,6 +108,6 @@
 
 - [x]  application-dev.yml + application-prod.yml (Spring Profiles)
 - [ ]  Replace ddl-auto: update with Flyway versioned migrations
-- [ ]  Push to Railway — connect Neon PostgreSQL + Upstash Redis via env variables
-- [ ]  GitHub auto-deploy enabled
-- [ ]  Live URL in README and resume
+- [x]  Push to Railway — connect Neon PostgreSQL + Upstash Redis via env variables
+- [x]  GitHub auto-deploy enabled
+- [x]  Live URL in README and resume

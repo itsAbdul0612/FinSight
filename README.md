@@ -11,6 +11,7 @@ An AI-powered personal finance backend for tracking transactions, managing budge
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&labelColor=294C7A&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Redis](https://img.shields.io/badge/Redis-Cache%20%26%20Chat%20Memory-DC382D?style=for-the-badge&labelColor=8D2320&logo=redis&logoColor=white)](https://redis.io/)
 [![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?style=for-the-badge&labelColor=7F1830&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&labelColor=1D63ED&logo=docker&logoColor=white)](https://www.docker.com/)
 
 </div>
 
@@ -45,6 +46,7 @@ FinSight is a personal finance management **REST API** built with Spring Boot. I
 | Caching and chat memory | Redis, Spring Cache, Spring AI |
 | Email | Spring Mail |
 | Build and tests | Maven, JUnit, H2, Testcontainers |
+| Containerization | Docker, Docker Compose |
 
 ## 🏗️ Architecture
 
@@ -52,7 +54,7 @@ FinSight is a personal finance management **REST API** built with Spring Boot. I
 
 ## 🚀 Deployment
 
-FinSight's backend is deployed on Railway and is built from this repository with Java and Maven—no Dockerfile is required.
+FinSight's backend is deployed as a Docker container on Railway. The repository includes a multi-stage `Dockerfile` that builds the application with Maven and runs the packaged JAR on a lightweight Java 21 runtime image.
 
 - **API Base URL:** [https://finsight-production-7c41.up.railway.app](https://finsight-production-7c41.up.railway.app)
 - **Interactive API docs:** [Swagger UI](https://finsight-production-7c41.up.railway.app/swagger-ui/index.html)
@@ -60,3 +62,21 @@ FinSight's backend is deployed on Railway and is built from this repository with
 - **Railway project dashboard:** [FinSight project](https://railway.com/project/47123f4f-9462-4264-85ce-30b4109e3dc8?environmentId=858ac6c5-0c59-4ae4-a3a6-93eae73094af)
 
 The root URL may return `401 Unauthorized`; protected API routes require authentication. Use Swagger UI to explore the API. Swagger documents the endpoints and lets you send requests, but it is not a user-facing finance dashboard.
+
+### 🐳 Run with Docker
+
+Docker packages FinSight and its Java runtime into a consistent container, while Railway manages deployment, networking, and environment configuration.
+
+```bash
+# Build the multi-stage image
+docker build -t finsight-service .
+
+# Run the container on port 8080
+docker run --env-file .env -p 8080:8080 finsight-service
+```
+
+Alternatively, use Docker Compose:
+
+```bash
+docker compose up --build
+```
